@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF71209F5EF90032E26F /* AppDelegate.swift */; };
+		C656EF74209F5EF90032E26F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF73209F5EF90032E26F /* ViewController.swift */; };
+		C656EF77209F5EF90032E26F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C656EF75209F5EF90032E26F /* Main.storyboard */; };
+		C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C656EF78209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld */; };
+		C656EF7C209F5EF90032E26F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C656EF7B209F5EF90032E26F /* Assets.xcassets */; };
+		C656EF7F209F5EF90032E26F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */; };
+		C656EF8A209F5EF90032E26F /* StudioMedDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF89209F5EF90032E26F /* StudioMedDatabaseTests.swift */; };
+		C656EF95209F5EF90032E26F /* StudioMedDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF94209F5EF90032E26F /* StudioMedDatabaseUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C656EF86209F5EF90032E26F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C656EF66209F5EF90032E26F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C656EF6D209F5EF90032E26F;
+			remoteInfo = StudioMedDatabase;
+		};
+		C656EF91209F5EF90032E26F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C656EF66209F5EF90032E26F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C656EF6D209F5EF90032E26F;
+			remoteInfo = StudioMedDatabase;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C656EF6E209F5EF90032E26F /* StudioMedDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioMedDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C656EF71209F5EF90032E26F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C656EF73209F5EF90032E26F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C656EF76209F5EF90032E26F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C656EF79209F5EF90032E26F /* StudioMedDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudioMedDatabase.xcdatamodel; sourceTree = "<group>"; };
+		C656EF7B209F5EF90032E26F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C656EF7E209F5EF90032E26F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C656EF80209F5EF90032E26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C656EF85209F5EF90032E26F /* StudioMedDatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C656EF89209F5EF90032E26F /* StudioMedDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioMedDatabaseTests.swift; sourceTree = "<group>"; };
+		C656EF8B209F5EF90032E26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C656EF90209F5EF90032E26F /* StudioMedDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C656EF94209F5EF90032E26F /* StudioMedDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioMedDatabaseUITests.swift; sourceTree = "<group>"; };
+		C656EF96209F5EF90032E26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C656EF6B209F5EF90032E26F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C656EF82209F5EF90032E26F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C656EF8D209F5EF90032E26F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C656EF65209F5EF90032E26F = {
+			isa = PBXGroup;
+			children = (
+				C656EF70209F5EF90032E26F /* StudioMedDatabase */,
+				C656EF88209F5EF90032E26F /* StudioMedDatabaseTests */,
+				C656EF93209F5EF90032E26F /* StudioMedDatabaseUITests */,
+				C656EF6F209F5EF90032E26F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C656EF6F209F5EF90032E26F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C656EF6E209F5EF90032E26F /* StudioMedDatabase.app */,
+				C656EF85209F5EF90032E26F /* StudioMedDatabaseTests.xctest */,
+				C656EF90209F5EF90032E26F /* StudioMedDatabaseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C656EF70209F5EF90032E26F /* StudioMedDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				C656EF71209F5EF90032E26F /* AppDelegate.swift */,
+				C656EF73209F5EF90032E26F /* ViewController.swift */,
+				C656EF75209F5EF90032E26F /* Main.storyboard */,
+				C656EF7B209F5EF90032E26F /* Assets.xcassets */,
+				C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */,
+				C656EF80209F5EF90032E26F /* Info.plist */,
+				C656EF78209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld */,
+			);
+			path = StudioMedDatabase;
+			sourceTree = "<group>";
+		};
+		C656EF88209F5EF90032E26F /* StudioMedDatabaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				C656EF89209F5EF90032E26F /* StudioMedDatabaseTests.swift */,
+				C656EF8B209F5EF90032E26F /* Info.plist */,
+			);
+			path = StudioMedDatabaseTests;
+			sourceTree = "<group>";
+		};
+		C656EF93209F5EF90032E26F /* StudioMedDatabaseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C656EF94209F5EF90032E26F /* StudioMedDatabaseUITests.swift */,
+				C656EF96209F5EF90032E26F /* Info.plist */,
+			);
+			path = StudioMedDatabaseUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C656EF6D209F5EF90032E26F /* StudioMedDatabase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C656EF99209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabase" */;
+			buildPhases = (
+				C656EF6A209F5EF90032E26F /* Sources */,
+				C656EF6B209F5EF90032E26F /* Frameworks */,
+				C656EF6C209F5EF90032E26F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StudioMedDatabase;
+			productName = StudioMedDatabase;
+			productReference = C656EF6E209F5EF90032E26F /* StudioMedDatabase.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C656EF84209F5EF90032E26F /* StudioMedDatabaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C656EF9C209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabaseTests" */;
+			buildPhases = (
+				C656EF81209F5EF90032E26F /* Sources */,
+				C656EF82209F5EF90032E26F /* Frameworks */,
+				C656EF83209F5EF90032E26F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C656EF87209F5EF90032E26F /* PBXTargetDependency */,
+			);
+			name = StudioMedDatabaseTests;
+			productName = StudioMedDatabaseTests;
+			productReference = C656EF85209F5EF90032E26F /* StudioMedDatabaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C656EF8F209F5EF90032E26F /* StudioMedDatabaseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C656EF9F209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabaseUITests" */;
+			buildPhases = (
+				C656EF8C209F5EF90032E26F /* Sources */,
+				C656EF8D209F5EF90032E26F /* Frameworks */,
+				C656EF8E209F5EF90032E26F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C656EF92209F5EF90032E26F /* PBXTargetDependency */,
+			);
+			name = StudioMedDatabaseUITests;
+			productName = StudioMedDatabaseUITests;
+			productReference = C656EF90209F5EF90032E26F /* StudioMedDatabaseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C656EF66209F5EF90032E26F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Sean Goldsborough";
+				TargetAttributes = {
+					C656EF6D209F5EF90032E26F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C656EF84209F5EF90032E26F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C656EF6D209F5EF90032E26F;
+					};
+					C656EF8F209F5EF90032E26F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C656EF6D209F5EF90032E26F;
+					};
+				};
+			};
+			buildConfigurationList = C656EF69209F5EF90032E26F /* Build configuration list for PBXProject "StudioMedDatabase" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C656EF65209F5EF90032E26F;
+			productRefGroup = C656EF6F209F5EF90032E26F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C656EF6D209F5EF90032E26F /* StudioMedDatabase */,
+				C656EF84209F5EF90032E26F /* StudioMedDatabaseTests */,
+				C656EF8F209F5EF90032E26F /* StudioMedDatabaseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C656EF6C209F5EF90032E26F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C656EF7F209F5EF90032E26F /* LaunchScreen.storyboard in Resources */,
+				C656EF7C209F5EF90032E26F /* Assets.xcassets in Resources */,
+				C656EF77209F5EF90032E26F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C656EF83209F5EF90032E26F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C656EF8E209F5EF90032E26F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C656EF6A209F5EF90032E26F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
+				C656EF74209F5EF90032E26F /* ViewController.swift in Sources */,
+				C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C656EF81209F5EF90032E26F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C656EF8A209F5EF90032E26F /* StudioMedDatabaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C656EF8C209F5EF90032E26F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C656EF95209F5EF90032E26F /* StudioMedDatabaseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C656EF87209F5EF90032E26F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C656EF6D209F5EF90032E26F /* StudioMedDatabase */;
+			targetProxy = C656EF86209F5EF90032E26F /* PBXContainerItemProxy */;
+		};
+		C656EF92209F5EF90032E26F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C656EF6D209F5EF90032E26F /* StudioMedDatabase */;
+			targetProxy = C656EF91209F5EF90032E26F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C656EF75209F5EF90032E26F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C656EF76209F5EF90032E26F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C656EF7E209F5EF90032E26F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C656EF97209F5EF90032E26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C656EF98209F5EF90032E26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C656EF9A209F5EF90032E26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NA78F3F7G;
+				INFOPLIST_FILE = StudioMedDatabase/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabase;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C656EF9B209F5EF90032E26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NA78F3F7G;
+				INFOPLIST_FILE = StudioMedDatabase/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabase;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C656EF9D209F5EF90032E26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NA78F3F7G;
+				INFOPLIST_FILE = StudioMedDatabaseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudioMedDatabase.app/StudioMedDatabase";
+			};
+			name = Debug;
+		};
+		C656EF9E209F5EF90032E26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NA78F3F7G;
+				INFOPLIST_FILE = StudioMedDatabaseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudioMedDatabase.app/StudioMedDatabase";
+			};
+			name = Release;
+		};
+		C656EFA0209F5EF90032E26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NA78F3F7G;
+				INFOPLIST_FILE = StudioMedDatabaseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabaseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StudioMedDatabase;
+			};
+			name = Debug;
+		};
+		C656EFA1209F5EF90032E26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NA78F3F7G;
+				INFOPLIST_FILE = StudioMedDatabaseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabaseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StudioMedDatabase;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C656EF69209F5EF90032E26F /* Build configuration list for PBXProject "StudioMedDatabase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C656EF97209F5EF90032E26F /* Debug */,
+				C656EF98209F5EF90032E26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C656EF99209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C656EF9A209F5EF90032E26F /* Debug */,
+				C656EF9B209F5EF90032E26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C656EF9C209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C656EF9D209F5EF90032E26F /* Debug */,
+				C656EF9E209F5EF90032E26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C656EF9F209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabaseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C656EFA0209F5EF90032E26F /* Debug */,
+				C656EFA1209F5EF90032E26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C656EF78209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C656EF79209F5EF90032E26F /* StudioMedDatabase.xcdatamodel */,
+			);
+			currentVersion = C656EF79209F5EF90032E26F /* StudioMedDatabase.xcdatamodel */;
+			path = StudioMedDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C656EF66209F5EF90032E26F /* Project object */;
+}
