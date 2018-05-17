@@ -8,15 +8,33 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        //Instansiate View
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController: UIViewController
+        
+        //Choose which VC to show based on UserDefaults notification
+        if UIApplication.isFirstLaunch() {
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingVC
+        } else {
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
+            
+        }
+        self.window?.rootViewController = initialViewController
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -89,5 +107,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension UIApplication {
+    class func isFirstLaunch() -> Bool {
+        if !UserDefaults.standard.bool(forKey: "HasAtLeastLaunchedOnce") {
+            UserDefaults.standard.set(true, forKey: "HasAtLeastLaunchedOnce")
+            UserDefaults.standard.synchronize()
+            return true
+        }
+        return false
+    }
 }
 

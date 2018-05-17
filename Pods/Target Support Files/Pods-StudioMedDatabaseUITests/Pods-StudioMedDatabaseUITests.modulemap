@@ -1,0 +1,6 @@
+framework module Pods_StudioMedDatabaseUITests {
+  umbrella header "Pods-StudioMedDatabaseUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

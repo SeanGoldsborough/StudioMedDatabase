@@ -7,14 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD1E4F7556EFA1448752C544 /* Pods_StudioMedDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */; };
+		B1B3C5CDFB82FDDD8A2590CD /* Pods_StudioMedDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344048C03F932791C24E3A1E /* Pods_StudioMedDatabaseTests.framework */; };
+		C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D0209F662E00D412D8 /* CreateAccountVC.swift */; };
+		C64265D3209F675600D412D8 /* ListOfUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D2209F675600D412D8 /* ListOfUsersVC.swift */; };
+		C64265D5209F6B7E00D412D8 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D4209F6B7E00D412D8 /* UserDataModel.swift */; };
+		C64265D7209F747B00D412D8 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D6209F747B00D412D8 /* Alerts.swift */; };
+		C64265D9209F750500D412D8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D8209F750500D412D8 /* GCD.swift */; };
+		C64265DE20A0E27000D412D8 /* CreateApptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265DD20A0E27000D412D8 /* CreateApptVC.swift */; };
+		C64265E120A0F47100D412D8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265E020A0F47100D412D8 /* User.swift */; };
+		C64265E720A12D8600D412D8 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265E620A12D8600D412D8 /* Appointment.swift */; };
+		C64265E920A1305100D412D8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265E820A1305100D412D8 /* LoginVC.swift */; };
+		C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265EA20A1335500D412D8 /* ListOfAppointmentsVC.swift */; };
+		C64265ED20A1375C00D412D8 /* ClientTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265EC20A1375C00D412D8 /* ClientTabVC.swift */; };
+		C64265F220A1FFEC00D412D8 /* UserDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265F120A1FFEC00D412D8 /* UserDetailVC.swift */; };
+		C64265F420A1FFF700D412D8 /* ApptDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */; };
+		C64265F620A2081200D412D8 /* PreviousApptsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265F520A2081200D412D8 /* PreviousApptsVC.swift */; };
+		C64265F820A2109500D412D8 /* AdminApptDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265F720A2109500D412D8 /* AdminApptDetailVC.swift */; };
+		C64265FA20A2138F00D412D8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265F920A2138F00D412D8 /* TableViewController.swift */; };
+		C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FB20A21EA200D412D8 /* CustomHeader.swift */; };
+		C64265FE20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */; };
+		C642660020A25AE200D412D8 /* ClientAccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */; };
+		C642660220A25CA900D412D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642660120A25CA900D412D8 /* ResetPasswordVC.swift */; };
+		C642660420A4FB1E00D412D8 /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */; };
+		C644538E20A63601001AEF32 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644538D20A63601001AEF32 /* Test.swift */; };
+		C644539020A64A9A001AEF32 /* ApptNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */; };
+		C644539220A9A8A1001AEF32 /* TreatmentsCatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */; };
+		C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548B20AD9620001AEF32 /* OnBoardingVC.swift */; };
+		C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548D20AD9863001AEF32 /* CalendarVC.swift */; };
 		C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF71209F5EF90032E26F /* AppDelegate.swift */; };
 		C656EF74209F5EF90032E26F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF73209F5EF90032E26F /* ViewController.swift */; };
 		C656EF77209F5EF90032E26F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C656EF75209F5EF90032E26F /* Main.storyboard */; };
 		C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C656EF78209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld */; };
 		C656EF7C209F5EF90032E26F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C656EF7B209F5EF90032E26F /* Assets.xcassets */; };
 		C656EF7F209F5EF90032E26F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */; };
-		C656EF8A209F5EF90032E26F /* StudioMedDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF89209F5EF90032E26F /* StudioMedDatabaseTests.swift */; };
-		C656EF95209F5EF90032E26F /* StudioMedDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF94209F5EF90032E26F /* StudioMedDatabaseUITests.swift */; };
+		C656EFE4209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
+		C656EFE5209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
+		C656EFE6209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
+		C6BAB63920A5155A0078A8C0 /* ZipCodeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */; };
+		C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */; };
+		C6BAB63D20A5240B0078A8C0 /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */; };
+		C6BAB63F20A524160078A8C0 /* EditInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63E20A524160078A8C0 /* EditInfoVC.swift */; };
+		C6BAB64120A533110078A8C0 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64020A533110078A8C0 /* ContactUsVC.swift */; };
+		C6BAB64420A621240078A8C0 /* TreatmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */; };
+		C6BAB64620A624F40078A8C0 /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64520A624F40078A8C0 /* Treatment.swift */; };
+		C6BAB64820A629250078A8C0 /* TreatmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */; };
+		E86F5A068996226E5EBDEAE3 /* Pods_StudioMedDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AFD6C6B3B470BA99F82962 /* Pods_StudioMedDatabase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +73,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03663DA1EBC3BAAF64B2FCD5 /* Pods-StudioMedDatabaseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseUITests/Pods-StudioMedDatabaseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		192715BC51DBE27659C93DEA /* Pods-StudioMedDatabaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseTests/Pods-StudioMedDatabaseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		344048C03F932791C24E3A1E /* Pods_StudioMedDatabaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioMedDatabaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57AFD6C6B3B470BA99F82962 /* Pods_StudioMedDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioMedDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E61010B1AE1B8DFF6271088 /* Pods-StudioMedDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase.debug.xcconfig"; sourceTree = "<group>"; };
+		AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioMedDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B272D49DBAD86E0A97DF08E8 /* Pods-StudioMedDatabaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseTests/Pods-StudioMedDatabaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		C64265D0209F662E00D412D8 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		C64265D2209F675600D412D8 /* ListOfUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersVC.swift; sourceTree = "<group>"; };
+		C64265D4209F6B7E00D412D8 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		C64265D6209F747B00D412D8 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		C64265D8209F750500D412D8 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		C64265DD20A0E27000D412D8 /* CreateApptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApptVC.swift; sourceTree = "<group>"; };
+		C64265E020A0F47100D412D8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C64265E620A12D8600D412D8 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		C64265E820A1305100D412D8 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		C64265EA20A1335500D412D8 /* ListOfAppointmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfAppointmentsVC.swift; sourceTree = "<group>"; };
+		C64265EC20A1375C00D412D8 /* ClientTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTabVC.swift; sourceTree = "<group>"; };
+		C64265F120A1FFEC00D412D8 /* UserDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailVC.swift; sourceTree = "<group>"; };
+		C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDetailVC.swift; sourceTree = "<group>"; };
+		C64265F520A2081200D412D8 /* PreviousApptsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousApptsVC.swift; sourceTree = "<group>"; };
+		C64265F720A2109500D412D8 /* AdminApptDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminApptDetailVC.swift; sourceTree = "<group>"; };
+		C64265F920A2138F00D412D8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C64265FB20A21EA200D412D8 /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
+		C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAppointmentHistoryVC.swift; sourceTree = "<group>"; };
+		C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAccountInfoVC.swift; sourceTree = "<group>"; };
+		C642660120A25CA900D412D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
+		C644538D20A63601001AEF32 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptNotesVC.swift; sourceTree = "<group>"; };
+		C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsCatVC.swift; sourceTree = "<group>"; };
+		C644548B20AD9620001AEF32 /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
+		C644548D20AD9863001AEF32 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		C656EF6E209F5EF90032E26F /* StudioMedDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioMedDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656EF71209F5EF90032E26F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C656EF73209F5EF90032E26F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,11 +115,18 @@
 		C656EF7E209F5EF90032E26F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C656EF80209F5EF90032E26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C656EF85209F5EF90032E26F /* StudioMedDatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C656EF89209F5EF90032E26F /* StudioMedDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioMedDatabaseTests.swift; sourceTree = "<group>"; };
-		C656EF8B209F5EF90032E26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C656EF90209F5EF90032E26F /* StudioMedDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C656EF94209F5EF90032E26F /* StudioMedDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioMedDatabaseUITests.swift; sourceTree = "<group>"; };
-		C656EF96209F5EF90032E26F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C656EFE3209F60300032E26F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeArray.swift; sourceTree = "<group>"; };
+		C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceVC.swift; sourceTree = "<group>"; };
+		C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
+		C6BAB63E20A524160078A8C0 /* EditInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoVC.swift; sourceTree = "<group>"; };
+		C6BAB64020A533110078A8C0 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
+		C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsVC.swift; sourceTree = "<group>"; };
+		C6BAB64520A624F40078A8C0 /* Treatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treatment.swift; sourceTree = "<group>"; };
+		C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentDetailVC.swift; sourceTree = "<group>"; };
+		DF9AD4E74E3D026A1F9E40AC /* Pods-StudioMedDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseUITests/Pods-StudioMedDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED3108B361D4826F5E658D11 /* Pods-StudioMedDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86F5A068996226E5EBDEAE3 /* Pods_StudioMedDatabase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B3C5CDFB82FDDD8A2590CD /* Pods_StudioMedDatabaseTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +150,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD1E4F7556EFA1448752C544 /* Pods_StudioMedDatabaseUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		979349727E6027D5C5529330 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7E61010B1AE1B8DFF6271088 /* Pods-StudioMedDatabase.debug.xcconfig */,
+				ED3108B361D4826F5E658D11 /* Pods-StudioMedDatabase.release.xcconfig */,
+				192715BC51DBE27659C93DEA /* Pods-StudioMedDatabaseTests.debug.xcconfig */,
+				B272D49DBAD86E0A97DF08E8 /* Pods-StudioMedDatabaseTests.release.xcconfig */,
+				DF9AD4E74E3D026A1F9E40AC /* Pods-StudioMedDatabaseUITests.debug.xcconfig */,
+				03663DA1EBC3BAAF64B2FCD5 /* Pods-StudioMedDatabaseUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C64265DF20A0F45500D412D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C64265E020A0F47100D412D8 /* User.swift */,
+				C64265E620A12D8600D412D8 /* Appointment.swift */,
+				C6BAB64520A624F40078A8C0 /* Treatment.swift */,
+				C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C64265EE20A1F97500D412D8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C64265EF20A1FFBF00D412D8 /* Admin */,
+				C64265F020A1FFC600D412D8 /* Client */,
+				C64265E820A1305100D412D8 /* LoginVC.swift */,
+				C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */,
+				C644548B20AD9620001AEF32 /* OnBoardingVC.swift */,
+				C64265D0209F662E00D412D8 /* CreateAccountVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C64265EF20A1FFBF00D412D8 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				C64265EA20A1335500D412D8 /* ListOfAppointmentsVC.swift */,
+				C64265D2209F675600D412D8 /* ListOfUsersVC.swift */,
+				C64265F120A1FFEC00D412D8 /* UserDetailVC.swift */,
+				C64265F520A2081200D412D8 /* PreviousApptsVC.swift */,
+				C64265F720A2109500D412D8 /* AdminApptDetailVC.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		C64265F020A1FFC600D412D8 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				C64265EC20A1375C00D412D8 /* ClientTabVC.swift */,
+				C644548D20AD9863001AEF32 /* CalendarVC.swift */,
+				C64265DD20A0E27000D412D8 /* CreateApptVC.swift */,
+				C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */,
+				C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */,
+				C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */,
+				C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */,
+				C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */,
+				C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */,
+				C644538D20A63601001AEF32 /* Test.swift */,
+				C6BAB64220A620F40078A8C0 /* MyInfo */,
+				C6BAB64020A533110078A8C0 /* ContactUsVC.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		C656EF65209F5EF90032E26F = {
 			isa = PBXGroup;
 			children = (
 				C656EF70209F5EF90032E26F /* StudioMedDatabase */,
-				C656EF88209F5EF90032E26F /* StudioMedDatabaseTests */,
-				C656EF93209F5EF90032E26F /* StudioMedDatabaseUITests */,
 				C656EF6F209F5EF90032E26F /* Products */,
+				979349727E6027D5C5529330 /* Pods */,
+				F2F4C500740EDDB6E539C3E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,32 +249,44 @@
 			isa = PBXGroup;
 			children = (
 				C656EF71209F5EF90032E26F /* AppDelegate.swift */,
+				C64265D8209F750500D412D8 /* GCD.swift */,
+				C64265EE20A1F97500D412D8 /* Controllers */,
+				C64265DF20A0F45500D412D8 /* Model */,
 				C656EF73209F5EF90032E26F /* ViewController.swift */,
+				C64265D4209F6B7E00D412D8 /* UserDataModel.swift */,
+				C64265F920A2138F00D412D8 /* TableViewController.swift */,
+				C64265FB20A21EA200D412D8 /* CustomHeader.swift */,
+				C64265D6209F747B00D412D8 /* Alerts.swift */,
 				C656EF75209F5EF90032E26F /* Main.storyboard */,
 				C656EF7B209F5EF90032E26F /* Assets.xcassets */,
 				C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */,
 				C656EF80209F5EF90032E26F /* Info.plist */,
+				C656EFE3209F60300032E26F /* GoogleService-Info.plist */,
 				C656EF78209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld */,
 			);
 			path = StudioMedDatabase;
 			sourceTree = "<group>";
 		};
-		C656EF88209F5EF90032E26F /* StudioMedDatabaseTests */ = {
+		C6BAB64220A620F40078A8C0 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				C656EF89209F5EF90032E26F /* StudioMedDatabaseTests.swift */,
-				C656EF8B209F5EF90032E26F /* Info.plist */,
+				C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */,
+				C6BAB63E20A524160078A8C0 /* EditInfoVC.swift */,
+				C642660120A25CA900D412D8 /* ResetPasswordVC.swift */,
+				C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */,
+				C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */,
 			);
-			path = StudioMedDatabaseTests;
+			path = MyInfo;
 			sourceTree = "<group>";
 		};
-		C656EF93209F5EF90032E26F /* StudioMedDatabaseUITests */ = {
+		F2F4C500740EDDB6E539C3E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C656EF94209F5EF90032E26F /* StudioMedDatabaseUITests.swift */,
-				C656EF96209F5EF90032E26F /* Info.plist */,
+				57AFD6C6B3B470BA99F82962 /* Pods_StudioMedDatabase.framework */,
+				344048C03F932791C24E3A1E /* Pods_StudioMedDatabaseTests.framework */,
+				AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */,
 			);
-			path = StudioMedDatabaseUITests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,9 +296,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C656EF99209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabase" */;
 			buildPhases = (
+				C9025B5ACF20D3FE39135110 /* [CP] Check Pods Manifest.lock */,
 				C656EF6A209F5EF90032E26F /* Sources */,
 				C656EF6B209F5EF90032E26F /* Frameworks */,
 				C656EF6C209F5EF90032E26F /* Resources */,
+				0843C74B60299D7A19E6E90A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +315,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C656EF9C209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabaseTests" */;
 			buildPhases = (
+				20FF5E84BE59DA1ECAFBC5D6 /* [CP] Check Pods Manifest.lock */,
 				C656EF81209F5EF90032E26F /* Sources */,
 				C656EF82209F5EF90032E26F /* Frameworks */,
 				C656EF83209F5EF90032E26F /* Resources */,
@@ -170,6 +334,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C656EF9F209F5EF90032E26F /* Build configuration list for PBXNativeTarget "StudioMedDatabaseUITests" */;
 			buildPhases = (
+				BDD12C750DEFE52F2A56C76C /* [CP] Check Pods Manifest.lock */,
 				C656EF8C209F5EF90032E26F /* Sources */,
 				C656EF8D209F5EF90032E26F /* Frameworks */,
 				C656EF8E209F5EF90032E26F /* Resources */,
@@ -238,6 +403,7 @@
 				C656EF7F209F5EF90032E26F /* LaunchScreen.storyboard in Resources */,
 				C656EF7C209F5EF90032E26F /* Assets.xcassets in Resources */,
 				C656EF77209F5EF90032E26F /* Main.storyboard in Resources */,
+				C656EFE4209F60310032E26F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C656EFE5209F60310032E26F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,19 +419,135 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C656EFE6209F60310032E26F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0843C74B60299D7A19E6E90A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20FF5E84BE59DA1ECAFBC5D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudioMedDatabaseTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDD12C750DEFE52F2A56C76C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudioMedDatabaseUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9025B5ACF20D3FE39135110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudioMedDatabase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C656EF6A209F5EF90032E26F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64265D5209F6B7E00D412D8 /* UserDataModel.swift in Sources */,
+				C642660220A25CA900D412D8 /* ResetPasswordVC.swift in Sources */,
+				C642660020A25AE200D412D8 /* ClientAccountInfoVC.swift in Sources */,
+				C6BAB63920A5155A0078A8C0 /* ZipCodeArray.swift in Sources */,
+				C64265D3209F675600D412D8 /* ListOfUsersVC.swift in Sources */,
+				C644538E20A63601001AEF32 /* Test.swift in Sources */,
+				C64265E920A1305100D412D8 /* LoginVC.swift in Sources */,
+				C644539220A9A8A1001AEF32 /* TreatmentsCatVC.swift in Sources */,
+				C64265E720A12D8600D412D8 /* Appointment.swift in Sources */,
+				C6BAB64620A624F40078A8C0 /* Treatment.swift in Sources */,
+				C64265F820A2109500D412D8 /* AdminApptDetailVC.swift in Sources */,
+				C64265F220A1FFEC00D412D8 /* UserDetailVC.swift in Sources */,
+				C6BAB63D20A5240B0078A8C0 /* PrivacyPolicyVC.swift in Sources */,
+				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
+				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
 				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
 				C656EF74209F5EF90032E26F /* ViewController.swift in Sources */,
+				C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */,
+				C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */,
+				C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */,
+				C644539020A64A9A001AEF32 /* ApptNotesVC.swift in Sources */,
+				C64265ED20A1375C00D412D8 /* ClientTabVC.swift in Sources */,
+				C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */,
+				C6BAB64820A629250078A8C0 /* TreatmentDetailVC.swift in Sources */,
+				C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */,
+				C64265DE20A0E27000D412D8 /* CreateApptVC.swift in Sources */,
+				C64265FA20A2138F00D412D8 /* TableViewController.swift in Sources */,
+				C64265D7209F747B00D412D8 /* Alerts.swift in Sources */,
+				C64265F620A2081200D412D8 /* PreviousApptsVC.swift in Sources */,
+				C6BAB63F20A524160078A8C0 /* EditInfoVC.swift in Sources */,
+				C64265FE20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift in Sources */,
+				C64265E120A0F47100D412D8 /* User.swift in Sources */,
+				C64265F420A1FFF700D412D8 /* ApptDetailVC.swift in Sources */,
 				C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */,
+				C642660420A4FB1E00D412D8 /* FirstLoginVC.swift in Sources */,
+				C6BAB64120A533110078A8C0 /* ContactUsVC.swift in Sources */,
+				C6BAB64420A621240078A8C0 /* TreatmentsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +555,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C656EF8A209F5EF90032E26F /* StudioMedDatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +562,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C656EF95209F5EF90032E26F /* StudioMedDatabaseUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +632,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -408,6 +690,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -428,6 +711,7 @@
 		};
 		C656EF9A209F5EF90032E26F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E61010B1AE1B8DFF6271088 /* Pods-StudioMedDatabase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +727,7 @@
 		};
 		C656EF9B209F5EF90032E26F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED3108B361D4826F5E658D11 /* Pods-StudioMedDatabase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -458,6 +743,7 @@
 		};
 		C656EF9D209F5EF90032E26F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 192715BC51DBE27659C93DEA /* Pods-StudioMedDatabaseTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +761,7 @@
 		};
 		C656EF9E209F5EF90032E26F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B272D49DBAD86E0A97DF08E8 /* Pods-StudioMedDatabaseTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +779,7 @@
 		};
 		C656EFA0209F5EF90032E26F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF9AD4E74E3D026A1F9E40AC /* Pods-StudioMedDatabaseUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +796,7 @@
 		};
 		C656EFA1209F5EF90032E26F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03663DA1EBC3BAAF64B2FCD5 /* Pods-StudioMedDatabaseUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
