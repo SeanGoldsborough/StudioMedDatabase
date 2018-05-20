@@ -81,7 +81,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol{
     }
     
      @IBAction func selectDateTime(_ sender: Any) {
-        let getDateVC = self.storyboard?.instantiateViewController(withIdentifier: "GetDateVC") as! GetDateVC
+        let getDateVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarVC
         //Set the delegate
         getDateVC.delegate = self
         self.navigationController?.pushViewController(getDateVC, animated: true)
@@ -225,9 +225,15 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol{
 //            self.addNotesButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
 //        }
         
-        if let valueToDisplay = valueFromGetDateVC {
-            print("value from GetDateVC is: \(valueToDisplay)")
-            self.dateTimeButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
+//        if let dateToDisplay = apptObjectShared.date, let timeToDisplay = apptObjectShared.time {
+//            print("value from GetDateVC is: \(dateToDisplay) \(timeToDisplay)")
+//            self.dateTimeButton.setTitle("\(dateToDisplay) \(timeToDisplay)", for: UIControlState.normal)
+//        }
+        
+        if let dateToDisplay = apptObjectShared.date, let timeToDisplay = apptObjectShared.time {
+            print("value from GetDateVC is: \(dateToDisplay) \(timeToDisplay)")
+            let dateAndTime = "\(dateToDisplay) \(timeToDisplay)"
+            self.dateTimeButton.setTitle("\(dateAndTime)", for: UIControlState.normal)
         }
         
         if let notesValueToDisplay = apptObjectShared.notes {
