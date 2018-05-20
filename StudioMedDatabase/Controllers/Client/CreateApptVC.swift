@@ -12,8 +12,19 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class CreateApptVC: UIViewController, UITextViewDelegate{
+class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol{
+    func setResultOfGetDate(valueSent: String) {
+        self.valueFromGetDateVC = valueSent
+    }
     
+    func setResultOfGetTreatment(valueSent: String) {
+        self.valueFromTreatmentDetailVC = valueSent
+    }
+    
+    func setResultOfGetNotes(valueSent: String) {
+        self.valueFromApptNotesVC = valueSent
+    }
+
     var ref: DatabaseReference!
     
     var userArray: [UserData] = UserArray.sharedInstance.listOfUsers
@@ -21,6 +32,11 @@ class CreateApptVC: UIViewController, UITextViewDelegate{
     
     var apptArray: [AppointmentData] = ApptArray.sharedInstance.listOfAppts
     var apptObject = AppointmentData()
+    var apptObjectShared = AppointmentData.sharedInstance()
+    
+    var valueFromGetDateVC:String?
+    var valueFromApptNotesVC:String?
+    var valueFromTreatmentDetailVC:String?
     
     @IBAction func logOutButton(_ sender: Any) {
         
@@ -51,43 +67,49 @@ class CreateApptVC: UIViewController, UITextViewDelegate{
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var dateTimeButton: UIButton!
     @IBOutlet weak var treatmentOneButton: UIButton!
-    @IBOutlet weak var treatmentTwoButton: UIButton!
-    @IBOutlet weak var treatmentThreeButton: UIButton!
+//    @IBOutlet weak var treatmentTwoButton: UIButton!
+//    @IBOutlet weak var treatmentThreeButton: UIButton!
     @IBOutlet weak var notesTextView: UITextView!
-    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var addNotesButton: UIButton!
+    
+    @IBAction func addANote(_ sender: Any) {
+        let apptNotesVC = self.storyboard?.instantiateViewController(withIdentifier: "ApptNotesVC") as! ApptNotesVC
+        //Set the delegate
+        apptNotesVC.delegate = self
+        self.navigationController?.pushViewController(apptNotesVC, animated: true)
+        
+    }
     
      @IBAction func selectDateTime(_ sender: Any) {
+        let getDateVC = self.storyboard?.instantiateViewController(withIdentifier: "GetDateVC") as! GetDateVC
+        //Set the delegate
+        getDateVC.delegate = self
+        self.navigationController?.pushViewController(getDateVC, animated: true)
+        
+        
     }
     
     @IBAction func selectTreatmentOne(_ sender: Any) {
     }
     
-    @IBAction func selectTreatmentTwo(_ sender: Any) {
-    }
-    
-    @IBAction func selectTreatmentThree(_ sender: Any) {
-    }
-    
-    @IBAction func selectLocation(_ sender: Any) {
-    }
     
     @IBAction func createAccountButton(_ sender: Any) {
         //apptObject.isCancelled = false
-        apptObject.date = dateTimeButton.titleLabel?.text!
-        apptObject.time = dateTimeButton.titleLabel?.text!
-        apptObject.firstName = userObject.firstName
-        apptObject.lastName = userObject.lastName
-        apptObject.phoneNumber = userObject.phoneNumber
-        apptObject.email = userObject.email
-        apptObject.treatment1 = treatmentOneButton.titleLabel?.text!
-        apptObject.treatment2 = treatmentTwoButton.titleLabel?.text!
-        apptObject.treatment3 = treatmentThreeButton.titleLabel?.text!
-        apptObject.notes = notesTextView.text!
-        apptObject.location = locationButton.titleLabel?.text!
-        apptArray.append(apptObject)
+//        apptObject.date = dateTimeButton.titleLabel?.text!
+//        apptObject.time = dateTimeButton.titleLabel?.text!
+        apptObjectShared.isCancelled = false
+        apptObjectShared.firstName = userObject.firstName
+        apptObjectShared.lastName = userObject.lastName
+        apptObjectShared.phoneNumber = userObject.phoneNumber
+        apptObjectShared.email = userObject.email
+//        apptObject.treatment1 = treatmentOneButton.titleLabel?.text!
+//        apptObject.notes = notesTextView.text!
+
+//        apptArray.append(apptObject)
+        apptArray.append(apptObjectShared)
         
         print("user array count is: \(apptArray.count)")
-        print("user object name is: \(apptObject.firstName)")
+        print("user object name is: \(apptObjectShared.firstName)")
         // createAppt()
         //print("createAppt was called")
         
@@ -150,6 +172,21 @@ class CreateApptVC: UIViewController, UITextViewDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        print("value from TreatmentDetailVC is2: \(apptObjectShared.treatment1)")
+        
+       
+//            print("value from GetDateVC is: \(valueFromGetDateVC)")
+//            self.dateTimeButton.setTitle("\(valueFromGetDateVC)", for: UIControlState.normal)
+//
+//            print("value from TreatmentDetailVC is: \(valueFromTreatmentDetailVC)")
+//            self.treatmentOneButton.setTitle("\(apptObjectShared.treatment1)", for: UIControlState.normal)
+//
+//            print("value from ApptNotesVC is: \(valueFromApptNotesVC)")
+//            self.addNotesButton.setTitle("\(valueFromApptNotesVC)", for: UIControlState.normal)
+        
+        
+        
         //        let conditionRef = ref.child("users")
         //        conditionRef.observe(.value, with: (snap: DataSnapshot) -> Void) in
         //        self.firstNameText.text = snap.value.description
@@ -176,7 +213,34 @@ class CreateApptVC: UIViewController, UITextViewDelegate{
         //                    "location": "in office"]
         //        let childUpdates2 = ["/client/users/userEmail/meaty/appointments/appt\(key2)": post2]
         //        ref.updateChildValues(childUpdates2)
-    }
+        
+//        if let valueToDisplay = valueFromGetDateVC {
+//            print("value from GetDateVC is: \(valueToDisplay)")
+//            self.dateTimeButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
+//        } else if let valueToDisplay = valueFromTreatmentDetailVC {
+//            print("value from TreatmentDetailVC is: \(valueToDisplay)")
+//            self.treatmentOneButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
+//        } else if let valueToDisplay = valueFromApptNotesVC {
+//            print("value from ApptNotesVC is: \(valueToDisplay)")
+//            self.addNotesButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
+//        }
+        
+        if let valueToDisplay = valueFromGetDateVC {
+            print("value from GetDateVC is: \(valueToDisplay)")
+            self.dateTimeButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
+        }
+        
+        if let notesValueToDisplay = apptObjectShared.notes {
+            print("value from ApptNotesVC is: \(notesValueToDisplay)")
+            self.addNotesButton.setTitle("\(notesValueToDisplay)", for: UIControlState.normal)
+        }
+        
+        if let treatmentValue = apptObjectShared.treatment1 {
+            print("value from TreatmentDetailVC is: \(treatmentValue)")
+            self.treatmentOneButton.setTitle("\(treatmentValue)", for: UIControlState.normal)
+        }
+   }
+    
     
 }
 

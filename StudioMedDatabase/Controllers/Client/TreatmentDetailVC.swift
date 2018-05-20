@@ -15,13 +15,17 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
     var about: String?
     var appointment = AppointmentData.sharedInstance()
     
+    var delegate:GetDataProtocol?
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var textView: UITextView!
 //
     @IBAction func selectTreatmentButton(_ sender: Any) {
-        //pop back 2 views and make either an appt object and them populate the treatment1 with thelabel text or just the text field in the create appt vc
-        //navigationController?.popViewController(animated: true)
+        //pop back 2 views and make either an appt object and then populate the treatment1 with thelabel text or just the text field in the create appt vc
+ 
+        delegate?.setResultOfGetTreatment(valueSent: name!)
+        print("the name label text is \(nameLabel.text)")
         appointment.treatment1 = nameLabel.text!
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)

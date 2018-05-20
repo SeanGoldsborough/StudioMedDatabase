@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AD1E4F7556EFA1448752C544 /* Pods_StudioMedDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */; };
 		B1B3C5CDFB82FDDD8A2590CD /* Pods_StudioMedDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344048C03F932791C24E3A1E /* Pods_StudioMedDatabaseTests.framework */; };
+		C631F03B20AF820700D985E2 /* GetDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03A20AF820700D985E2 /* GetDateVC.swift */; };
+		C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03C20AF860E00D985E2 /* Protocols.swift */; };
 		C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D0209F662E00D412D8 /* CreateAccountVC.swift */; };
 		C64265D3209F675600D412D8 /* ListOfUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D2209F675600D412D8 /* ListOfUsersVC.swift */; };
 		C64265D5209F6B7E00D412D8 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D4209F6B7E00D412D8 /* UserDataModel.swift */; };
@@ -35,6 +37,8 @@
 		C644539220A9A8A1001AEF32 /* TreatmentsCatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */; };
 		C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548B20AD9620001AEF32 /* OnBoardingVC.swift */; };
 		C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548D20AD9863001AEF32 /* CalendarVC.swift */; };
+		C644549020AD9A2C001AEF32 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */; };
+		C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */; };
 		C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF71209F5EF90032E26F /* AppDelegate.swift */; };
 		C656EF74209F5EF90032E26F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF73209F5EF90032E26F /* ViewController.swift */; };
 		C656EF77209F5EF90032E26F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C656EF75209F5EF90032E26F /* Main.storyboard */; };
@@ -80,6 +84,8 @@
 		7E61010B1AE1B8DFF6271088 /* Pods-StudioMedDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioMedDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B272D49DBAD86E0A97DF08E8 /* Pods-StudioMedDatabaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseTests/Pods-StudioMedDatabaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		C631F03A20AF820700D985E2 /* GetDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateVC.swift; sourceTree = "<group>"; };
+		C631F03C20AF860E00D985E2 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C64265D0209F662E00D412D8 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		C64265D2209F675600D412D8 /* ListOfUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersVC.swift; sourceTree = "<group>"; };
 		C64265D4209F6B7E00D412D8 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
@@ -106,6 +112,8 @@
 		C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsCatVC.swift; sourceTree = "<group>"; };
 		C644548B20AD9620001AEF32 /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		C644548D20AD9863001AEF32 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
+		C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C656EF6E209F5EF90032E26F /* StudioMedDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioMedDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656EF71209F5EF90032E26F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C656EF73209F5EF90032E26F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +219,9 @@
 			children = (
 				C64265EC20A1375C00D412D8 /* ClientTabVC.swift */,
 				C644548D20AD9863001AEF32 /* CalendarVC.swift */,
+				C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */,
 				C64265DD20A0E27000D412D8 /* CreateApptVC.swift */,
+				C631F03A20AF820700D985E2 /* GetDateVC.swift */,
 				C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */,
 				C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */,
 				C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */,
@@ -219,6 +229,7 @@
 				C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */,
 				C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */,
 				C644538D20A63601001AEF32 /* Test.swift */,
+				C631F03C20AF860E00D985E2 /* Protocols.swift */,
 				C6BAB64220A620F40078A8C0 /* MyInfo */,
 				C6BAB64020A533110078A8C0 /* ContactUsVC.swift */,
 			);
@@ -250,6 +261,7 @@
 			children = (
 				C656EF71209F5EF90032E26F /* AppDelegate.swift */,
 				C64265D8209F750500D412D8 /* GCD.swift */,
+				C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */,
 				C64265EE20A1F97500D412D8 /* Controllers */,
 				C64265DF20A0F45500D412D8 /* Model */,
 				C656EF73209F5EF90032E26F /* ViewController.swift */,
@@ -520,11 +532,14 @@
 				C64265E920A1305100D412D8 /* LoginVC.swift in Sources */,
 				C644539220A9A8A1001AEF32 /* TreatmentsCatVC.swift in Sources */,
 				C64265E720A12D8600D412D8 /* Appointment.swift in Sources */,
+				C631F03B20AF820700D985E2 /* GetDateVC.swift in Sources */,
 				C6BAB64620A624F40078A8C0 /* Treatment.swift in Sources */,
 				C64265F820A2109500D412D8 /* AdminApptDetailVC.swift in Sources */,
 				C64265F220A1FFEC00D412D8 /* UserDetailVC.swift in Sources */,
 				C6BAB63D20A5240B0078A8C0 /* PrivacyPolicyVC.swift in Sources */,
+				C644549020AD9A2C001AEF32 /* CalendarExtensions.swift in Sources */,
 				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
+				C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */,
 				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
 				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
 				C656EF74209F5EF90032E26F /* ViewController.swift in Sources */,
@@ -536,6 +551,7 @@
 				C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */,
 				C6BAB64820A629250078A8C0 /* TreatmentDetailVC.swift in Sources */,
 				C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */,
+				C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */,
 				C64265DE20A0E27000D412D8 /* CreateApptVC.swift in Sources */,
 				C64265FA20A2138F00D412D8 /* TableViewController.swift in Sources */,
 				C64265D7209F747B00D412D8 /* Alerts.swift in Sources */,
@@ -721,7 +737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -737,7 +753,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sean.StudioMedDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -10,7 +10,7 @@ import Foundation
 import Contacts
 
 class Appointment {
-    var isCancelled: String
+    var isCancelled: Bool
     var date: String
     var time: String
     var firstName: String
@@ -23,8 +23,8 @@ class Appointment {
     var notes: String
     var location: String
     
-    init(isCancelledText: String, firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, dateText: String, timeText: String, treatment1Text: String, treatment2Text: String, treatment3Text: String, notesText: String, locationText: String) {
-        isCancelled = isCancelledText
+    init(isCancelledBool: Bool, firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, dateText: String, timeText: String, treatment1Text: String, treatment2Text: String, treatment3Text: String, notesText: String, locationText: String) {
+        isCancelled = isCancelledBool
         date = dateText
         time = timeText
         firstName = firstNameText
@@ -40,7 +40,7 @@ class Appointment {
 }
 
 class AppointmentData : NSObject {
-    public var isCancelled: String?
+    public var isCancelled: Bool?
     public var date: String?
     public var time: String?
     public var firstName: String?

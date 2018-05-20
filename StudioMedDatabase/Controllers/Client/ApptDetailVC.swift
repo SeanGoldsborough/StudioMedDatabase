@@ -12,12 +12,7 @@ import Firebase
 
 class ApptDetailVC: UIViewController {
     var coloredCellIndex = Int()
-    
 
-
-    
-    
-    
     @IBAction func cancelApptButton(_ sender: Any) {
         print("cancel appt button pressed")
         

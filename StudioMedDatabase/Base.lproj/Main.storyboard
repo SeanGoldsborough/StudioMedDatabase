@@ -484,8 +484,7 @@
                                             <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="selectLocation:" destination="gD9-K0-bQt" eventType="touchUpInside" id="ccj-Cy-WJC"/>
-                                            <segue destination="gXH-qb-dkR" kind="show" id="BEa-ts-dr1"/>
+                                            <action selector="addANote:" destination="gD9-K0-bQt" eventType="touchUpInside" id="GZL-aA-npk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7il-eb-yWz">
@@ -531,9 +530,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNotesButton" destination="8VW-HJ-9lk" id="iOp-O1-LrD"/>
                         <outlet property="dateTimeButton" destination="ii8-qK-VIi" id="9t4-6s-XFq"/>
                         <outlet property="greetingLabel" destination="EZb-Io-bBp" id="Z71-qM-aBO"/>
-                        <outlet property="locationButton" destination="8VW-HJ-9lk" id="QR3-Jz-xdc"/>
                         <outlet property="treatmentOneButton" destination="ErJ-wp-6Cu" id="Nyz-iF-eBT"/>
                     </connections>
                 </viewController>
@@ -550,7 +549,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dGh-Hw-ZlP">
-                                <rect key="frame" x="16" y="64" width="343" height="550"/>
+                                <rect key="frame" x="16" y="20" width="343" height="643"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-Yl-9e9">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="444"/>
@@ -560,7 +559,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0X-9f-ubC">
-                                        <rect key="frame" x="0.0" y="446" width="343" height="51"/>
+                                        <rect key="frame" x="0.0" y="446" width="343" height="144"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="SAVE">
@@ -571,7 +570,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRB-pM-a7e">
-                                        <rect key="frame" x="0.0" y="499" width="343" height="51"/>
+                                        <rect key="frame" x="0.0" y="592" width="343" height="51"/>
                                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <state key="normal" title="CANCEL">
@@ -2207,7 +2206,56 @@ The following privacy policy describes the personal information we collect from 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQu-jO-Hal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2192.8000000000002" y="1119.4902548725638"/>
+            <point key="canvasLocation" x="2193" y="1099"/>
+        </scene>
+        <!--GetDateVC-->
+        <scene sceneID="Qoc-Vh-XVx">
+            <objects>
+                <viewController storyboardIdentifier="GetDateVC" title="GetDateVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IVF-qs-fyh" customClass="GetDateVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="spa-tx-oAj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xrh-95-f5U">
+                                <rect key="frame" x="16" y="285" width="343" height="97"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EqT-P1-BtQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3F-Vq-WJq">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="59"/>
+                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="z6A-94-mjN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="34"/>
+                                        <state key="normal" title="Send Data">
+                                            <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendData:" destination="IVF-qs-fyh" eventType="touchUpInside" id="6NY-Zy-lgY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="0.86960402400000003" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xrh-95-f5U" firstAttribute="centerY" secondItem="spa-tx-oAj" secondAttribute="centerY" id="UeD-ui-ghB"/>
+                            <constraint firstItem="xrh-95-f5U" firstAttribute="centerX" secondItem="spa-tx-oAj" secondAttribute="centerX" id="oof-b6-iBz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v50-k3-IUU"/>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="EqT-P1-BtQ" id="SyC-pD-GPN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7I-eh-ZT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2193" y="433"/>
         </scene>
     </scenes>
     <resources>

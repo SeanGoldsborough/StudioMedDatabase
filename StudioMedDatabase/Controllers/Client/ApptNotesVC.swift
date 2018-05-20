@@ -12,14 +12,20 @@ import Firebase
 
 class ApptNotesVC: UIViewController, UITextViewDelegate {
     
+    var appointment = AppointmentData.sharedInstance()
+    
     var keyboardIsShown = false
     
+    var delegate:GetDataProtocol?
+    
      @IBOutlet weak var notesTextView: UITextView!
-    
-    
-    
+
     @IBAction func saveButton(_ sender: Any) {
-        //save to notes in appt object in firebase?
+        //TODO: save to notes in appt object in firebase?
+        appointment.notes = notesTextView.text
+        //send notes data to UILabel in CreateApptVC
+        delegate?.setResultOfGetNotes(valueSent: notesTextView.text!)
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func cancelButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -36,7 +42,8 @@ class ApptNotesVC: UIViewController, UITextViewDelegate {
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
-        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "X", style: .done, target: self, action: #selector(doneButtonAction))
+        doneBtn.tintColor = UIColor.black
         toolbar.setItems([flexSpace, doneBtn], animated: false)
         toolbar.sizeToFit()
         //setting toolbar as inputAccessoryView
