@@ -20,7 +20,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate {
     //    fileprivate var dataEntryViewController: AKFViewController? = nil
     //    fileprivate var showAccountOnAppear = false
     //
-        @IBAction func logInPhone(_ sender: Any) {
+        @IBAction func signUp(_ sender: Any) {
             //FBSDKAppEvents.logEvent("loginWithPhone clicked")
     
 //            if let viewController = accountKit.viewControllerForPhoneLogin() as? AKFViewController {

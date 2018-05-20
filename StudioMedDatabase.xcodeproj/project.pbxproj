@@ -12,6 +12,8 @@
 		C631F03B20AF820700D985E2 /* GetDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03A20AF820700D985E2 /* GetDateVC.swift */; };
 		C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03C20AF860E00D985E2 /* Protocols.swift */; };
 		C631F03F20B125ED00D985E2 /* RequestTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */; };
+		C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F04020B135E600D985E2 /* ScaleSegue.swift */; };
+		C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */; };
 		C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D0209F662E00D412D8 /* CreateAccountVC.swift */; };
 		C64265D3209F675600D412D8 /* ListOfUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D2209F675600D412D8 /* ListOfUsersVC.swift */; };
 		C64265D5209F6B7E00D412D8 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D4209F6B7E00D412D8 /* UserDataModel.swift */; };
@@ -88,6 +90,8 @@
 		C631F03A20AF820700D985E2 /* GetDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateVC.swift; sourceTree = "<group>"; };
 		C631F03C20AF860E00D985E2 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimeVC.swift; sourceTree = "<group>"; };
+		C631F04020B135E600D985E2 /* ScaleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
+		C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C64265D0209F662E00D412D8 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		C64265D2209F675600D412D8 /* ListOfUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersVC.swift; sourceTree = "<group>"; };
 		C64265D4209F6B7E00D412D8 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				C64265E820A1305100D412D8 /* LoginVC.swift */,
 				C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */,
 				C644548B20AD9620001AEF32 /* OnBoardingVC.swift */,
+				C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */,
 				C64265D0209F662E00D412D8 /* CreateAccountVC.swift */,
 			);
 			path = Controllers;
@@ -233,6 +238,7 @@
 				C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */,
 				C644538D20A63601001AEF32 /* Test.swift */,
 				C631F03C20AF860E00D985E2 /* Protocols.swift */,
+				C631F04020B135E600D985E2 /* ScaleSegue.swift */,
 				C6BAB64220A620F40078A8C0 /* MyInfo */,
 				C6BAB64020A533110078A8C0 /* ContactUsVC.swift */,
 			);
@@ -543,6 +549,7 @@
 				C64265F220A1FFEC00D412D8 /* UserDetailVC.swift in Sources */,
 				C6BAB63D20A5240B0078A8C0 /* PrivacyPolicyVC.swift in Sources */,
 				C644549020AD9A2C001AEF32 /* CalendarExtensions.swift in Sources */,
+				C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */,
 				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
 				C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */,
 				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
@@ -551,6 +558,7 @@
 				C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */,
 				C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */,
 				C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */,
+				C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */,
 				C644539020A64A9A001AEF32 /* ApptNotesVC.swift in Sources */,
 				C64265ED20A1375C00D412D8 /* ClientTabVC.swift in Sources */,
 				C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */,

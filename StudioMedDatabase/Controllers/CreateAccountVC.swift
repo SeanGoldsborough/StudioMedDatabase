@@ -32,6 +32,25 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     
     
+    @IBAction func backButton(_ sender: Any) {
+        if let viewToAnimate = self.view {
+        
+        UIView.animate(withDuration: 0.3) {
+            viewToAnimate.alpha = 0
+            self.dismiss(animated: true, completion: nil)
+        }
+//            UIView.animate(withDuration: 5, delay: 0, options: .curveEaseIn, animations: {
+//                viewToAnimate.alpha = 0
+//            }) { _ in
+//                viewToAnimate.removeFromSuperview()
+//                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
+//                self.present(loginVC, animated: true)
+//
+//            }
+            
+        
+        }
+    }
     @IBAction func createAccountButton(_ sender: Any) {
         
         
