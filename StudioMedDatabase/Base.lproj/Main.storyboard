@@ -1470,6 +1470,14 @@
                                             <segue destination="JMB-XB-QoF" kind="presentation" modalTransitionStyle="crossDissolve" id="wfe-0U-M2O"/>
                                         </connections>
                                     </button>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOt-L3-enj" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="44.5" width="343" height="37"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="euJ-X4-vYt"/>
+                                            <constraint firstAttribute="width" constant="343" id="xRK-GN-HBj"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2Z-tr-uBb">
                                         <rect key="frame" x="0.0" y="52" width="343" height="37"/>
                                         <color key="backgroundColor" red="0.98760443929999997" green="0.57333081959999999" blue="0.51162141559999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1481,7 +1489,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="fbLogin:" destination="OsA-UN-5eu" eventType="touchUpInside" id="asd-tZ-ft7"/>
+                                            <action selector="googleLogin:" destination="OsA-UN-5eu" eventType="touchUpInside" id="XwL-24-86X"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWm-13-LUG">
@@ -1540,6 +1548,9 @@
                         <viewLayoutGuide key="safeArea" id="t69-i7-iMT"/>
                     </view>
                     <navigationItem key="navigationItem" id="UcG-H9-8C1"/>
+                    <connections>
+                        <outlet property="signInButton" destination="eOt-L3-enj" id="ftH-h1-oYo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yND-sl-JaO" sceneMemberID="firstResponder"/>
             </objects>

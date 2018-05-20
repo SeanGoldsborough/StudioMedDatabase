@@ -28,6 +28,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
+                //try firebaseAuth.signOut()
                 let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
                 present(loginVC, animated: true, completion: nil)
                 print("logged out success")
@@ -35,6 +36,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             } catch let error as NSError {
                 AlertView.alertPopUp(view: self, alertMessage: (error.localizedDescription))
                 print(error.localizedDescription)
+                print ("Error signing out: %@", error)
             }
         }
     }

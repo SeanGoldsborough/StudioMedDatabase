@@ -10,17 +10,29 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
 //import AccountKit
 //
-class FirstLoginVC: UIViewController, UINavigationControllerDelegate {
+class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInUIDelegate {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print("error on first loginvc")
+    }
+    
+
+    
     //
     //    // MARK: Properties
     //    fileprivate var accountKit = AKFAccountKit(responseType: .accessToken)
     //    fileprivate var dataEntryViewController: AKFViewController? = nil
     //    fileprivate var showAccountOnAppear = false
     //
-        @IBAction func signUp(_ sender: Any) {
+    @IBOutlet weak var signInButton: GIDSignInButton!
+    
+    @IBAction func signUp(_ sender: Any) {
+            //USES STORYBOARD SEGUE AND ANIMATION
+            
             //FBSDKAppEvents.logEvent("loginWithPhone clicked")
     
 //            if let viewController = accountKit.viewControllerForPhoneLogin() as? AKFViewController {
@@ -42,7 +54,8 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate {
 //            }
         }
     
-    @IBAction func fbLogin(_ sender: Any) {
+    @IBAction func googleLogin(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
         //let searchVC = self.storyboard!.instantiateViewController(withIdentifier: "SearchVC")
         //navigationController!.pushViewController(searchVC, animated: true)
 //        func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -59,6 +72,12 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+
+        
+        
+       
         
         //        showAccountOnAppear = accountKit.currentAccessToken != nil
         //        dataEntryViewController = accountKit.viewControllerForLoginResume() as? AKFViewController
