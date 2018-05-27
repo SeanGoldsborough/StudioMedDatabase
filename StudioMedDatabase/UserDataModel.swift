@@ -57,6 +57,8 @@ class UserData : NSObject {
     public var zipCode : String?
     public var email : String?
     public var password : String?
+    public var allowNotifications : Bool?
+    public var allowEmailNewsletter : Bool?
     
     // MARK: Shared Instance
     
@@ -66,5 +68,5 @@ class UserData : NSObject {
         }
         return Singleton.sharedInstance
     }
-    
+        
 }

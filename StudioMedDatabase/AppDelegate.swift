@@ -9,7 +9,13 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseAuth
 import GoogleSignIn
+
+
+var userIsAdmin = false
+var userObject = UserData.sharedInstance()
+//var numberOfAppLaunches = 0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -20,6 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // ...
             print("error on google sign-in \(error)")
             return
+        } else {
+            // Perform any operations on signed in user here.
+            let userId = user.userID// For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let firstName = user.profile.givenName
+
+            userObject.firstName = firstName
+            print("idToken on google sign-in is \(user.authentication.idToken)")
+            print("userId on google sign-in is \(user.userID)")
+            print("userObject first name on google sign-in is \(userObject.firstName)")
+            
+            if firstName == "Konrad" && idToken != nil {
+                userIsAdmin = true
+            }
+            // ...
         }
         
         guard let authentication = user.authentication else { return }
@@ -32,12 +53,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                print("error on google sign-in Auth \(error)")
                 return
             } else {
-                print("User is signed in")
-            }
+                print("Google Authentification Success")
+                let authID = Auth.auth().currentUser?.uid
+                print("Auth id is: \(Auth.auth().currentUser?.uid)")
+                
+                if authID == "foAmqL4Qm3UgpzkTckLOBMHHwd53" || authID == "foAmqL4Qm3UgpzkTckLOBMHHwd53" {
+                    userIsAdmin = false
+                }
+                
+                let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+                
+                if userIsAdmin == true {
+                let adminTabBarVC = mainStoryBoard.instantiateViewController(withIdentifier: "AdminTabBarVC") as! AdminTabBarVC
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = adminTabBarVC
+                    
+                } else {
+                    let clientTabVC = mainStoryBoard.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
+                    
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = clientTabVC
+                    
+                }
+            }            }
             // User is signed in
             // ...
         }
-    }
+    
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         
@@ -56,24 +98,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+     
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
-        
-        
+        GIDSignIn.sharedInstance().delegate = self      
         
         //Instansiate View
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var initialViewController: UIViewController
         
+        // COUNT NUMBER OF APP LAUNCHES get current number of times app has been launched
+        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        
+        // increment received number by one
+        UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
+        
+        // save changes to disk
+        UserDefaults.standard.synchronize()
+        
+        
+        print("currentCount app launches = \(currentCount)")
+
         //Choose which VC to show based on UserDefaults notification
         if UIApplication.isFirstLaunch() {
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingVC
         } else {
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
-            
         }
+        
+//        if currentCount > 4 {
+//            print("we launched the app more than 4 times")
+//            AlertView.alertPopUp(view: initialViewController, alertMessage: "Rate the app!")
+//        }
+        
         self.window?.rootViewController = initialViewController
         
         self.window?.makeKeyAndVisible()

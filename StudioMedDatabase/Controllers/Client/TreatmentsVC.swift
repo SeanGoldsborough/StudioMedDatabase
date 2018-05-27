@@ -26,17 +26,18 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var treatmentCatName = ["ivTherapy", "urgentCare", "houseCalls", "telemedicine"]
     
     @IBAction func logoutButton(_ sender: Any) {
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
-                present(loginVC, animated: true, completion: nil)
-                print("logged out success")
-                
-            } catch let error as NSError {
-                AlertView.alertPopUp(view: self, alertMessage: (error.localizedDescription))
-                print(error.localizedDescription)
-            }
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print ("google signout okay")
+            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginVC")
+            present(loginVC, animated: true, completion: nil)
+            print("logged out success \(firebaseAuth.currentUser)")
+            
+        } catch let error as NSError {
+            AlertView.alertPopUp(view: self, alertMessage: (error.localizedDescription))
+            print(error.localizedDescription)
+            print ("Error signing out: %@", error)
         }
     }
     

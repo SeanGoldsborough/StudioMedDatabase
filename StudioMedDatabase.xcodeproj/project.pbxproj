@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		AD1E4F7556EFA1448752C544 /* Pods_StudioMedDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */; };
 		B1B3C5CDFB82FDDD8A2590CD /* Pods_StudioMedDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344048C03F932791C24E3A1E /* Pods_StudioMedDatabaseTests.framework */; };
+		C608F30520B5DC0700410951 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608F30120B5DC0200410951 /* DateCollectionViewCell.swift */; };
+		C608F30620B5DC0700410951 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608F30220B5DC0300410951 /* DateTimePicker.swift */; };
+		C608F30720B5DC0700410951 /* FullDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608F30320B5DC0500410951 /* FullDateCollectionViewCell.swift */; };
+		C608F30820B5DC0700410951 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608F30420B5DC0600410951 /* StepCollectionViewFlowLayout.swift */; };
 		C631F03B20AF820700D985E2 /* GetDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03A20AF820700D985E2 /* GetDateVC.swift */; };
 		C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03C20AF860E00D985E2 /* Protocols.swift */; };
 		C631F03F20B125ED00D985E2 /* RequestTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */; };
 		C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F04020B135E600D985E2 /* ScaleSegue.swift */; };
 		C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */; };
+		C631F06C20B1FDF300D985E2 /* AdminTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F06B20B1FDF300D985E2 /* AdminTabBarVC.swift */; };
 		C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D0209F662E00D412D8 /* CreateAccountVC.swift */; };
 		C64265D3209F675600D412D8 /* ListOfUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D2209F675600D412D8 /* ListOfUsersVC.swift */; };
 		C64265D5209F6B7E00D412D8 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D4209F6B7E00D412D8 /* UserDataModel.swift */; };
@@ -87,11 +92,16 @@
 		7E61010B1AE1B8DFF6271088 /* Pods-StudioMedDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1A962ACA2C6BC75908F5D3 /* Pods_StudioMedDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioMedDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B272D49DBAD86E0A97DF08E8 /* Pods-StudioMedDatabaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseTests/Pods-StudioMedDatabaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		C608F30120B5DC0200410951 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		C608F30220B5DC0300410951 /* DateTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
+		C608F30320B5DC0500410951 /* FullDateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		C608F30420B5DC0600410951 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		C631F03A20AF820700D985E2 /* GetDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateVC.swift; sourceTree = "<group>"; };
 		C631F03C20AF860E00D985E2 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimeVC.swift; sourceTree = "<group>"; };
 		C631F04020B135E600D985E2 /* ScaleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		C631F06B20B1FDF300D985E2 /* AdminTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTabBarVC.swift; sourceTree = "<group>"; };
 		C64265D0209F662E00D412D8 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		C64265D2209F675600D412D8 /* ListOfUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersVC.swift; sourceTree = "<group>"; };
 		C64265D4209F6B7E00D412D8 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
@@ -184,6 +194,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C608F30B20B7387900410951 /* DatePickerFramework */ = {
+			isa = PBXGroup;
+			children = (
+				C608F30120B5DC0200410951 /* DateCollectionViewCell.swift */,
+				C608F30220B5DC0300410951 /* DateTimePicker.swift */,
+				C608F30320B5DC0500410951 /* FullDateCollectionViewCell.swift */,
+				C608F30420B5DC0600410951 /* StepCollectionViewFlowLayout.swift */,
+			);
+			path = DatePickerFramework;
+			sourceTree = "<group>";
+		};
 		C64265DF20A0F45500D412D8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,13 +219,13 @@
 		C64265EE20A1F97500D412D8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C64265EF20A1FFBF00D412D8 /* Admin */,
-				C64265F020A1FFC600D412D8 /* Client */,
-				C64265E820A1305100D412D8 /* LoginVC.swift */,
 				C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */,
+				C64265E820A1305100D412D8 /* LoginVC.swift */,
 				C644548B20AD9620001AEF32 /* OnBoardingVC.swift */,
 				C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */,
 				C64265D0209F662E00D412D8 /* CreateAccountVC.swift */,
+				C64265EF20A1FFBF00D412D8 /* Admin */,
+				C64265F020A1FFC600D412D8 /* Client */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +238,7 @@
 				C64265F120A1FFEC00D412D8 /* UserDetailVC.swift */,
 				C64265F520A2081200D412D8 /* PreviousApptsVC.swift */,
 				C64265F720A2109500D412D8 /* AdminApptDetailVC.swift */,
+				C631F06B20B1FDF300D985E2 /* AdminTabBarVC.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -229,6 +251,7 @@
 				C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */,
 				C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */,
 				C64265DD20A0E27000D412D8 /* CreateApptVC.swift */,
+				C608F30B20B7387900410951 /* DatePickerFramework */,
 				C631F03A20AF820700D985E2 /* GetDateVC.swift */,
 				C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */,
 				C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */,
@@ -271,13 +294,13 @@
 				C656EF71209F5EF90032E26F /* AppDelegate.swift */,
 				C64265D8209F750500D412D8 /* GCD.swift */,
 				C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */,
+				C64265D6209F747B00D412D8 /* Alerts.swift */,
 				C64265EE20A1F97500D412D8 /* Controllers */,
 				C64265DF20A0F45500D412D8 /* Model */,
 				C656EF73209F5EF90032E26F /* ViewController.swift */,
 				C64265D4209F6B7E00D412D8 /* UserDataModel.swift */,
 				C64265F920A2138F00D412D8 /* TableViewController.swift */,
 				C64265FB20A21EA200D412D8 /* CustomHeader.swift */,
-				C64265D6209F747B00D412D8 /* Alerts.swift */,
 				C656EF75209F5EF90032E26F /* Main.storyboard */,
 				C656EF7B209F5EF90032E26F /* Assets.xcassets */,
 				C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */,
@@ -558,6 +581,7 @@
 				C64265D5209F6B7E00D412D8 /* UserDataModel.swift in Sources */,
 				C642660220A25CA900D412D8 /* ResetPasswordVC.swift in Sources */,
 				C642660020A25AE200D412D8 /* ClientAccountInfoVC.swift in Sources */,
+				C631F06C20B1FDF300D985E2 /* AdminTabBarVC.swift in Sources */,
 				C6BAB63920A5155A0078A8C0 /* ZipCodeArray.swift in Sources */,
 				C64265D3209F675600D412D8 /* ListOfUsersVC.swift in Sources */,
 				C644538E20A63601001AEF32 /* Test.swift in Sources */,
@@ -570,6 +594,7 @@
 				C64265F220A1FFEC00D412D8 /* UserDetailVC.swift in Sources */,
 				C6BAB63D20A5240B0078A8C0 /* PrivacyPolicyVC.swift in Sources */,
 				C644549020AD9A2C001AEF32 /* CalendarExtensions.swift in Sources */,
+				C608F30520B5DC0700410951 /* DateCollectionViewCell.swift in Sources */,
 				C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */,
 				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
 				C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */,
@@ -589,10 +614,13 @@
 				C64265DE20A0E27000D412D8 /* CreateApptVC.swift in Sources */,
 				C64265FA20A2138F00D412D8 /* TableViewController.swift in Sources */,
 				C64265D7209F747B00D412D8 /* Alerts.swift in Sources */,
+				C608F30820B5DC0700410951 /* StepCollectionViewFlowLayout.swift in Sources */,
 				C64265F620A2081200D412D8 /* PreviousApptsVC.swift in Sources */,
 				C6BAB63F20A524160078A8C0 /* EditInfoVC.swift in Sources */,
+				C608F30720B5DC0700410951 /* FullDateCollectionViewCell.swift in Sources */,
 				C64265FE20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift in Sources */,
 				C64265E120A0F47100D412D8 /* User.swift in Sources */,
+				C608F30620B5DC0700410951 /* DateTimePicker.swift in Sources */,
 				C64265F420A1FFF700D412D8 /* ApptDetailVC.swift in Sources */,
 				C631F03F20B125ED00D985E2 /* RequestTimeVC.swift in Sources */,
 				C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */,

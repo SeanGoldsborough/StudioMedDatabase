@@ -13,6 +13,14 @@ import FirebaseAuth
 
 class LoginVC: UIViewController {
     
+    var ref: DatabaseReference!
+    var databaseHandle: DatabaseHandle!
+    
+    var userObjectShared = UserData.sharedInstance()
+    var currentUser = Auth.auth().currentUser?.uid
+    
+    var keyboardIsShown = false
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,8 +34,11 @@ class LoginVC: UIViewController {
                 
                 if error == nil {
                     //Print into the console if successfully logged in
-                    print("You have successfully logged in")
+                    print("You have successfully logged in: \(Auth.auth().currentUser?.uid)")
+                    //self.userObjectShared.firstName = Auth.auth().currentUser?.displayName
+                    self.currentUser = Auth.auth().currentUser?.uid
                     
+
                     //Go to the ClientTabVC if the login is sucessful
                     let clientTabVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
                     self.present(clientTabVC, animated: true)
@@ -59,11 +70,81 @@ class LoginVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        ref = Database.database().reference()
+        
+        
+        //emailTextField.tag = 0
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+
+
+}
+
+// MARK: - LoginVC: UITextFieldDelegate
+extension LoginVC: UITextFieldDelegate {
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        emailTextField?.resignFirstResponder()
+//        passwordTextField?.resignFirstResponder()
+//        return true
+        
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    
+    //    // MARK: Show/Hide Keyboard
+    //
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if !keyboardIsShown {
+            view.frame.origin.y = -keyboardHeight(notification) / 2.6
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        if keyboardIsShown {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func keyboardDidShow(_ notification: Notification) {
+        keyboardIsShown = true
+    }
+    
+    @objc func keyboardDidHide(_ notification: Notification) {
+        keyboardIsShown = false
+    }
+    
+    func keyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = (notification as NSNotification).userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+}
+// MARK: - LoginVC (Notifications)
+
+private extension LoginVC {
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
     }
 }
