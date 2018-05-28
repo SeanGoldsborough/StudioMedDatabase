@@ -201,7 +201,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
                  NSAttributedStringKey.strikethroughStyle: 1]
             
             let bottomAttributes: [NSAttributedStringKey: Any] =
-                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 14)!,
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
                  NSAttributedStringKey.strikethroughStyle: 1]
             
             let topText = appointment.firstName + " " + appointment.lastName

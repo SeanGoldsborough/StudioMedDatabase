@@ -78,7 +78,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search Appointments By Date"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -143,6 +143,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
             if let apptDict = snapshot.value as? [String : AnyObject] {
                 print("apptDict is \(apptDict)")
                 
+                let apptIsCancelledBool = apptDict["isCancelled"] as! Bool
                 let firstNameText = apptDict["firstName"] as! String
                 let lastNameText = apptDict["lastName"] as! String
                 let phoneNumberText = apptDict["phoneNumber"] as! String
@@ -152,7 +153,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
                 let treatmentText = apptDict["treatment1"] as! String
                 let notesText = apptDict["notes"] as! String
                 
-                let appointment = Appointment(isCancelledBool: false, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
+                let appointment = Appointment(isCancelledBool: apptIsCancelledBool, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
                 
                 print("apptDict is \(apptDict)")
                 self.appointments.append(appointment)
@@ -200,11 +201,12 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
                  NSAttributedStringKey.strikethroughStyle: 1]
             
             let bottomAttributes: [NSAttributedStringKey: Any] =
-                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 14)!,
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
                  NSAttributedStringKey.strikethroughStyle: 1]
             
-            let topText = appointment.firstName + " " + appointment.lastName
-            let bottomText = appointment.date + "    " + appointment.treatment1
+            let topText = appointment.date + "    " + appointment.treatment1
+            let bottomText = appointment.firstName + " " + appointment.lastName
+            
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
             cell.textLabel?.textColor = UIColor.red
@@ -218,6 +220,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
             
         } else {
             cell.textLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.textColor = UIColor.white
             cell.backgroundColor = UIColor.black
             
         }

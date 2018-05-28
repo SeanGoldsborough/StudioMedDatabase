@@ -23,6 +23,9 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var userObject = UserData.sharedInstance()
     //var postData = [UserData]()
     var users = [User]()
+    var filteredUsers = [User]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
 
     @IBAction func logoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -53,6 +56,13 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             getData()
         }
         
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Client By Surname"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         //navigationController?.navigationBar.topItem?.title = "Hi, \(userObject.firstName!)"
         
 //        var user = User(firstNameText: "test", lastNameText: "test")
@@ -71,6 +81,25 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         //let query = ref.queryOrderedByKey() /*or a more sophisticated query of your choice*/
 
         
+    }
+    
+    // MARK: - Private instance methods
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredUsers = users.filter({( user : User) -> Bool in
+            return user.lastName.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
    
     func getData() {
@@ -98,17 +127,27 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return filteredUsers.count
+        }
         return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
-        let firstName = users[indexPath.row].firstName
-        let lastName = users[indexPath.row].lastName
-        let phoneNumber = users[indexPath.row].phoneNumber
-        let email = users[indexPath.row].email
-        cell.textLabel?.text = firstName + " " + lastName
-        cell.detailTextLabel?.text = phoneNumber + "    " + email
+        
+        let user: User
+        if isFiltering() {
+            user = filteredUsers[indexPath.row]
+        } else {
+            user = users[indexPath.row]
+        }
+//        let firstName = users[indexPath.row].firstName
+//        let lastName = users[indexPath.row].lastName
+//        let phoneNumber = users[indexPath.row].phoneNumber
+//        let email = users[indexPath.row].email
+        cell.textLabel?.text = user.firstName + " " + user.lastName
+        cell.detailTextLabel?.text = user.phoneNumber + "    " + user.email
 //
 //       let dataSource = FirebaseTableViewDataSource(query: self.ref, modelClass:nil, prototypeReuseIdentifier: "Cell", view: tableView)
 //
@@ -121,20 +160,38 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    
+    //TODO: make this work with filteredUsers
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let userDetailVC = storyboard?.instantiateViewController(withIdentifier: "UserDetailVC") as! UserDetailVC
-        print("selected a user \(users[indexPath.row].email)")
-        let firstName = users[indexPath.row].firstName
-        let lastName = users[indexPath.row].lastName
-        let phoneNumber = users[indexPath.row].phoneNumber
-        let email = users[indexPath.row].email
         
-        userDetailVC.firstName = firstName
-        userDetailVC.lastName = lastName
-        userDetailVC.phoneNumber = phoneNumber
-        userDetailVC.email = email
+        let user: User
+        if isFiltering() {
+            user = filteredUsers[indexPath.row]
+            print("selected a user \(filteredUsers[indexPath.row].email)")
+//            let firstName = filteredUsers[indexPath.row].firstName
+//            let lastName = filteredUsers[indexPath.row].lastName
+//            let phoneNumber = filteredUsers[indexPath.row].phoneNumber
+//            let email = filteredUsers[indexPath.row].email
+            
+        } else {
+            user = users[indexPath.row]
+            print("selected a user \(users[indexPath.row].email)")
+//            let firstName = users[indexPath.row].firstName
+//            let lastName = users[indexPath.row].lastName
+//            let phoneNumber = users[indexPath.row].phoneNumber
+//            let email = users[indexPath.row].email
+        }
+//        print("selected a user \(users[indexPath.row].email)")
+//        let firstName = users[indexPath.row].firstName
+//        let lastName = users[indexPath.row].lastName
+//        let phoneNumber = users[indexPath.row].phoneNumber
+//        let email = users[indexPath.row].email
+        
+        userDetailVC.firstName = user.firstName
+        userDetailVC.lastName = user.lastName
+        userDetailVC.phoneNumber = user.phoneNumber
+        userDetailVC.email = user.email
         
         navigationController?.pushViewController(userDetailVC, animated: true)
         
@@ -174,5 +231,12 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+    }
+}
+
+extension ListOfUsersVC: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
 }
