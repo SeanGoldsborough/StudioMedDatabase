@@ -22,8 +22,10 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     var userData = [DataSnapshot]()
     //var postData = ["one", "two", "three"]
     var postData = [UserData]()
-    var users = [User]()
-    var filteredUsers = [User]()
+    //var users = [User]()
+    var appointments = [Appointment]()
+    var filteredAppointments = [Appointment]()
+    //var filteredUsers = [User]()
     var selectedIndexes = [Int]()
     var apptObjectShared = AppointmentData.sharedInstance()
     
@@ -67,10 +69,10 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredUsers = users.filter({( user : User) -> Bool in
+        filteredAppointments = appointments.filter({( appointment : Appointment) -> Bool in
             //return candy.name.lowercased().contains(searchText.lowercased())
             //return user.firstName.lowercased().contains(searchText.lowercased())
-            return user.phoneNumber.lowercased().contains(searchText.lowercased())
+            return appointment.date.lowercased().contains(searchText.lowercased())
         })
         
         performUIUpdatesOnMain {
@@ -99,7 +101,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         
         //print(users.count)
         
-        if users.count < 1 {
+        if appointments.count < 1 {
             getData()
         }
         
@@ -141,24 +143,25 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     func getData() {
         let userID = Auth.auth().currentUser?.uid
         databaseHandle = ref.child("client").child("clients").child(userID!).child("appointments").observe(.childAdded, with: { (snapshot) in
-            if let userDict = snapshot.value as? [String : AnyObject] {
-                print("userDict is \(userDict)")
+            if let apptDict = snapshot.value as? [String : AnyObject] {
+                print("apptDict is \(apptDict)")
                 
-                let firstNameText = userDict["firstName"] as! String
-                let lastNameText = userDict["lastName"] as! String
-                let phoneNumberText = userDict["phoneNumber"] as! String
+                let apptIsCancelledBool = apptDict["isCancelled"] as! Bool
+                let firstNameText = apptDict["firstName"] as! String
+                let lastNameText = apptDict["lastName"] as! String
+                let phoneNumberText = apptDict["phoneNumber"] as! String
                 //let zipCodeText = userDict["zipCode"] as! String
-                let emailText = userDict["email"] as! String
-                let treatmentText = userDict["treatment1"] as! String
-                let dateText = userDict["date"] as! String
-                let notesText = userDict["notes"] as! String
+                let emailText = apptDict["email"] as! String
+                let dateText = apptDict["date"] as! String
+                let treatmentText = apptDict["treatment1"] as! String
+                let notesText = apptDict["notes"] as! String
                 
+                let appointment = Appointment(isCancelledBool: apptIsCancelledBool, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
 
-
-                let user = User(firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: dateText, emailText: emailText, zipCodeText: treatmentText)
-                print("userDict is \(userDict)")
-                self.users.append(user)
-                print("users array is \(self.users)")
+//                let user = User(firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: dateText, emailText: emailText, zipCodeText: treatmentText)
+                print("apptDict is \(apptDict)")
+                self.appointments.append(appointment)
+                print("apptDict array is \(self.appointments)")
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                 }
@@ -169,23 +172,58 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
-            return filteredUsers.count
+            return filteredAppointments.count
         }
-        return users.count
+        return appointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
         
-        let user: User
+        let appointment: Appointment
         if isFiltering() {
-            user = filteredUsers[indexPath.row]
+            appointment = filteredAppointments[indexPath.row]
         } else {
-            user = users[indexPath.row]
+            appointment = appointments[indexPath.row]
         }
         
-        cell.textLabel?.text = user.firstName + " " + user.lastName
-        cell.detailTextLabel?.text = user.phoneNumber + "    " + user.zipCode
+        cell.textLabel?.text = appointment.firstName + " " + appointment.lastName
+        cell.detailTextLabel?.text = appointment.date + "    " + appointment.treatment1
+        
+        print("appt is can = \(appointment.isCancelled)")
+        
+        
+        
+        if appointment.isCancelled == true {
+            
+            let topAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let bottomAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 14)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let topText = appointment.firstName + " " + appointment.lastName
+            let bottomText = appointment.date + "    " + appointment.treatment1
+            
+            cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
+            cell.textLabel?.textColor = UIColor.red
+            cell.textLabel?.alpha = 0.5
+            
+            cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
+            cell.detailTextLabel?.textColor = UIColor.red
+            cell.detailTextLabel?.alpha = 0.5
+            
+            cell.backgroundColor = UIColor.darkGray
+            
+        } else {
+            cell.textLabel?.textColor = UIColor.white
+            cell.backgroundColor = UIColor.black
+            
+        }
+        
+        
         
 //        let firstName = users[indexPath.row].firstName
 //        let lastName = users[indexPath.row].lastName
@@ -244,10 +282,10 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
 //        self.coloredCellIndex = indexPath.row
         let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
         //        print("selected a user \(users[indexPath.row].email)")
-                let firstName = users[indexPath.row].firstName
-                let lastName = users[indexPath.row].lastName
-                let phoneNumber = users[indexPath.row].phoneNumber
-                let email = users[indexPath.row].email
+                let firstName = appointments[indexPath.row].firstName
+                let lastName = appointments[indexPath.row].lastName
+                let phoneNumber = appointments[indexPath.row].phoneNumber
+                let email = appointments[indexPath.row].email
         
 //                apptDetailVC.clientName = firstName + " " + lastName // should be date and time
 //                apptDetailVC.phoneNumber = phoneNumber // should be treatment

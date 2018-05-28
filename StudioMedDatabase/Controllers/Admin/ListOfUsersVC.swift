@@ -53,7 +53,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             getData()
         }
         
-        navigationController?.navigationBar.topItem?.title = "Hi, \(userObject.firstName!)"
+        //navigationController?.navigationBar.topItem?.title = "Hi, \(userObject.firstName!)"
         
 //        var user = User(firstNameText: "test", lastNameText: "test")
 //        print("user object fn is: \(user.firstName)")
@@ -74,7 +74,8 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
    
     func getData() {
-        databaseHandle = ref.child("client").child("users").observe(.childAdded, with: { (snapshot) in
+        //let userID = Auth.auth().currentUser
+        databaseHandle = ref.child("client").child("clients").observe(.childAdded, with: { (snapshot) in
             if let userDict = snapshot.value as? [String : AnyObject] {
                 
                 let firstNameText = userDict["firstName"] as! String

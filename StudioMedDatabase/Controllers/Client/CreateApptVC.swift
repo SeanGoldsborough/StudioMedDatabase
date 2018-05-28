@@ -168,6 +168,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         if apptObjectShared.date == nil || apptObjectShared.treatment1 == nil {
             AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
         } else {
+            let isCancelled = false
             let uid = self.userObjectShared.fireBaseUID
             let date = self.apptObjectShared.date!
             let treatment = self.apptObjectShared.treatment1!
@@ -175,15 +176,16 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             let clientKey = ref.child(uid!).key
             let clientApptKey = ref.childByAutoId().key
             //let clientApptKey = ref.child(date).key
-            //let adminKey = ref.child("\(fullName)").key
-            let post = ["date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
+            let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
+            let adminKey = ref.child("\(fullName)").childByAutoId().key
+            let post = ["isCancelled": isCancelled, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
                 "lastName": "\(self.userObjectShared.lastName!)",
                 "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
-                "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"]
+                "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
             let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
-           // let adminChildUpdates = ["/admin/appts/allAppts/\(adminKey)": post]
+           let adminChildUpdates = ["/admin/appts/allAppts/\(adminKey)": post]
             ref.updateChildValues(clientChildUpdates)
-            //ref.updateChildValues(adminChildUpdates)
+            ref.updateChildValues(adminChildUpdates)
 
 //                    let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
 //                    //listOfAppointmentsVC.userName = fullName

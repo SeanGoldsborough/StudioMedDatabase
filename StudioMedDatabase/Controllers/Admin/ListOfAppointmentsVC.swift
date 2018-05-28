@@ -20,9 +20,14 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     var userData = [DataSnapshot]()
     //var postData = ["one", "two", "three"]
     var postData = [UserData]()
-    var users = [User]()
+    //var users = [User]()
+    var appointments = [Appointment]()
+    //var sortedAppointments = [Appointment]()
+    var filteredAppointments = [Appointment]()
     var userObject = UserData.sharedInstance()
     var listOfAppointmentsVCBool = false
+    
+    let searchController = UISearchController(searchResultsController: nil)
 
     @IBAction func logoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -41,6 +46,23 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+//    var testArray = [String]()
+//    var convertedArray: [Date] = []
+//
+//    var dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "dd MM, yyyy"// yyyy-MM-dd"
+//
+//    for date in testArray {
+//    let date = dateFormatter.date(from: dat)
+//    if let date = date {
+//    convertedArray.append(date)
+//    }
+//    }
+    
+//    var ready = convertedArray.sorted(by: { $0.compare($1) == .orderedDescending })
+//
+//    print(ready)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -49,12 +71,19 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         //print(users.count)
         
-        if users.count < 1 {
+        if appointments.count < 1 {
             getData()
         }
         
-        //navigationController?.navigationItem.title = "Hi, \(userName)"
-        navigationController?.navigationBar.topItem?.title = "Hi, \(userObject.firstName!)"
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Candies"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        
+        //navigationController?.navigationBar.topItem?.title = "Hi, \(userObject.firstName!)"
         //navigationItem.title = "Hi, \(userName)"
         
         //        var user = User(firstNameText: "test", lastNameText: "test")
@@ -90,21 +119,49 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
 //        })
     }
     
+    // MARK: - Private instance methods
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredAppointments = appointments.filter({( appointment : Appointment) -> Bool in
+            return appointment.date.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
     func getData() {
-        databaseHandle = ref.child("client").child("users").observe(.childAdded, with: { (snapshot) in
-            if let userDict = snapshot.value as? [String : AnyObject] {
+        databaseHandle = ref.child("admin").child("appts").child("allAppts").observe(.childAdded, with: { (snapshot) in
+            if let apptDict = snapshot.value as? [String : AnyObject] {
+                print("apptDict is \(apptDict)")
                 
-                let firstNameText = userDict["firstName"] as! String
-                let lastNameText = userDict["lastName"] as! String
-                let phoneNumberText = userDict["phoneNumber"] as! String
-                let emailText = userDict["email"] as! String
-                let zipCodeText = userDict["zipCode"] as! String
+                let firstNameText = apptDict["firstName"] as! String
+                let lastNameText = apptDict["lastName"] as! String
+                let phoneNumberText = apptDict["phoneNumber"] as! String
+                //let zipCodeText = userDict["zipCode"] as! String
+                let emailText = apptDict["email"] as! String
+                let dateText = apptDict["date"] as! String
+                let treatmentText = apptDict["treatment1"] as! String
+                let notesText = apptDict["notes"] as! String
                 
+                let appointment = Appointment(isCancelledBool: false, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
                 
-                let user = User(firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, zipCodeText: zipCodeText)
-                print("userDict is \(userDict)")
-                self.users.append(user)
-                print("users array is \(self.users)")
+                print("apptDict is \(apptDict)")
+                self.appointments.append(appointment)
+                
+//                var customObjects = self.appointments.sorted(by: {
+//                    $0.date.compare($1.date) == .orderedDescending
+//                })
+//
+//                print("apptDict array is \(customObjects)")
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                 }
@@ -114,17 +171,65 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        if isFiltering() {
+            return filteredAppointments.count
+        }
+        return appointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
-        let firstName = users[indexPath.row].firstName
-        let lastName = users[indexPath.row].lastName
-        let phoneNumber = users[indexPath.row].phoneNumber
-        let email = users[indexPath.row].email
-        cell.textLabel?.text = firstName + " " + lastName
-        cell.detailTextLabel?.text = phoneNumber + "    " + email
+        let appointment: Appointment
+        if isFiltering() {
+            appointment = filteredAppointments[indexPath.row]
+        } else {
+            appointment = appointments[indexPath.row]
+        }
+        
+        cell.textLabel?.text = appointment.date + "    " + appointment.treatment1
+        cell.detailTextLabel?.text = appointment.firstName + " " + appointment.lastName
+        
+        print("appt is can = \(appointment.isCancelled)")
+        
+        
+        
+        if appointment.isCancelled == true {
+            
+            let topAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let bottomAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 14)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let topText = appointment.firstName + " " + appointment.lastName
+            let bottomText = appointment.date + "    " + appointment.treatment1
+            
+            cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
+            cell.textLabel?.textColor = UIColor.red
+            cell.textLabel?.alpha = 0.5
+            
+            cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
+            cell.detailTextLabel?.textColor = UIColor.red
+            cell.detailTextLabel?.alpha = 0.5
+            
+            cell.backgroundColor = UIColor.darkGray
+            
+        } else {
+            cell.textLabel?.textColor = UIColor.white
+            cell.backgroundColor = UIColor.black
+            
+        }
+        
+        
+//        let firstName = appointments[indexPath.row].firstName
+//        let lastName = appointments[indexPath.row].lastName
+//        let date = appointments[indexPath.row].date
+//        let treatment = appointments[indexPath.row].treatment1
+//        cell.textLabel?.text = date + "    " + treatment
+//        cell.detailTextLabel?.text = firstName + " " + lastName
+//
         //
         //       let dataSource = FirebaseTableViewDataSource(query: self.ref, modelClass:nil, prototypeReuseIdentifier: "Cell", view: tableView)
         //
@@ -193,5 +298,12 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+    }
+}
+
+extension ListOfAppointmentsVC: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
 }
