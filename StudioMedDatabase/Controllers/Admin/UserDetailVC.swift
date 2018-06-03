@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MessageUI
 import Firebase
 
 class UserDetailVC: UIViewController {
@@ -15,15 +16,19 @@ class UserDetailVC: UIViewController {
     var firstName = String()
     var lastName = String()
     var phoneNumber = String()
+    var zipCode = String()
     var email = String()
     
-    @IBOutlet weak var clientNameLabel: UILabel!
+    @IBOutlet weak var clientNameLabel: UITextField!
     
-    @IBOutlet weak var clientPhoneLabel: UILabel!
+     @IBOutlet weak var clientLastNameLabel: UITextField!
     
-    @IBOutlet weak var clientEmailLabel: UILabel!
+    @IBOutlet weak var clientPhoneLabel: UITextField!
     
+    @IBOutlet weak var clientZipCodeLabel: UITextField!
     
+    @IBOutlet weak var clientEmailLabel: UITextField!
+
     @IBOutlet weak var callClient: UIButton!
     
     @IBOutlet weak var emailClient: UIButton!
@@ -60,24 +65,56 @@ class UserDetailVC: UIViewController {
     
     @IBAction func emailClientButton(_ sender: Any) {
          print("email button pressed!")
+        if !MFMailComposeViewController.canSendMail() {
+            print("Mail services are not available")
+            return
+        }
+        sendEmail()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let clientName = firstName + " " + lastName
         self.title = clientName
-        clientNameLabel.text = clientName
+        clientNameLabel.text = firstName
+        clientLastNameLabel.text = lastName
         clientPhoneLabel.text = phoneNumber
+        clientZipCodeLabel.text = zipCode
         clientEmailLabel.text = email
 
         callClient.setTitle("Call \(firstName)", for: .normal)
         emailClient.setTitle("Email \(firstName)", for: .normal)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func sendEmail() {
+        let composeVC = MFMailComposeViewController()
+        //composeVC.mailComposeDelegate = self
+        composeVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
+        // Configure the fields of the interface.
+        composeVC.setToRecipients(["\(email)"])
+        composeVC.setSubject("")
+        composeVC.setMessageBody("", isHTML: false)
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
     }
     
-    
+    func mailComposeController(controller: MFMailComposeViewController,
+                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        // Check the result or perform other tasks.
+        // Dismiss the mail compose view controller.
+        if result == .cancelled {
+            controller.dismiss(animated: true, completion: nil)
+        } else if result == .sent {
+            controller.dismiss(animated: true, completion: nil)
+        } else if result == .saved {
+            controller.dismiss(animated: true, completion: nil)
+        }
+    }   
 }
+
+//extension UIViewController: MFMailComposeViewControllerDelegate {
+//    public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
+//}
+

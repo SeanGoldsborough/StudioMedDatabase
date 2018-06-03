@@ -12,16 +12,16 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class CreateAccountVC: UIViewController {
+class AddNewAdminVC: UIViewController {
     
     var ref: DatabaseReference!
     
     var userArray: [UserData] = UserArray.sharedInstance.listOfUsers
     var userObject = UserData()
-     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var activeField: UITextField?
-  
+    
     @IBOutlet weak var firstNameText: UITextField!
     
     @IBOutlet weak var lastNameText: UITextField!
@@ -35,22 +35,22 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     
     var keyboardIsShown = false
-
+    
     @IBAction func backButton(_ sender: Any) {
         if let viewToAnimate = self.view {
-        
-        UIView.animate(withDuration: 0.3) {
-            viewToAnimate.alpha = 0
-            self.dismiss(animated: true, completion: nil)
-        }
-//            UIView.animate(withDuration: 5, delay: 0, options: .curveEaseIn, animations: {
-//                viewToAnimate.alpha = 0
-//            }) { _ in
-//                viewToAnimate.removeFromSuperview()
-//                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
-//                self.present(loginVC, animated: true)
-//
-//            }
+            
+            UIView.animate(withDuration: 0.3) {
+                viewToAnimate.alpha = 0
+                self.dismiss(animated: true, completion: nil)
+            }
+            //            UIView.animate(withDuration: 5, delay: 0, options: .curveEaseIn, animations: {
+            //                viewToAnimate.alpha = 0
+            //            }) { _ in
+            //                viewToAnimate.removeFromSuperview()
+            //                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
+            //                self.present(loginVC, animated: true)
+            //
+            //            }
         }
     }
     @IBAction func createAccountButton(_ sender: Any) {
@@ -78,9 +78,9 @@ class CreateAccountVC: UIViewController {
                     
                     if self.firstNameText.text == "" || self.lastNameText.text == "" || self.phoneNumberText.text == "" || self.zipCodeText.text == "" || self.emailText.text == "" || self.passwordText.text == "" {
                         AlertView.alertPopUp(view: self, alertMessage: "Please enter the neccessary info.")
-                    
                         
-                        } else {
+                        
+                    } else {
                         let fullName = "\(self.firstNameText.text! + " " + self.lastNameText.text!)"
                         //let key = ref.child("\(fullName)").key
                         let key = self.ref.child(Auth.auth().currentUser!.uid).key
@@ -88,7 +88,7 @@ class CreateAccountVC: UIViewController {
                             "lastName": "\(self.lastNameText.text!)",
                             "phoneNumber": "\(self.phoneNumberText.text!)",
                             "zipCode": "\(self.zipCodeText.text!)",
-                            "email": "\(self.emailText.text!)", "password": "\(self.passwordText.text!)", "appointments": " ", "allowNotifications": true, "allowEmailNewsletter": true] as [String : Any]
+                            "email": "\(self.emailText.text!)", "password": "\(self.passwordText.text!)", "appointments": " "]
                         let childUpdates = ["/client/clients/\(key)": post]
                         self.ref.updateChildValues(childUpdates)
                         
@@ -101,24 +101,24 @@ class CreateAccountVC: UIViewController {
                 } else {
                     AlertView.alertPopUp(view: self, alertMessage: (error?.localizedDescription)!)
                 }
-            }         
+            }
         }
         print("user array count is: \(userArray.count)")
         print("user object name is: \(userObject.firstName)")
-       // createAppt()
+        // createAppt()
         //print("createAppt was called")
     }
- 
-//    func createAppt() {
-//        let key = ref.child("\(firstNameText.text! + " " + lastNameText.text!)").child("appointments").childByAutoId().key
-//        let post = ["firstName": "\(firstNameText.text!)",
-//            "lastName": "\(lastNameText.text!)",
-//            "phoneNumber": "\(phoneNumberText.text!)",
-//            "email": "\(emailText.text!)"]
-//        let childUpdates = ["/client/users/\(firstNameText.text! + " " + lastNameText.text!)`/appointments/\(key)": post]
-//        ref.updateChildValues(childUpdates)
-//    }
-
+    
+    //    func createAppt() {
+    //        let key = ref.child("\(firstNameText.text! + " " + lastNameText.text!)").child("appointments").childByAutoId().key
+    //        let post = ["firstName": "\(firstNameText.text!)",
+    //            "lastName": "\(lastNameText.text!)",
+    //            "phoneNumber": "\(phoneNumberText.text!)",
+    //            "email": "\(emailText.text!)"]
+    //        let childUpdates = ["/client/users/\(firstNameText.text! + " " + lastNameText.text!)`/appointments/\(key)": post]
+    //        ref.updateChildValues(childUpdates)
+    //    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,8 +135,6 @@ class CreateAccountVC: UIViewController {
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
-        doneBtn.tintColor = UIColor.white
-//        let nextBtn: UIBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(changeResponder))
         doneBtn.tintColor = UIColor.white
         toolbar.barTintColor = UIColor.black
         toolbar.isTranslucent = true
@@ -156,82 +154,55 @@ class CreateAccountVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @objc func changeResponder() {
-        var textField: UITextField!
-        if textField == firstNameText {
-            textField.resignFirstResponder()
-            lastNameText.becomeFirstResponder()
-        } else if textField == lastNameText {
-            textField.resignFirstResponder()
-            phoneNumberText.becomeFirstResponder()
-        } else if textField == phoneNumberText {
-            textField.resignFirstResponder()
-            zipCodeText.becomeFirstResponder()
-        } else if textField == zipCodeText {
-            textField.resignFirstResponder()
-            emailText.becomeFirstResponder()
-        } else if textField == emailText {
-            textField.resignFirstResponder()
-            passwordText.becomeFirstResponder()
-        } else if textField == passwordText {
-            textField.resignFirstResponder()
-            self.view.endEditing(true)
-        }
-    }
     
     @objc func doneButtonAction() {
-        //changeResponder()
         self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
-//        subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))
-//        subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
-//        subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
         
-       subscribeToNotification()
+        subscribeToNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let conditionRef = ref.child("users")
-//        conditionRef.observe(.value, with: (snap: DataSnapshot) -> Void) in
-//        self.firstNameText.text = snap.value.description
+        //        let conditionRef = ref.child("users")
+        //        conditionRef.observe(.value, with: (snap: DataSnapshot) -> Void) in
+        //        self.firstNameText.text = snap.value.description
         //self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName").removeValue()
         //self.ref.child("client").child(user.uid).setValue(["username": username])
         //self.ref.child("client").child("users").child("userEmail").child("meaty").child("firstName")
-       // self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName")
-//        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["firstName": "Jenny"])
-//        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["lastName": "Bae"])
+        // self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName")
+        //        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["firstName": "Jenny"])
+        //        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["lastName": "Bae"])
         //print("stuff here is: \(self.ref.child("client").child("users").child("userEmail").child("meaty"))")
         
-//        let key = ref.child("meaty").childByAutoId().key
-//        let post = ["firstName": "userID",
-//                    "lastName": "username",
-//                    "phoneNumber": "title",
-//                    "email": "body"]
-//        let childUpdates = ["/client/users/userEmail/meaty/appointments/\(key)": post]
-//        ref.updateChildValues(childUpdates)
-//        
-//        let key2 = ref.child("appt").childByAutoId().key
-//        let post2 = ["date": "02/01/01",
-//                     "time": "14:00PM",
-//                    "treatment": "stuff",
-//                    "location": "in office"]
-//        let childUpdates2 = ["/client/users/userEmail/meaty/appointments/appt\(key2)": post2]
-//        ref.updateChildValues(childUpdates2)
+        //        let key = ref.child("meaty").childByAutoId().key
+        //        let post = ["firstName": "userID",
+        //                    "lastName": "username",
+        //                    "phoneNumber": "title",
+        //                    "email": "body"]
+        //        let childUpdates = ["/client/users/userEmail/meaty/appointments/\(key)": post]
+        //        ref.updateChildValues(childUpdates)
+        //
+        //        let key2 = ref.child("appt").childByAutoId().key
+        //        let post2 = ["date": "02/01/01",
+        //                     "time": "14:00PM",
+        //                    "treatment": "stuff",
+        //                    "location": "in office"]
+        //        let childUpdates2 = ["/client/users/userEmail/meaty/appointments/appt\(key2)": post2]
+        //        ref.updateChildValues(childUpdates2)
     }
     
 }
 
 // MARK: - CreateAccountVC: UITextFieldDelegate
-extension CreateAccountVC: UITextFieldDelegate {
+extension AddNewAdminVC: UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
+        
         if textField == firstNameText {
             textField.resignFirstResponder()
             lastNameText.becomeFirstResponder()
@@ -252,8 +223,6 @@ extension CreateAccountVC: UITextFieldDelegate {
         }
         return true
     }
-    
-    
     
     @objc func keyboardWasShown(notification: NSNotification){
         //Need to calculate keyboard exact size due to Apple suggestions
@@ -321,14 +290,13 @@ extension CreateAccountVC: UITextFieldDelegate {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
+    
+    
+    
 }
 // MARK: - CreateAccountVC (Notifications)
 
-private extension CreateAccountVC {
-    
-//    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-//        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
-//    }
+private extension AddNewAdminVC {
     func subscribeToNotification(){
         //Adding notifies on keyboard appearing
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -337,9 +305,9 @@ private extension CreateAccountVC {
     
     
     
-//    func unsubscribeFromAllNotifications() {
-//        NotificationCenter.default.removeObserver(self)
-//    }
+    //    func unsubscribeFromAllNotifications() {
+    //        NotificationCenter.default.removeObserver(self)
+    //    }
     
     func unsubscribeFromAllNotifications(){
         //Removing notifies on keyboard appearing

@@ -56,6 +56,10 @@
 		C656EFE4209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
 		C656EFE5209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
 		C656EFE6209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
+		C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */; };
+		C69DB17920BE9A920022A426 /* AddNewAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */; };
+		C69DB17B20BEAFB90022A426 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */; };
+		C69DB17D20BF2EAC0022A426 /* AdminViewNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */; };
 		C6BAB63920A5155A0078A8C0 /* ZipCodeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */; };
 		C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */; };
 		C6BAB63D20A5240B0078A8C0 /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */; };
@@ -64,6 +68,9 @@
 		C6BAB64420A621240078A8C0 /* TreatmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */; };
 		C6BAB64620A624F40078A8C0 /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64520A624F40078A8C0 /* Treatment.swift */; };
 		C6BAB64820A629250078A8C0 /* TreatmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */; };
+		C6BF8C5320BC4AAE00C652E5 /* SearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF8C5220BC4AAE00C652E5 /* SearchFooter.swift */; };
+		C6BF8C8E20BC5B3700C652E5 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF8C8D20BC5B3700C652E5 /* Notifications.swift */; };
+		C6BF8C9020BC5C4B00C652E5 /* CustomNotificationSound5.5.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6BF8C8F20BC5C4A00C652E5 /* CustomNotificationSound5.5.wav */; };
 		E86F5A068996226E5EBDEAE3 /* Pods_StudioMedDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AFD6C6B3B470BA99F82962 /* Pods_StudioMedDatabase.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +148,10 @@
 		C656EF85209F5EF90032E26F /* StudioMedDatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656EF90209F5EF90032E26F /* StudioMedDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656EFE3209F60300032E26F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewNotesVC.swift; sourceTree = "<group>"; };
+		C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdminVC.swift; sourceTree = "<group>"; };
+		C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewNotes.swift; sourceTree = "<group>"; };
 		C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeArray.swift; sourceTree = "<group>"; };
 		C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceVC.swift; sourceTree = "<group>"; };
 		C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
@@ -149,6 +160,9 @@
 		C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsVC.swift; sourceTree = "<group>"; };
 		C6BAB64520A624F40078A8C0 /* Treatment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Treatment.swift; sourceTree = "<group>"; };
 		C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentDetailVC.swift; sourceTree = "<group>"; };
+		C6BF8C5220BC4AAE00C652E5 /* SearchFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFooter.swift; sourceTree = "<group>"; };
+		C6BF8C8D20BC5B3700C652E5 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		C6BF8C8F20BC5C4A00C652E5 /* CustomNotificationSound5.5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CustomNotificationSound5.5.wav; sourceTree = "<group>"; };
 		DF9AD4E74E3D026A1F9E40AC /* Pods-StudioMedDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseUITests/Pods-StudioMedDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED3108B361D4826F5E658D11 /* Pods-StudioMedDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +252,8 @@
 				C64265F120A1FFEC00D412D8 /* UserDetailVC.swift */,
 				C64265F520A2081200D412D8 /* PreviousApptsVC.swift */,
 				C64265F720A2109500D412D8 /* AdminApptDetailVC.swift */,
+				C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */,
+				C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */,
 				C631F06B20B1FDF300D985E2 /* AdminTabBarVC.swift */,
 			);
 			path = Admin;
@@ -256,12 +272,14 @@
 				C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */,
 				C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */,
 				C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */,
-				C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */,
 				C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */,
+				C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */,
 				C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */,
+				C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */,
 				C644538D20A63601001AEF32 /* Test.swift */,
 				C631F03C20AF860E00D985E2 /* Protocols.swift */,
 				C631F04020B135E600D985E2 /* ScaleSegue.swift */,
+				C6BF8C5220BC4AAE00C652E5 /* SearchFooter.swift */,
 				C6BAB64220A620F40078A8C0 /* MyInfo */,
 				C6BAB64020A533110078A8C0 /* ContactUsVC.swift */,
 			);
@@ -294,7 +312,10 @@
 				C656EF71209F5EF90032E26F /* AppDelegate.swift */,
 				C64265D8209F750500D412D8 /* GCD.swift */,
 				C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */,
+				C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */,
 				C64265D6209F747B00D412D8 /* Alerts.swift */,
+				C6BF8C8D20BC5B3700C652E5 /* Notifications.swift */,
+				C6BF8C8F20BC5C4A00C652E5 /* CustomNotificationSound5.5.wav */,
 				C64265EE20A1F97500D412D8 /* Controllers */,
 				C64265DF20A0F45500D412D8 /* Model */,
 				C656EF73209F5EF90032E26F /* ViewController.swift */,
@@ -446,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C656EF7F209F5EF90032E26F /* LaunchScreen.storyboard in Resources */,
+				C6BF8C9020BC5C4B00C652E5 /* CustomNotificationSound5.5.wav in Resources */,
 				C656EF7C209F5EF90032E26F /* Assets.xcassets in Resources */,
 				C656EF77209F5EF90032E26F /* Main.storyboard in Resources */,
 				C656EFE4209F60310032E26F /* GoogleService-Info.plist in Resources */,
@@ -482,6 +504,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -491,6 +514,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -597,17 +621,21 @@
 				C608F30520B5DC0700410951 /* DateCollectionViewCell.swift in Sources */,
 				C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */,
 				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
+				C69DB17920BE9A920022A426 /* AddNewAdminVC.swift in Sources */,
 				C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */,
 				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
 				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
 				C656EF74209F5EF90032E26F /* ViewController.swift in Sources */,
+				C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */,
 				C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */,
 				C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */,
 				C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */,
 				C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */,
 				C644539020A64A9A001AEF32 /* ApptNotesVC.swift in Sources */,
+				C69DB17B20BEAFB90022A426 /* ColorExtensions.swift in Sources */,
 				C64265ED20A1375C00D412D8 /* ClientTabVC.swift in Sources */,
 				C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */,
+				C6BF8C8E20BC5B3700C652E5 /* Notifications.swift in Sources */,
 				C6BAB64820A629250078A8C0 /* TreatmentDetailVC.swift in Sources */,
 				C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */,
 				C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */,
@@ -618,12 +646,14 @@
 				C64265F620A2081200D412D8 /* PreviousApptsVC.swift in Sources */,
 				C6BAB63F20A524160078A8C0 /* EditInfoVC.swift in Sources */,
 				C608F30720B5DC0700410951 /* FullDateCollectionViewCell.swift in Sources */,
+				C6BF8C5320BC4AAE00C652E5 /* SearchFooter.swift in Sources */,
 				C64265FE20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift in Sources */,
 				C64265E120A0F47100D412D8 /* User.swift in Sources */,
 				C608F30620B5DC0700410951 /* DateTimePicker.swift in Sources */,
 				C64265F420A1FFF700D412D8 /* ApptDetailVC.swift in Sources */,
 				C631F03F20B125ED00D985E2 /* RequestTimeVC.swift in Sources */,
 				C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */,
+				C69DB17D20BF2EAC0022A426 /* AdminViewNotes.swift in Sources */,
 				C642660420A4FB1E00D412D8 /* FirstLoginVC.swift in Sources */,
 				C6BAB64120A533110078A8C0 /* ContactUsVC.swift in Sources */,
 				C6BAB64420A621240078A8C0 /* TreatmentsVC.swift in Sources */,

@@ -83,11 +83,11 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 let priceNumberText = treatmentDict["price"] as! String
                 let bestForText = treatmentDict["bestFor"] as! String
 
-                print("treatmentNameText is: \(treatmentNameText)")
+                print("treatmentVC treatmentNameText is: \(treatmentNameText)")
 
                 
                 let treatment = Treatment(nameText: treatmentNameText, aboutText: aboutText, priceText: priceNumberText, bestForText: bestForText)
-                print("treatmentDict is \(treatmentDict)")
+                print("treatmentVC treatmentDict is \(treatmentDict)")
                 self.treatments.append(treatment)
 //                print("users array is \(self.users)")
                 performUIUpdatesOnMain {
@@ -107,7 +107,7 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
         let treatmentName = treatments[indexPath.row].name
         let treatmentBestFor = treatments[indexPath.row].bestFor
-        print("treatmentNameText is: \(treatmentName)")
+        print("treatmentVC cellfor row treatmentNameText is: \(treatmentName)")
 
 //        let lastName = users[indexPath.row].lastName
 //        let phoneNumber = users[indexPath.row].phoneNumber
@@ -133,6 +133,7 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         //        print("selected a user \(users[indexPath.row].email)")
                 let treatmentName = treatments[indexPath.row].name
                 let treatmentAbout = treatments[indexPath.row].about
+         print("treatmentVC didSelectRowAt treatmentNameText is: \(treatmentName)")
         //        let phoneNumber = users[indexPath.row].phoneNumber
         //        let email = users[indexPath.row].email
         //

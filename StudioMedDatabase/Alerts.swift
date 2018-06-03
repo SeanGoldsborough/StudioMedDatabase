@@ -71,7 +71,7 @@ class AlertView {
         apptObjectShared.notes = "Add A Note For The Doctor"
         
         print(" apptObjectShared.date is : \( apptObjectShared.date)")
-        
+        Notifications.adminNotification()
         let addAppt = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             
             

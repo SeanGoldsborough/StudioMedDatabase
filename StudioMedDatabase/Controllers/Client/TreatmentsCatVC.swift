@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseCore
+import FirebaseDatabase
 
 class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var ref: DatabaseReference!
@@ -133,11 +135,16 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 let treatmentsVC = storyboard?.instantiateViewController(withIdentifier: "TreatmentsVC") as! TreatmentsVC
                 navigationController?.pushViewController(treatmentsVC, animated: true);
             case 1:
-                let contactUsVC = storyboard?.instantiateViewController(withIdentifier: "ContactUsVC") as! ContactUsVC
-                navigationController?.pushViewController(contactUsVC, animated: true);
+                let treatmentDetailVC = storyboard?.instantiateViewController(withIdentifier: "TreatmentDetailVC") as! TreatmentDetailVC
+                treatmentDetailVC.name = treatmentCat[1]
+                treatmentDetailVC.selectedIndex = 1
+                
+                navigationController?.pushViewController(treatmentDetailVC, animated: true);
             case 2:
-                let contactUsVC = storyboard?.instantiateViewController(withIdentifier: "ContactUsVC") as! ContactUsVC
-                navigationController?.pushViewController(contactUsVC, animated: true);
+                let treatmentDetailVC = storyboard?.instantiateViewController(withIdentifier: "TreatmentDetailVC") as! TreatmentDetailVC
+                treatmentDetailVC.name = treatmentCat[2]
+                treatmentDetailVC.selectedIndex = 2
+                navigationController?.pushViewController(treatmentDetailVC, animated: true);
             case 3:
                 let contactUsVC = storyboard?.instantiateViewController(withIdentifier: "ContactUsVC") as! ContactUsVC
                 navigationController?.pushViewController(contactUsVC, animated: true);

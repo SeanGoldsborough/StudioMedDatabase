@@ -144,7 +144,9 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
 //        apptObject.date = dateTimeButton.titleLabel?.text!
 //        apptObject.time = dateTimeButton.titleLabel?.text!
         self.apptObjectShared.isCancelled = false
-        self.apptObjectShared.firebaseUID = userObjectShared.fireBaseUID
+        self.apptObjectShared.isActive = true
+        self.apptObjectShared.isComplete = false
+        self.apptObjectShared.firebaseClientID = userObjectShared.fireBaseUID
         self.apptObjectShared.firstName = userObject.firstName
         self.apptObjectShared.lastName = userObject.lastName
         self.apptObjectShared.phoneNumber = userObject.phoneNumber
@@ -165,10 +167,12 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         
         
         
-        if apptObjectShared.date == nil || apptObjectShared.treatment1 == nil {
+        if apptObjectShared.date == nil || apptObjectShared.treatment1 == nil || dateTimeButton.titleLabel?.text == "Select A Date & Time" || treatmentOneButton.titleLabel?.text == "Select A Treatment" {
             AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
         } else {
             let isCancelled = false
+            let isActive = true
+            let isComplete = false
             let uid = self.userObjectShared.fireBaseUID
             let date = self.apptObjectShared.date!
             let treatment = self.apptObjectShared.treatment1!
@@ -176,16 +180,16 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             let clientKey = ref.child(uid!).key
             let clientApptKey = ref.childByAutoId().key
             //let clientApptKey = ref.child(date).key
-            let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
-            let adminKey = ref.child("\(fullName)").childByAutoId().key
-            let post = ["isCancelled": isCancelled, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
-                "lastName": "\(self.userObjectShared.lastName!)",
-                "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
-                "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
-            let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
-           let adminChildUpdates = ["/admin/appts/allAppts/\(adminKey)": post]
-            ref.updateChildValues(clientChildUpdates)
-            ref.updateChildValues(adminChildUpdates)
+//            let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
+//            let adminKey = ref.child("\(fullName)").childByAutoId().key
+//            let post = ["isCancelled": isCancelled, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
+//                "lastName": "\(self.userObjectShared.lastName!)",
+//                "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
+//                "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
+//            let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
+//           let adminChildUpdates = ["/admin/appts/allAppts/\(adminKey)": post]
+//            ref.updateChildValues(clientChildUpdates)
+//            ref.updateChildValues(adminChildUpdates)
 
 //                    let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
 //                    //listOfAppointmentsVC.userName = fullName
@@ -232,6 +236,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         ref = Database.database().reference()
         
         let userID = Auth.auth().currentUser?.uid
+        print("userID from create new account to create appt is \(userID)")
         //let userID = "ks5xtiGRZNWfaVvgAtK9zHWekru1"
         ref.child("client").child("clients").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -371,13 +376,13 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
     }
     
     //TODO: FIX IT SO IT WORKS WITH RIGHT PROMPTS
-    func rateAppAlert() {
-        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
-        if currentCount == 12 {
-            print("we launched the app more than 4 times")
-            AlertView.alertPopUp(view: self, alertMessage: "Rate the app!")
-        }
-    }
+//    func rateAppAlert() {
+//        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+//        if currentCount == 12 {
+//            print("we launched the app more than 4 times")
+//            AlertView.alertPopUp(view: self, alertMessage: "Rate the app!")
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -390,7 +395,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         
         
         //getUserData()
-        rateAppAlert()
+        //rateAppAlert()
         getOneUserData()
     }
    

@@ -14,8 +14,13 @@ import FirebaseAuth
 
 class  ResetPasswordVC: UIViewController {
     
+    var keyboardIsShown = false
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func resetPasswordButton(_ sender: Any) {
         
         if self.emailTextField.text == "" {
@@ -51,15 +56,82 @@ class  ResetPasswordVC: UIViewController {
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
+        self.emailTextField.delegate = self
+        
+        //init toolbar
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+        //create left side empty space so that done button set on right side
+        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        doneBtn.tintColor = UIColor.white
+        toolbar.barTintColor = UIColor.black
+        toolbar.isTranslucent = true
+        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        
+        //setting toolbar as inputAccessoryView
+        self.emailTextField.inputAccessoryView = toolbar
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func doneButtonAction() {
+        self.view.endEditing(true)
+    }   
+}
+
+// MARK: - CreateAccountVC: UITextFieldDelegate
+extension ResetPasswordVC: UITextFieldDelegate {
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder()
+        
+        return true
     }
     
     
+    //    // MARK: Show/Hide Keyboard
+    //
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if !keyboardIsShown {
+            view.frame.origin.y = -keyboardHeight(notification) / 2.6
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        if keyboardIsShown {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func keyboardDidShow(_ notification: Notification) {
+        keyboardIsShown = true
+    }
+    
+    @objc func keyboardDidHide(_ notification: Notification) {
+        keyboardIsShown = false
+    }
+    
+    func keyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = (notification as NSNotification).userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+}
+// MARK: - CreateAccountVC (Notifications)
+
+private extension ResetPasswordVC {
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

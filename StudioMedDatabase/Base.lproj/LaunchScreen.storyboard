@@ -23,19 +23,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STUDIO MED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC0-Qs-nQB">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STUDIO MED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC0-Qs-nQB">
                                 <rect key="frame" x="16" y="233" width="343" height="200"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="48"/>
                                 <color key="textColor" red="0.98760443929999997" green="0.329615781" blue="0.33106047100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StudioMedLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="pxu-XN-wVM">
+                                <rect key="frame" x="38" y="269" width="298" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="6U4-s7-Vwr"/>
+                                    <constraint firstAttribute="width" constant="298" id="R2N-Oz-MSe"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="StudioMedLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="JCg-Yk-Cim">
+                                <rect key="frame" x="16" y="308" width="343" height="50"/>
+                                <color key="tintColor" red="0.98760443929999997" green="0.57333081959999999" blue="0.51162141559999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="IWo-YY-GrP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="YCw-oz-AW1"/>
+                                    <constraint firstAttribute="height" constant="50" id="z1e-6M-wKz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3803921569" green="0.44705882349999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yC0-Qs-nQB" secondAttribute="bottom" constant="234" id="23r-5n-0xU"/>
                             <constraint firstItem="yC0-Qs-nQB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Giz-cF-jmn"/>
+                            <constraint firstItem="pxu-XN-wVM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IAJ-Dp-PFI"/>
+                            <constraint firstItem="pxu-XN-wVM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="P2H-yr-KcI"/>
+                            <constraint firstItem="pxu-XN-wVM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="UXX-Nh-gzU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yC0-Qs-nQB" secondAttribute="trailing" constant="16" id="jBz-o2-g9u"/>
                             <constraint firstItem="yC0-Qs-nQB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="213" id="jJz-m3-Ppp"/>
+                            <constraint firstItem="pxu-XN-wVM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nk2-ok-aOW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -45,4 +65,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="StudioMedLogoWhite" width="1248" height="288"/>
+    </resources>
 </document>

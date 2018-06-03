@@ -64,7 +64,11 @@ class LoginVC: UIViewController {
         print("login button pressed")
     }
     
-     @IBAction func signUpButton(_ sender: Any) {
+    @IBAction func forgotPassword(_ sender: Any) {
+        let resetPasswordVC = storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
+        self.present(resetPasswordVC, animated: true, completion: nil)
+    }
+    @IBAction func signUpButton(_ sender: Any) {
         let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
         navigationController?.pushViewController(createAccountVC, animated: true)
     }
@@ -73,6 +77,9 @@ class LoginVC: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         ref = Database.database().reference()
+        
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
         
         //emailTextField.tag = 0

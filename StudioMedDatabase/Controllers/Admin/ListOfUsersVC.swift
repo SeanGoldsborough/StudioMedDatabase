@@ -192,6 +192,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         userDetailVC.lastName = user.lastName
         userDetailVC.phoneNumber = user.phoneNumber
         userDetailVC.email = user.email
+        userDetailVC.zipCode = user.zipCode
         
         navigationController?.pushViewController(userDetailVC, animated: true)
         

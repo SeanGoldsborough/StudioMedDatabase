@@ -10,7 +10,11 @@ import Foundation
 import Contacts
 
 class Appointment {
+    var firebaseApptID: String
+    var firebaseClientID: String
     var isCancelled: Bool
+    var isActive: Bool
+    var isComplete: Bool
     var date: String
     var firstName: String
     var lastName: String
@@ -20,8 +24,12 @@ class Appointment {
     var notes: String
 
     
-    init(isCancelledBool: Bool, firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, dateText: String, treatment1Text: String,  notesText: String) {
+    init(firebaseApptIDString: String, firebaseClientIDString: String, isCancelledBool: Bool, isActiveBool: Bool, isCompleteBool: Bool, firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, dateText: String, treatment1Text: String,  notesText: String) {
+        firebaseApptID = firebaseApptIDString
+        firebaseClientID = firebaseClientIDString
         isCancelled = isCancelledBool
+        isActive = isActiveBool
+        isComplete = isCompleteBool
         date = dateText
         firstName = firstNameText
         lastName = lastNameText
@@ -33,8 +41,11 @@ class Appointment {
 }
 
 class AppointmentData : NSObject {
+    public var firebaseApptID: String?
+    public var firebaseClientID: String?
     public var isCancelled: Bool?
-    public var firebaseUID: String?
+    public var isActive: Bool?
+    public var isComplete: Bool?
     public var date: String?
     public var time: String?
     public var firstName: String?
@@ -42,7 +53,6 @@ class AppointmentData : NSObject {
     public var phoneNumber: String?
     public var email: String?
     public var treatment1: String?
-   
     public var notes: String?
  
     

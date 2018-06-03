@@ -14,13 +14,51 @@ class ApptDetailVC: UIViewController {
     var coloredCellIndex = Int()
     var userObjectShared = UserData.sharedInstance()
     var apptObjectShared = AppointmentData.sharedInstance()
+    var statusVarString = String()
 
+    @IBAction func viewNotesButton(_ sender: Any) {
+        
+        let clientViewNotesVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientViewNotesVC") as! ClientViewNotesVC
+        //clientViewNotesVC.notesTextView.text = apptObjectShared.notes ?? "No Notes Written."
+        navigationController?.pushViewController(clientViewNotesVC, animated: true)
+    }
     @IBAction func cancelApptButton(_ sender: Any) {
         print("cancel appt button pressed")
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userID = Auth.auth().currentUser?.uid
+        
+        let isCancelled = true
+        let isActive = false
+        let isComplete = false
+        let uid = self.userObjectShared.fireBaseUID
+        let date = self.apptObjectShared.date!
+        let treatment = self.apptObjectShared.treatment1!
+        let notes = self.apptObjectShared.notes ?? ""
+        let clientKey = ref.child(uid!).key
+        let clientApptKey = self.apptObjectShared.firebaseApptID!
+        //let clientApptKey = ref.child(date).key
+        let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
+        let adminKey = ref.child("\(fullName)").childByAutoId().key
+        
+        let post = ["firebaseApptID": clientApptKey,"firebaseClientID": uid, "isCancelled": isCancelled, "isActive": isActive, "isComplete": isComplete, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
+            "lastName": "\(self.userObjectShared.lastName!)",
+            "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
+            "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
+        let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
+        let adminChildUpdates = ["/admin/appts/allAppts/\(clientApptKey)": post]
+        ref.updateChildValues(clientChildUpdates)
+        ref.updateChildValues(adminChildUpdates)
+        
+        print("user id is: \(userID).")
+
         
         //AlertView.alertPopUpTwo(view: self, title: "Appointment has been canceled!", alertMessage: "", buttonTitle: "OK")
         AlertView.apptCancelAlert(view: self, alertTitle: "Appointment has been canceled!", alertMessage: "")
         apptObjectShared.isCancelled = true
+        apptObjectShared.isActive = false
+        apptObjectShared.isComplete = false
 //        var mainViewController:ClientAppointmentHistoryVC?
 //
 //        var zipBool = "0"
@@ -52,13 +90,54 @@ class ApptDetailVC: UIViewController {
     @IBAction func confirmAppt(_ sender: Any) {
         //AlertView.alertPopUpTwo(view: self, title: "Appointment has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.", buttonTitle: "OK")
         
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userID = Auth.auth().currentUser?.uid
         
-        AlertView.apptCreateAlert(view: self, alertTitle: "Appointment has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.")
+        
+        let isCancelled = false
+        let isActive = true
+        let isComplete = false
+        let uid = self.userObjectShared.fireBaseUID
+        let date = self.apptObjectShared.date!
+        let treatment = self.apptObjectShared.treatment1!
+        let notes = self.apptObjectShared.notes ?? ""
+        let clientKey = ref.child(uid!).key
+        let clientApptKey = ref.childByAutoId().key
+        //let clientApptKey = ref.child(date).key
+        let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
+        let adminKey = ref.child("\(fullName)").childByAutoId().key
+//        let post = ["isCancelled": isCancelled, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
+//            "lastName": "\(self.userObjectShared.lastName!)",
+//            "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
+//            "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
+        
+        let post = ["firebaseApptID": clientApptKey,"firebaseClientID": uid, "isCancelled": isCancelled, "isActive": isActive, "isComplete": isComplete, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
+            "lastName": "\(self.userObjectShared.lastName!)",
+            "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
+            "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
+        let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
+        let adminChildUpdates = ["/admin/appts/allAppts/\(clientApptKey)": post]
+        ref.updateChildValues(clientChildUpdates)
+        ref.updateChildValues(adminChildUpdates)
+        
+        print("user id is: \(userID).")
+        
+        
+        
+        apptObjectShared.isCancelled = false
+        apptObjectShared.isActive = true
+        apptObjectShared.isComplete = false
+        
+        AlertView.apptCreateAlert(view: self, alertTitle: "Appointment request has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.")
         
         //rateAppAlert()
     }
     
     
+    @IBOutlet weak var apptStatusLabel: UILabel!
+    @IBOutlet weak var apptDateAndTimeLabel: UILabel!
+    @IBOutlet weak var treatmentLabel: UILabel!
     @IBOutlet weak var userFullNameLabel: UILabel!
     @IBOutlet weak var userPhoneLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
@@ -66,11 +145,27 @@ class ApptDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("colored index is \(coloredCellIndex)")
-        print("user name is \(userObjectShared.email!)")
+        print("user email is \(userObjectShared.email!)")
         navigationController?.navigationBar.isHidden = false
+
+        if self.apptObjectShared.isCancelled == true {
+            statusVarString = "Cancelled"
+        } else if self.apptObjectShared.isCancelled == false && self.apptObjectShared.isActive == true {
+            statusVarString = "Active"
+        } else if self.apptObjectShared.isCancelled == false && self.apptObjectShared.isActive == false {
+            statusVarString = "Complete"
+        }
+        
+        self.apptStatusLabel.text = "Appointment is: \(statusVarString)"
+        self.apptDateAndTimeLabel.text = apptObjectShared.date!
+        self.treatmentLabel.text = apptObjectShared.treatment1!
+        
+        
+        
         self.userFullNameLabel.text = userObjectShared.firstName! + " " + userObjectShared.lastName!
         self.userPhoneLabel.text = userObjectShared.phoneNumber!
         self.userEmailLabel.text = userObjectShared.email!
+        
     }
     
     override func didReceiveMemoryWarning() {

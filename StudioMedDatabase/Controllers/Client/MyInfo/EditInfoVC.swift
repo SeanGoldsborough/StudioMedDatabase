@@ -20,6 +20,8 @@ class EditInfoVC: UIViewController {
     var emailSwitchBool = false
     var userApptArray = [""]
     
+    var keyboardIsShown = false
+    
     
     
     @IBOutlet weak var firstNameTF: UITextField!
@@ -43,8 +45,6 @@ class EditInfoVC: UIViewController {
         let key = ref.child("client").child("clients").child(userID!).key
         let post = [
             
-//                    "allowEmailNewsletter": self.emailSwitchBool,
-//                    "allowNotifications": self.notificationsSwitchBool,
                     "allowEmailNewsletter": self.emailSwitchBool,
                     "allowNotifications": self.notificationsSwitchBool,
                     "appointments": self.userApptArray,
@@ -139,8 +139,8 @@ class EditInfoVC: UIViewController {
                 self.emailTF.text = emailText
                 self.emailSwitchBool = allowEmailNewsletterBool
                 self.notificationsSwitchBool = allowNotificationsBool
-//                self.emailAllowedSwitch.isOn = self.emailSwitchBool
-//                self.notificationsAllowedSwitch.isOn = self.notificationsSwitchBool
+                self.emailAllowedSwitch.isOn = self.emailSwitchBool
+                self.notificationsAllowedSwitch.isOn = self.notificationsSwitchBool
             }
             // ...
         }) { (error) in
@@ -154,10 +154,86 @@ class EditInfoVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.black
+        firstNameTF.delegate = self
+        lastNameTF.delegate = self
+        phoneNumberTF.delegate = self
+        emailTF.delegate = self
+        zipCodeTF.delegate = self
+        getOneUserData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getOneUserData()
+    }
+    @objc func doneButtonAction() {
+        self.view.endEditing(true)
+    }
+    
+}
+// MARK: - CreateAccountVC: UITextFieldDelegate
+extension EditInfoVC: UITextFieldDelegate {
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == firstNameTF {
+            textField.resignFirstResponder()
+            lastNameTF.becomeFirstResponder()
+        } else if textField == lastNameTF {
+            textField.resignFirstResponder()
+            phoneNumberTF.becomeFirstResponder()
+        } else if textField == phoneNumberTF {
+            textField.resignFirstResponder()
+            zipCodeTF.becomeFirstResponder()
+        } else if textField == zipCodeTF {
+            textField.resignFirstResponder()
+            emailTF.becomeFirstResponder()
+        } else if textField == emailTF {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    
+    //    // MARK: Show/Hide Keyboard
+    //
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if !keyboardIsShown {
+            view.frame.origin.y = -keyboardHeight(notification) / 2.6
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        if keyboardIsShown {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func keyboardDidShow(_ notification: Notification) {
+        keyboardIsShown = true
+    }
+    
+    @objc func keyboardDidHide(_ notification: Notification) {
+        keyboardIsShown = false
+    }
+    
+    func keyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = (notification as NSNotification).userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+}
+// MARK: - CreateAccountVC (Notifications)
+
+private extension EditInfoVC {
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
     }
 }

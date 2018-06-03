@@ -25,6 +25,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     //var sortedAppointments = [Appointment]()
     var filteredAppointments = [Appointment]()
     var userObject = UserData.sharedInstance()
+    var apptObjectShared = AppointmentData.sharedInstance()
     var listOfAppointmentsVCBool = false
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -45,6 +46,8 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         }    }
     
     @IBOutlet weak var tableView: UITableView!
+   
+    
     
 //    var testArray = [String]()
 //    var convertedArray: [Date] = []
@@ -69,7 +72,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         print("user name is: \(userName)")
         tableView.dataSource = self
         tableView.delegate = self
-        //print(users.count)
+        
         
         if appointments.count < 1 {
             getData()
@@ -81,6 +84,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         searchController.searchBar.placeholder = "Search Appointments By Date"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchBar.tintColor = UIColor(rgb: 0xFF6666)
         
         
         //navigationController?.navigationBar.topItem?.title = "Hi, \(userObject.firstName!)"
@@ -141,21 +145,24 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     func getData() {
         databaseHandle = ref.child("admin").child("appts").child("allAppts").observe(.childAdded, with: { (snapshot) in
             if let apptDict = snapshot.value as? [String : AnyObject] {
-                print("apptDict is \(apptDict)")
+                print("apptDict1 on list of appt in admin is \(apptDict)")
                 
+                let apptFirebaseApptID = apptDict["firebaseApptID"] as! String
+                let apptFirebaseClientID = apptDict["firebaseClientID"] as! String
                 let apptIsCancelledBool = apptDict["isCancelled"] as! Bool
+                let apptIsActiveBool = apptDict["isActive"] as! Bool
+                let apptIsCompleteBool = apptDict["isComplete"] as! Bool
                 let firstNameText = apptDict["firstName"] as! String
                 let lastNameText = apptDict["lastName"] as! String
                 let phoneNumberText = apptDict["phoneNumber"] as! String
-                //let zipCodeText = userDict["zipCode"] as! String
                 let emailText = apptDict["email"] as! String
                 let dateText = apptDict["date"] as! String
                 let treatmentText = apptDict["treatment1"] as! String
                 let notesText = apptDict["notes"] as! String
                 
-                let appointment = Appointment(isCancelledBool: apptIsCancelledBool, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
+                let appointment = Appointment(firebaseApptIDString: apptFirebaseApptID, firebaseClientIDString: apptFirebaseClientID, isCancelledBool: apptIsCancelledBool, isActiveBool: apptIsActiveBool, isCompleteBool: apptIsCompleteBool, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
                 
-                print("apptDict is \(apptDict)")
+                print("apptDict2 is \(apptDict)")
                 self.appointments.append(appointment)
                 
 //                var customObjects = self.appointments.sorted(by: {
@@ -173,8 +180,10 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
+            
             return filteredAppointments.count
         }
+        
         return appointments.count
     }
     
@@ -187,8 +196,8 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
             appointment = appointments[indexPath.row]
         }
         
-        cell.textLabel?.text = appointment.date + "    " + appointment.treatment1
-        cell.detailTextLabel?.text = appointment.firstName + " " + appointment.lastName
+        cell.textLabel?.text = appointment.date
+        cell.detailTextLabel?.text = appointment.treatment1
         
         print("appt is can = \(appointment.isCancelled)")
         
@@ -209,19 +218,19 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
             
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
-            cell.textLabel?.textColor = UIColor.red
+            cell.textLabel?.textColor = UIColor.lightGray
             cell.textLabel?.alpha = 0.5
             
             cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
-            cell.detailTextLabel?.textColor = UIColor.red
+            cell.detailTextLabel?.textColor = UIColor.lightGray
             cell.detailTextLabel?.alpha = 0.5
             
             cell.backgroundColor = UIColor.darkGray
             
         } else {
-            cell.textLabel?.textColor = UIColor.white
-            cell.detailTextLabel?.textColor = UIColor.white
-            cell.backgroundColor = UIColor.black
+            cell.textLabel?.textColor = UIColor.black
+            cell.detailTextLabel?.textColor = UIColor.black
+            cell.backgroundColor = UIColor.white
             
         }
         
@@ -248,16 +257,51 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let adminApptDetailVC = storyboard?.instantiateViewController(withIdentifier: "AdminApptDetailVC") as! AdminApptDetailVC
+        
+        let appointment: Appointment
+        if isFiltering() {
+            appointment = filteredAppointments[indexPath.row]
+            
+        } else {
+            appointment = appointments[indexPath.row]
+            
+        }
         //        print("selected a user \(users[indexPath.row].email)")
-        //        let firstName = users[indexPath.row].firstName
-        //        let lastName = users[indexPath.row].lastName
-        //        let phoneNumber = users[indexPath.row].phoneNumber
-        //        let email = users[indexPath.row].email
+//                let firstName = appointment[indexPath.row].firstName
+//                let lastName = appointment[indexPath.row].lastName
+//                let phoneNumber = appointment[indexPath.row].phoneNumber
+//                let email = appointment[indexPath.row].email
+//                let treatment = appointment[indexPath.row].treatment1
         //
         //        userDetailVC.clientName = firstName + " " + lastName
         //        userDetailVC.phoneNumber = phoneNumber
         //        userDetailVC.email = email
-        adminApptDetailVC.cancelledBool = listOfAppointmentsVCBool
+//        let firstName = appointment.firstName
+//        let lastName = appointment.lastName
+//        let phoneNumber = appointment.phoneNumber
+//        let email = appointment.email
+//        let treatment = appointment.treatment1
+//        let appointmentDate = appointment.date
+   
+        self.apptObjectShared.firebaseApptID = appointment.firebaseApptID
+        self.apptObjectShared.firebaseClientID = appointment.firebaseClientID
+        self.apptObjectShared.isCancelled = appointment.isCancelled
+        self.apptObjectShared.isActive = appointment.isActive
+        self.apptObjectShared.isComplete = appointment.isComplete
+        self.apptObjectShared.firstName = appointment.firstName
+        self.apptObjectShared.lastName = appointment.lastName
+        self.apptObjectShared.phoneNumber = appointment.phoneNumber
+        self.apptObjectShared.email = appointment.email
+        self.apptObjectShared.treatment1 = appointment.treatment1
+        self.apptObjectShared.date = appointment.date
+        self.apptObjectShared.notes = appointment.notes
+        
+//        adminApptDetailVC.apptDateTime.text = appointmentDate
+//        adminApptDetailVC.treatmentLabel.text = treatment
+//        adminApptDetailVC.userFullNameLabel.text = firstName + " " + lastName
+//        adminApptDetailVC.userPhoneLabel.text = phoneNumber
+//        adminApptDetailVC.userEmailLabel.text = email
+//        adminApptDetailVC.cancelledBool = listOfAppointmentsVCBool
         navigationController?.pushViewController(adminApptDetailVC, animated: true)
         
     }
@@ -265,7 +309,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     // Override to support conditional editing of the table view.
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
     
     // Override to support editing the table view.

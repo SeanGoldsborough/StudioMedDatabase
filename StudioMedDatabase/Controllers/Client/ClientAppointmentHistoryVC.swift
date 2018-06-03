@@ -7,6 +7,9 @@
 
 import UIKit
 import Firebase
+import FirebaseCore
+import FirebaseDatabase
+
 
 
 class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -14,7 +17,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
     
-    let searchController = UISearchController(searchResultsController: nil)
+    
+    
+    
     //var arrayOfUsers = [UserData]()
     //var users = UserArray.sharedInstance.listOfUsers
     var userName = String()
@@ -56,30 +61,6 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Private instance methods - RW Tutorial - https://www.raywenderlich.com/157864/uisearchcontroller-tutorial-getting-started
-    
-    
-    func searchBarIsEmpty() -> Bool {
-        // Returns true if the text is empty or nil
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
-    func isFiltering() -> Bool {
-        return searchController.isActive && !searchBarIsEmpty()
-    }
-    
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredAppointments = appointments.filter({( appointment : Appointment) -> Bool in
-            //return candy.name.lowercased().contains(searchText.lowercased())
-            //return user.firstName.lowercased().contains(searchText.lowercased())
-            return appointment.date.lowercased().contains(searchText.lowercased())
-        })
-        
-        performUIUpdatesOnMain {
-            self.tableView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -87,15 +68,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Setup the Search Controller
-        searchController.searchBar.keyboardAppearance = .dark
-        searchController.searchBar.barTintColor = UIColor.white
-        searchController.searchBar.barStyle = .default
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Past Appointments"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+        
         
         //navigationController?.navigationBar.isHidden = true
         
@@ -115,7 +88,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        performUIUpdatesOnMain {
+            self.tableView.reloadData()
+        }
         //        let query = ref.queryOrderedByKey() /*or a more sophisticated query of your choice*/
         //
         //        databaseHandle = ref.child("client").child("users").observe(.childAdded, with: { (snapshot) in
@@ -146,7 +121,11 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             if let apptDict = snapshot.value as? [String : AnyObject] {
                 print("apptDict is \(apptDict)")
                 
+                let apptFirebaseApptID = apptDict["firebaseApptID"] as! String
+                let apptFirebaseClientID = apptDict["firebaseClientID"] as! String
                 let apptIsCancelledBool = apptDict["isCancelled"] as! Bool
+                let apptIsActiveBool = apptDict["isActive"] as! Bool
+                let apptIsCompleteBool = apptDict["isComplete"] as! Bool
                 let firstNameText = apptDict["firstName"] as! String
                 let lastNameText = apptDict["lastName"] as! String
                 let phoneNumberText = apptDict["phoneNumber"] as! String
@@ -156,7 +135,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
                 let treatmentText = apptDict["treatment1"] as! String
                 let notesText = apptDict["notes"] as! String
                 
-                let appointment = Appointment(isCancelledBool: apptIsCancelledBool, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
+                let appointment = Appointment(firebaseApptIDString: apptFirebaseApptID, firebaseClientIDString: apptFirebaseClientID, isCancelledBool: apptIsCancelledBool, isActiveBool: apptIsActiveBool, isCompleteBool: apptIsCompleteBool, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, dateText: dateText, treatment1Text: treatmentText, notesText: notesText)
 
 //                let user = User(firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: dateText, emailText: emailText, zipCodeText: treatmentText)
                 print("apptDict is \(apptDict)")
@@ -171,9 +150,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering() {
-            return filteredAppointments.count
-        }
+
         return appointments.count
     }
     
@@ -181,11 +158,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
         
         let appointment: Appointment
-        if isFiltering() {
-            appointment = filteredAppointments[indexPath.row]
-        } else {
-            appointment = appointments[indexPath.row]
-        }
+
+        appointment = appointments[indexPath.row]
+ 
         
         cell.textLabel?.text = appointment.firstName + " " + appointment.lastName
         cell.detailTextLabel?.text = appointment.date + "    " + appointment.treatment1
@@ -208,11 +183,11 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             let bottomText = appointment.date + "    " + appointment.treatment1
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
-            cell.textLabel?.textColor = UIColor.red
+            cell.textLabel?.textColor = UIColor.lightGray
             cell.textLabel?.alpha = 0.5
             
             cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
-            cell.detailTextLabel?.textColor = UIColor.red
+            cell.detailTextLabel?.textColor = UIColor.lightGray
             cell.detailTextLabel?.alpha = 0.5
             
             cell.backgroundColor = UIColor.darkGray
@@ -278,6 +253,10 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let appointment: Appointment
+        
+        appointment = appointments[indexPath.row]
+          print("selected appt is can = \(appointment.isCancelled)")
         
 //        self.coloredCellIndex = indexPath.row
         let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
@@ -296,10 +275,5 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     }
 }
 
-extension ClientAppointmentHistoryVC: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
-}
+
 
