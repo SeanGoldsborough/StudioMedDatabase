@@ -57,6 +57,7 @@
 		C656EFE5209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
 		C656EFE6209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
 		C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */; };
+		C674E4C320C4ADCA00587B15 /* AboutStudioMedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */; };
 		C69DB17920BE9A920022A426 /* AddNewAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */; };
 		C69DB17B20BEAFB90022A426 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */; };
 		C69DB17D20BF2EAC0022A426 /* AdminViewNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */; };
@@ -149,6 +150,7 @@
 		C656EF90209F5EF90032E26F /* StudioMedDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudioMedDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656EFE3209F60300032E26F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewNotesVC.swift; sourceTree = "<group>"; };
+		C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutStudioMedVC.swift; sourceTree = "<group>"; };
 		C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdminVC.swift; sourceTree = "<group>"; };
 		C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewNotes.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */,
 				C6BAB63E20A524160078A8C0 /* EditInfoVC.swift */,
 				C642660120A25CA900D412D8 /* ResetPasswordVC.swift */,
+				C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */,
 				C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */,
 				C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */,
 			);
@@ -645,6 +648,7 @@
 				C608F30820B5DC0700410951 /* StepCollectionViewFlowLayout.swift in Sources */,
 				C64265F620A2081200D412D8 /* PreviousApptsVC.swift in Sources */,
 				C6BAB63F20A524160078A8C0 /* EditInfoVC.swift in Sources */,
+				C674E4C320C4ADCA00587B15 /* AboutStudioMedVC.swift in Sources */,
 				C608F30720B5DC0700410951 /* FullDateCollectionViewCell.swift in Sources */,
 				C6BF8C5320BC4AAE00C652E5 /* SearchFooter.swift in Sources */,
 				C64265FE20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift in Sources */,

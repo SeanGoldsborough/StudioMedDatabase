@@ -402,6 +402,8 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+       
+        
         print("value from TreatmentDetailVC is2: \(apptObjectShared.treatment1)")
             print("value from GetDateVC is: \(apptObjectShared.date)")
 //            self.dateTimeButton.setTitle("\(valueFromGetDateVC)", for: UIControlState.normal)

@@ -139,6 +139,8 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
         
         if name == "Intravenous Immunoglobulin (IVIG)" {
             name = "IVIG"
+        } else if name == "CINQAIR® (Reslizumab)" {
+            name = "CINQAIR®"
         }
         
         print("data for others called name = \(self.name)")

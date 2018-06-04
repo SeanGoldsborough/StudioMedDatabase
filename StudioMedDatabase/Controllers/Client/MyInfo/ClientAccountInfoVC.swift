@@ -24,7 +24,7 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var tableView: UITableView!
     
-    let clientInfoArray = ["Update MyInfo", "Reset Password", "Privacy Policy", "Terms of Service", "Sign Out"]
+    let clientInfoArray = ["Update MyInfo", "Reset Password","About StudioMed", "Privacy Policy", "Terms of Service", "Sign Out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +63,15 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
             let resetPasswordVC = storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
             navigationController?.pushViewController(resetPasswordVC, animated: true)
         case 2:
+            let aboutStudioMedVC = storyboard?.instantiateViewController(withIdentifier: "AboutStudioMedVC") as! AboutStudioMedVC
+            navigationController?.pushViewController(aboutStudioMedVC, animated: true)
+        case 3:
             let privacyPolicyVC = storyboard?.instantiateViewController(withIdentifier: "PrivacyPolicyVC") as! PrivacyPolicyVC
             navigationController?.pushViewController(privacyPolicyVC, animated: true)
-        case 3:
+        case 4:
             let termsOfServiceVC = storyboard?.instantiateViewController(withIdentifier: "TermsOfServiceVC") as! TermsOfServiceVC
             navigationController?.pushViewController(termsOfServiceVC, animated: true)
-        case 4:
+        case 5:
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()

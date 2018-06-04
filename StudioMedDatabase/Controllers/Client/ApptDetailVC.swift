@@ -52,7 +52,6 @@ class ApptDetailVC: UIViewController {
         ref.updateChildValues(adminChildUpdates)
         
         print("user id is: \(userID).")
-
         
         //AlertView.alertPopUpTwo(view: self, title: "Appointment has been canceled!", alertMessage: "", buttonTitle: "OK")
         AlertView.apptCancelAlert(view: self, alertTitle: "Appointment has been canceled!", alertMessage: "")
@@ -94,7 +93,6 @@ class ApptDetailVC: UIViewController {
         ref = Database.database().reference()
         let userID = Auth.auth().currentUser?.uid
         
-        
         let isCancelled = false
         let isActive = true
         let isComplete = false
@@ -122,18 +120,17 @@ class ApptDetailVC: UIViewController {
         ref.updateChildValues(adminChildUpdates)
         
         print("user id is: \(userID).")
-        
-        
-        
+   
         apptObjectShared.isCancelled = false
         apptObjectShared.isActive = true
         apptObjectShared.isComplete = false
+        apptObjectShared.firebaseApptID = clientApptKey
+        
         
         AlertView.apptCreateAlert(view: self, alertTitle: "Appointment request has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.")
         
         //rateAppAlert()
     }
-    
     
     @IBOutlet weak var apptStatusLabel: UILabel!
     @IBOutlet weak var apptDateAndTimeLabel: UILabel!
@@ -147,31 +144,59 @@ class ApptDetailVC: UIViewController {
         print("colored index is \(coloredCellIndex)")
         print("user email is \(userObjectShared.email!)")
         navigationController?.navigationBar.isHidden = false
+        
+        var date = self.apptDateAndTimeLabel.text
+        var treatment = self.treatmentLabel.text
+        
+        date = apptObjectShared.date!
+        treatment = apptObjectShared.treatment1!
+        
+        let activeAttributes: [NSAttributedStringKey: Any] =
+            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+             NSAttributedStringKey.strikethroughStyle: 0]
+        
+        let cancelledAttributes: [NSAttributedStringKey: Any] =
+            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+             NSAttributedStringKey.strikethroughStyle: 1]
+        
+        let completeAttributes: [NSAttributedStringKey: Any] =
+            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+             NSAttributedStringKey.strikethroughStyle: 0]
 
         if self.apptObjectShared.isCancelled == true {
-            statusVarString = "Cancelled"
+            
+            self.apptDateAndTimeLabel.attributedText = NSAttributedString(string: date!, attributes: cancelledAttributes)
+            self.apptDateAndTimeLabel.textColor = UIColor(rgb: 0xFF6666)
+            
+            self.treatmentLabel.attributedText = NSAttributedString(string: treatment!, attributes: cancelledAttributes)
+            self.treatmentLabel.textColor = UIColor(rgb: 0xFF6666)
+            
         } else if self.apptObjectShared.isCancelled == false && self.apptObjectShared.isActive == true {
-            statusVarString = "Active"
+            
+            self.apptDateAndTimeLabel.attributedText = NSAttributedString(string: date!, attributes: activeAttributes)
+            self.apptDateAndTimeLabel.textColor = UIColor.green
+            
+            self.treatmentLabel.attributedText = NSAttributedString(string: treatment!, attributes: activeAttributes)
+            self.treatmentLabel.textColor = UIColor.green
+            
         } else if self.apptObjectShared.isCancelled == false && self.apptObjectShared.isActive == false {
-            statusVarString = "Complete"
+            
+            apptDateAndTimeLabel.attributedText = NSAttributedString(string: date!, attributes: completeAttributes)
+            
+            treatmentLabel.attributedText = NSAttributedString(string: treatment!, attributes: completeAttributes)
         }
         
-        self.apptStatusLabel.text = "Appointment is: \(statusVarString)"
+//        self.apptStatusLabel.text = "Appointment is: \(statusVarString)"
         self.apptDateAndTimeLabel.text = apptObjectShared.date!
         self.treatmentLabel.text = apptObjectShared.treatment1!
-        
-        
-        
+
         self.userFullNameLabel.text = userObjectShared.firstName! + " " + userObjectShared.lastName!
         self.userPhoneLabel.text = userObjectShared.phoneNumber!
         self.userEmailLabel.text = userObjectShared.email!
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
