@@ -37,30 +37,41 @@ class EditInfoVC: UIViewController {
         ref = Database.database().reference()
         let userID = Auth.auth().currentUser?.uid
         
+        let refFirstName = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["firstName": self.firstNameTF.text])
+        
+        let refLastName = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["lastName": self.lastNameTF.text!])
+        
+        let refPhone = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["phoneNumber": self.phoneNumberTF.text!])
+        
+        let refZip = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["zipCode": self.zipCodeTF.text!])
+        
+        let refEmail = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["email": self.emailTF.text!])
+        
         print("user id is: \(userID).")
         print("FirstNameText is: \(self.firstNameTF.text).")
         print("LastNameText is: \(self.lastNameTF.text).")
         print("email allowed is: \(self.emailAllowedSwitch.isOn).")
         
-        let key = ref.child("client").child("clients").child(userID!).key
-        let post = [
-            
-                    "allowEmailNewsletter": self.emailSwitchBool,
-                    "allowNotifications": self.notificationsSwitchBool,
-                    "appointments": self.userApptArray,
-                    "email":"\(self.emailTF.text!)",
-                    "fireBaseUID":"\(userID!)",
-                    "firstName":"\(self.firstNameTF.text!)",
-                    "lastName":"\(self.lastNameTF.text!)",
-                    "password":"\(userID!)",
-                    "phoneNumber":"\(self.phoneNumberTF.text!)",
-                    "zipCode":"\(self.zipCodeTF.text!)"] as [String : Any]
-
-        let childUpdates = ["/client/clients/\(key)": post]//,
-                            //"/user-posts/\(userID)/\(key)/": post]
-        print("child updates are: \(childUpdates)")
-        ref.updateChildValues(childUpdates)
-        
+//        let key = ref.child("client").child("clients").child(userID!).key
+//        let post = [
+//
+//                    "allowEmailNewsletter": self.emailSwitchBool,
+//                    "allowNotifications": self.notificationsSwitchBool,
+//                    "appointments": self.userApptArray,
+//                    "email":"\(self.emailTF.text!)",
+//                    "fireBaseUID":"\(userID!)",
+//                    "firstName":"\(self.firstNameTF.text!)",
+//                    "lastName":"\(self.lastNameTF.text!)",
+//                    "password":"\(userID!)",
+//                    "phoneNumber":"\(self.phoneNumberTF.text!)",
+//                    "zipCode":"\(self.zipCodeTF.text!)"] as [String : Any]
+//
+//        let childUpdates = ["/client/clients/\(key)": post]//,
+//                            //"/user-posts/\(userID)/\(key)/": post]
+//        print("child updates are: \(childUpdates)")
+//        ref.updateChildValues(childUpdates)
+//       // ref.upda
+//
         self.navigationController?.popViewController(animated: true)
 
     }
@@ -101,8 +112,7 @@ class EditInfoVC: UIViewController {
         }
         else {
             self.emailSwitchBool = false
-        }
-        
+        }        
         
         let userID = Auth.auth().currentUser?.uid
         let ref = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["allowEmailNewsletter": self.emailSwitchBool])
@@ -112,11 +122,9 @@ class EditInfoVC: UIViewController {
     func getOneUserData() {
         
         var ref: DatabaseReference!
-        
         ref = Database.database().reference()
-        
         let userID = Auth.auth().currentUser?.uid
-        //let userID = "ks5xtiGRZNWfaVvgAtK9zHWekru1"
+
         ref.child("client").child("clients").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let userDict = snapshot.value as? NSDictionary
@@ -159,7 +167,27 @@ class EditInfoVC: UIViewController {
         phoneNumberTF.delegate = self
         emailTF.delegate = self
         zipCodeTF.delegate = self
+
+        //init toolbar
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+        //create left side empty space so that done button set on right side
+        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        doneBtn.tintColor = UIColor.white
+        toolbar.barTintColor = UIColor.black
+        toolbar.isTranslucent = true
+        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        
+        //setting toolbar as inputAccessoryView
+        self.firstNameTF.inputAccessoryView = toolbar
+        self.lastNameTF.inputAccessoryView = toolbar
+        self.phoneNumberTF.inputAccessoryView = toolbar
+        self.zipCodeTF.inputAccessoryView = toolbar
+        self.emailTF.inputAccessoryView = toolbar
+        
         getOneUserData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

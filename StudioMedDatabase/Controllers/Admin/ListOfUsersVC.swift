@@ -107,6 +107,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         databaseHandle = ref.child("client").child("clients").observe(.childAdded, with: { (snapshot) in
             if let userDict = snapshot.value as? [String : AnyObject] {
                 
+                let firebaseUID = userDict["fireBaseUID"] as! String
                 let firstNameText = userDict["firstName"] as! String
                 let lastNameText = userDict["lastName"] as! String
                 let phoneNumberText = userDict["phoneNumber"] as! String
@@ -114,7 +115,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 let zipCodeText = userDict["zipCode"] as! String
                 self.userName = firstNameText + " " + lastNameText
                 print("user name is: \(self.userName)")
-                let user = User(firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, zipCodeText: zipCodeText)
+                let user = User(firebaseUIDText: firebaseUID, firstNameText: firstNameText, lastNameText: lastNameText, phoneNumberText: phoneNumberText, emailText: emailText, zipCodeText: zipCodeText)
                 print("userDict is \(userDict)")
                 self.users.append(user)
                 print("users array is \(self.users)")
@@ -188,6 +189,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 //        let phoneNumber = users[indexPath.row].phoneNumber
 //        let email = users[indexPath.row].email
         
+        userDetailVC.userID = user.firebaseUID
         userDetailVC.firstName = user.firstName
         userDetailVC.lastName = user.lastName
         userDetailVC.phoneNumber = user.phoneNumber
@@ -200,7 +202,7 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     // Override to support conditional editing of the table view.
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
     
     // Override to support editing the table view.

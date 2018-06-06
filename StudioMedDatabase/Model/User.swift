@@ -8,13 +8,15 @@
 
 import Foundation
 class User {
+    var firebaseUID: String
     var firstName: String
     var lastName: String
     var phoneNumber: String
     var email: String
     var zipCode: String
     
-    init(firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, zipCodeText: String) {
+    init(firebaseUIDText: String, firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, zipCodeText: String) {
+        firebaseUID = firebaseUIDText
         firstName = firstNameText
         lastName = lastNameText
         phoneNumber = phoneNumberText

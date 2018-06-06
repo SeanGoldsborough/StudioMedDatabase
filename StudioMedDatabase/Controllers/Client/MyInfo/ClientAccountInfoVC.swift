@@ -81,6 +81,8 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
                 present(loginVC, animated: true, completion: nil)
                 print("logged out success \(firebaseAuth.currentUser)")
                 
+              
+                
             } catch let error as NSError {
                 AlertView.alertPopUp(view: self, alertMessage: (error.localizedDescription))
                 print(error.localizedDescription)

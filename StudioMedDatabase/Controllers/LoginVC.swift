@@ -25,6 +25,10 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+//    @IBOutlet weak var activityOverlay: UIView!
+//    
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBAction func signInButton(_ sender: Any) {
         
         if emailTextField.text == "" {
@@ -32,16 +36,26 @@ class LoginVC: UIViewController {
         } else {
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
                 
+                
                 if error == nil {
                     //Print into the console if successfully logged in
                     print("You have successfully logged in: \(Auth.auth().currentUser?.uid)")
                     //self.userObjectShared.firstName = Auth.auth().currentUser?.displayName
                     self.currentUser = Auth.auth().currentUser?.uid
                     
+                        if Auth.auth().currentUser?.uid == "K7MxWsDyJwYbJ6BzpzNDWyI9nrg2" {
+                            //Go to the AdminTabVC if the login is sucessful and is Admin User
+                            let adminTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "AdminTabBarVC") as! AdminTabBarVC
+                            self.present(adminTabBarVC, animated: true)
+                            //self.navigationController?.pushViewController(clientTabVC, animated: true)
+                            
+                        } else {
 
-                    //Go to the ClientTabVC if the login is sucessful
-                    let clientTabVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
-                    self.present(clientTabVC, animated: true)
+                        //Go to the ClientTabVC if the login is sucessful
+                        let clientTabVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
+                        self.present(clientTabVC, animated: true)
+                        //self.navigationController?.pushViewController(clientTabVC, animated: true)
+                        }
                     
                 } else {
                     //Tells the user that there is an error and then gets firebase to tell them the error
@@ -66,11 +80,11 @@ class LoginVC: UIViewController {
     
     @IBAction func forgotPassword(_ sender: Any) {
         let resetPasswordVC = storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
-        self.present(resetPasswordVC, animated: true, completion: nil)
+       navigationController?.pushViewController(resetPasswordVC, animated: true)
     }
     @IBAction func signUpButton(_ sender: Any) {
-        let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
-        navigationController?.pushViewController(createAccountVC, animated: true)
+//        let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
+//        navigationController?.pushViewController(createAccountVC, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +94,10 @@ class LoginVC: UIViewController {
         
         emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        
+        navigationController?.navigationBar.topItem?.title = ""
+        
+        navigationController?.navigationBar.isHidden = false
         
         
         //emailTextField.tag = 0

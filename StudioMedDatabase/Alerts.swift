@@ -34,7 +34,7 @@ class AlertView {
     
     class func apptCancelAlert(view: UIViewController, alertTitle: String, alertMessage: String) {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        var apptObjectShared = AppointmentData.sharedInstance()
+        var apptObjectShared = AppointmentData.sharedInstance
         apptObjectShared.date = "Select A Date & Time"
         apptObjectShared.time = ""
         apptObjectShared.treatment1 = "Select A Treatment"
@@ -64,7 +64,7 @@ class AlertView {
     class func apptCreateAlert(view: UIViewController, alertTitle: String, alertMessage: String) {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let tabBarController = UITabBarController()
-        var apptObjectShared = AppointmentData.sharedInstance()
+        var apptObjectShared = AppointmentData.sharedInstance
         apptObjectShared.date = "Select A Date & Time"
         apptObjectShared.time = ""
         apptObjectShared.treatment1 = "Select A Treatment"
@@ -91,6 +91,32 @@ class AlertView {
             
         }
     }
+    
+    class func addNewAdminAlert(view: UIViewController, alertTitle: String, alertMessage: String) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let tabBarController = UITabBarController()
+        
+        Notifications.adminNotification()
+        let addAppt = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            
+            
+            
+            //            let clientAppointmentHistoryVC = view.storyboard!.instantiateViewController(withIdentifier: "ClientAppointmentHistoryVC")
+            //            clientAppointmentHistoryVC.modalTransitionStyle = .crossDissolve
+            //            view.present(clientAppointmentHistoryVC, animated: true, completion: nil)
+            tabBarController.selectedIndex = 0
+            view.navigationController?.popViewController(animated: true)
+            
+        })
+        alert.addAction(addAppt)
+        //alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        performUIUpdatesOnMain {
+            view.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+
 
     
     

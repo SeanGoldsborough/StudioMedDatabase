@@ -25,8 +25,12 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     //var sortedAppointments = [Appointment]()
     var filteredAppointments = [Appointment]()
     var userObject = UserData.sharedInstance()
-    var apptObjectShared = AppointmentData.sharedInstance()
+    var apptObjectShared = AppointmentData.sharedInstance
     var listOfAppointmentsVCBool = false
+    
+    var dateAsStringArray = [String]()
+    var stringAsDateArray: [Date] = []
+    var newStringArray = [String]()
     
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -165,11 +169,36 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
                 print("apptDict2 is \(apptDict)")
                 self.appointments.append(appointment)
                 
-//                var customObjects = self.appointments.sorted(by: {
-//                    $0.date.compare($1.date) == .orderedDescending
-//                })
-//
-//                print("apptDict array is \(customObjects)")
+//                self.dateAsStringArray.append(appointment.date)
+//                print("self.dateAsStringArray is \(self.dateAsStringArray)")
+//                
+//                var stringToDateFormatter = DateFormatter()
+//                stringToDateFormatter.dateFormat = "MM/dd/yyyy h:mm a"// yyyy-MM-dd"
+//                
+//                for dat in self.dateAsStringArray {
+//                    let date = stringToDateFormatter.date(from: dat)
+//                    print(dat)
+//                    if let date = date {
+//                        self.stringAsDateArray.append(date)
+//                    }
+//                }
+//                
+//                var ready = self.stringAsDateArray.sorted(by: { $0.compare($1) == .orderedDescending })
+//                print("array converted into Date is: \(ready)")
+//                
+//                for dat in ready {
+//                    let dateToStringFormatter = DateFormatter()
+//                    dateToStringFormatter.dateFormat = "MM/dd/yyyy"
+//                    let myString = dateToStringFormatter.string(from: dat)
+//                    let yourDate = dateToStringFormatter.date(from: myString)
+//                    let myStringafd = dateToStringFormatter.string(from: yourDate!)
+//                    self.newStringArray.append(myStringafd)
+//                }
+//                
+//                print("array Dates converted back into strings after being ordered is: \(self.newStringArray)")
+
+
+                
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                 }
@@ -199,7 +228,7 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         cell.textLabel?.text = appointment.date
         cell.detailTextLabel?.text = appointment.treatment1
         
-        print("appt is can = \(appointment.isCancelled)")
+        //print("appt is can = \(appointment.isCancelled)")
         
         
         
@@ -295,6 +324,9 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         self.apptObjectShared.treatment1 = appointment.treatment1
         self.apptObjectShared.date = appointment.date
         self.apptObjectShared.notes = appointment.notes
+        
+        print("appt is can = \(appointment.isCancelled)")
+        
         
 //        adminApptDetailVC.apptDateTime.text = appointmentDate
 //        adminApptDetailVC.treatmentLabel.text = treatment

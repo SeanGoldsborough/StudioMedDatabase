@@ -17,6 +17,7 @@ class PreviousApptsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var databaseHandle: DatabaseHandle!
     //var arrayOfUsers = [UserData]()
     //var users = UserArray.sharedInstance.listOfUsers
+    var userID = String()
     var userName = String()
     var userNames = [String]()
     var userData = [DataSnapshot]()
@@ -82,8 +83,8 @@ class PreviousApptsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //    }
     
     func getData() {
-        let userID = Auth.auth().currentUser?.uid
-        databaseHandle = ref.child("client").child("clients").child(userID!).child("appointments").observe(.childAdded, with: { (snapshot) in
+        let userID = self.userID
+        databaseHandle = ref.child("client").child("clients").child(userID).child("appointments").observe(.childAdded, with: { (snapshot) in
             if let apptDict = snapshot.value as? [String : AnyObject] {
                 print("apptDict is \(apptDict)")
                 

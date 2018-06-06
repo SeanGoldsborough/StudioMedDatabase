@@ -15,7 +15,7 @@ import Firebase
 
 class ClientViewNotesVC: UIViewController, UITextViewDelegate {
     
-    var appointment = AppointmentData.sharedInstance()
+    var appointment = AppointmentData.sharedInstance
     
     var keyboardIsShown = false
     

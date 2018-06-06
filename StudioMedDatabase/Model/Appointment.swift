@@ -40,6 +40,24 @@ class Appointment {
     }
 }
 
+class AppointmentDataLite : NSObject {
+    
+    public var date: String?
+    public var time: String?
+    public var treatment1: String?
+    public var notes: String?
+   
+        class func sharedInstance() -> AppointmentDataLite {
+            struct Singleton {
+                static var sharedInstance = AppointmentDataLite()
+            }
+            return Singleton.sharedInstance
+        }
+}
+    
+
+
+
 class AppointmentData : NSObject {
     public var firebaseApptID: String?
     public var firebaseClientID: String?
@@ -54,17 +72,38 @@ class AppointmentData : NSObject {
     public var email: String?
     public var treatment1: String?
     public var notes: String?
+    
  
     
     // MARK: Shared Instance
     
-    class func sharedInstance() -> AppointmentData {
-        struct Singleton {
-            static var sharedInstance = AppointmentData()
-        }
-        return Singleton.sharedInstance
+    struct Singleton {
+        static var sharedInstance: AppointmentData?
     }
     
+    class var sharedInstance: AppointmentData {
+        if Singleton.sharedInstance == nil {
+            Singleton.sharedInstance = AppointmentData()
+            print("init a singleton shared instance")
+        }
+        return Singleton.sharedInstance!
+    }
+    
+    class func dispose() {
+        AppointmentData.Singleton.sharedInstance = nil
+        print("Disposed AppointmentData Singleton sharedInstance")
+        print(AppointmentData.sharedInstance)
+    }
+    
+//    class func sharedInstance() -> AppointmentData {
+//        struct Singleton {
+//            static var sharedInstance = AppointmentData()
+//        }
+//        return Singleton.sharedInstance
+//    }
+
+    
+
 }
 
 
@@ -73,3 +112,29 @@ class ApptArray : NSObject {
     
     static let sharedInstance = ApptArray()
 }
+
+//class Singleton {
+//
+//    private static var privateShared : Singleton?
+//
+//    class func shared() -> Singleton { // change class to final to prevent override
+//        guard let uwShared = privateShared else {
+//            privateShared = Singleton()
+//            return privateShared!
+//        }
+//        return uwShared
+//    }
+//
+//    class func destroy() {
+//        privateShared = nil
+//    }
+//
+//    private init() {
+//        print("init singleton")
+//    }
+//
+//    deinit {
+//        print("deinit singleton")
+//    }
+//}
+

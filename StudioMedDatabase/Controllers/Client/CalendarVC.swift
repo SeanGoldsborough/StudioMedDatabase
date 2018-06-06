@@ -17,7 +17,7 @@ import JTAppleCalendar
 class CalendarVC: UIViewController {
     
     var delegate:GetDataProtocol?
-    var appointment = AppointmentData.sharedInstance()
+    var appointment = AppointmentData.sharedInstance
 
     @IBAction func sendData(_ sender: Any) {
         appointment.date = "\(selectedDate.text!)"

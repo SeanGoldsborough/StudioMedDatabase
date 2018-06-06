@@ -58,7 +58,7 @@
 		C656EFE6209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
 		C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */; };
 		C674E4C320C4ADCA00587B15 /* AboutStudioMedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */; };
-		C69DB17920BE9A920022A426 /* AddNewAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */; };
+		C69DB17920BE9A920022A426 /* AddNewAdminFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17820BE9A920022A426 /* AddNewAdminFormVC.swift */; };
 		C69DB17B20BEAFB90022A426 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */; };
 		C69DB17D20BF2EAC0022A426 /* AdminViewNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */; };
 		C6BAB63920A5155A0078A8C0 /* ZipCodeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */; };
@@ -72,6 +72,9 @@
 		C6BF8C5320BC4AAE00C652E5 /* SearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF8C5220BC4AAE00C652E5 /* SearchFooter.swift */; };
 		C6BF8C8E20BC5B3700C652E5 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF8C8D20BC5B3700C652E5 /* Notifications.swift */; };
 		C6BF8C9020BC5C4B00C652E5 /* CustomNotificationSound5.5.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6BF8C8F20BC5C4A00C652E5 /* CustomNotificationSound5.5.wav */; };
+		C6F6334720C830E200F761EA /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F6334620C830E200F761EA /* MapPin.swift */; };
+		C6F6334920C842B200F761EA /* FirstLoginNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F6334820C842B200F761EA /* FirstLoginNavVC.swift */; };
+		C6F6334B20C860BD00F761EA /* AddNewAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F6334A20C860BD00F761EA /* AddNewAdminVC.swift */; };
 		E86F5A068996226E5EBDEAE3 /* Pods_StudioMedDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AFD6C6B3B470BA99F82962 /* Pods_StudioMedDatabase.framework */; };
 /* End PBXBuildFile section */
 
@@ -151,7 +154,7 @@
 		C656EFE3209F60300032E26F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewNotesVC.swift; sourceTree = "<group>"; };
 		C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutStudioMedVC.swift; sourceTree = "<group>"; };
-		C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdminVC.swift; sourceTree = "<group>"; };
+		C69DB17820BE9A920022A426 /* AddNewAdminFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdminFormVC.swift; sourceTree = "<group>"; };
 		C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewNotes.swift; sourceTree = "<group>"; };
 		C6BAB63820A5155A0078A8C0 /* ZipCodeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeArray.swift; sourceTree = "<group>"; };
@@ -165,6 +168,9 @@
 		C6BF8C5220BC4AAE00C652E5 /* SearchFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFooter.swift; sourceTree = "<group>"; };
 		C6BF8C8D20BC5B3700C652E5 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		C6BF8C8F20BC5C4A00C652E5 /* CustomNotificationSound5.5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CustomNotificationSound5.5.wav; sourceTree = "<group>"; };
+		C6F6334620C830E200F761EA /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		C6F6334820C842B200F761EA /* FirstLoginNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginNavVC.swift; sourceTree = "<group>"; };
+		C6F6334A20C860BD00F761EA /* AddNewAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdminVC.swift; sourceTree = "<group>"; };
 		DF9AD4E74E3D026A1F9E40AC /* Pods-StudioMedDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabaseUITests/Pods-StudioMedDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED3108B361D4826F5E658D11 /* Pods-StudioMedDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudioMedDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudioMedDatabase/Pods-StudioMedDatabase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */,
+				C6F6334820C842B200F761EA /* FirstLoginNavVC.swift */,
 				C64265E820A1305100D412D8 /* LoginVC.swift */,
 				C644548B20AD9620001AEF32 /* OnBoardingVC.swift */,
 				C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */,
@@ -255,7 +262,8 @@
 				C64265F520A2081200D412D8 /* PreviousApptsVC.swift */,
 				C64265F720A2109500D412D8 /* AdminApptDetailVC.swift */,
 				C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */,
-				C69DB17820BE9A920022A426 /* AddNewAdminVC.swift */,
+				C69DB17820BE9A920022A426 /* AddNewAdminFormVC.swift */,
+				C6F6334A20C860BD00F761EA /* AddNewAdminVC.swift */,
 				C631F06B20B1FDF300D985E2 /* AdminTabBarVC.swift */,
 			);
 			path = Admin;
@@ -341,6 +349,7 @@
 				C6BAB63E20A524160078A8C0 /* EditInfoVC.swift */,
 				C642660120A25CA900D412D8 /* ResetPasswordVC.swift */,
 				C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */,
+				C6F6334620C830E200F761EA /* MapPin.swift */,
 				C6BAB63A20A524010078A8C0 /* TermsOfServiceVC.swift */,
 				C6BAB63C20A5240B0078A8C0 /* PrivacyPolicyVC.swift */,
 			);
@@ -624,17 +633,20 @@
 				C608F30520B5DC0700410951 /* DateCollectionViewCell.swift in Sources */,
 				C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */,
 				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
-				C69DB17920BE9A920022A426 /* AddNewAdminVC.swift in Sources */,
+				C69DB17920BE9A920022A426 /* AddNewAdminFormVC.swift in Sources */,
 				C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */,
 				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
 				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
 				C656EF74209F5EF90032E26F /* ViewController.swift in Sources */,
 				C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */,
+				C6F6334B20C860BD00F761EA /* AddNewAdminVC.swift in Sources */,
 				C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */,
 				C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */,
 				C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */,
 				C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */,
+				C6F6334920C842B200F761EA /* FirstLoginNavVC.swift in Sources */,
 				C644539020A64A9A001AEF32 /* ApptNotesVC.swift in Sources */,
+				C6F6334720C830E200F761EA /* MapPin.swift in Sources */,
 				C69DB17B20BEAFB90022A426 /* ColorExtensions.swift in Sources */,
 				C64265ED20A1375C00D412D8 /* ClientTabVC.swift in Sources */,
 				C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */,

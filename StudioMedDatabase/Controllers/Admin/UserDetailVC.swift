@@ -13,6 +13,7 @@ import Firebase
 
 class UserDetailVC: UIViewController {
     
+    var userID = String()
     var firstName = String()
     var lastName = String()
     var phoneNumber = String()
@@ -38,6 +39,7 @@ class UserDetailVC: UIViewController {
     @IBAction func previousApptsButton(_ sender: Any) {
         print("prev appts button pressed!")
         let previousApptsVC = storyboard?.instantiateViewController(withIdentifier: "PreviousApptsVC") as! PreviousApptsVC
+        previousApptsVC.userID = self.userID
         navigationController?.pushViewController(previousApptsVC, animated: true)
     }
     

@@ -13,22 +13,25 @@ import Firebase
 class ApptDetailVC: UIViewController {
     var coloredCellIndex = Int()
     var userObjectShared = UserData.sharedInstance()
-    var apptObjectShared = AppointmentData.sharedInstance()
+    var apptObjectShared = AppointmentData.sharedInstance
     var statusVarString = String()
 
+    @IBOutlet weak var requestApptOutlet: UIButton!
     @IBAction func viewNotesButton(_ sender: Any) {
         
         let clientViewNotesVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientViewNotesVC") as! ClientViewNotesVC
         //clientViewNotesVC.notesTextView.text = apptObjectShared.notes ?? "No Notes Written."
         navigationController?.pushViewController(clientViewNotesVC, animated: true)
     }
+    @IBOutlet weak var cancelApptOutlet: UIButton!
+    
     @IBAction func cancelApptButton(_ sender: Any) {
         print("cancel appt button pressed")
         
         var ref: DatabaseReference!
         ref = Database.database().reference()
         let userID = Auth.auth().currentUser?.uid
-        
+//
         let isCancelled = true
         let isActive = false
         let isComplete = false
@@ -53,11 +56,19 @@ class ApptDetailVC: UIViewController {
         
         print("user id is: \(userID).")
         
+//        let refCancel = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["isCancelled": isCancelled])
+//        let refActive = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["isActive": isActive])
+//        let refComplete = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["isComplete": isComplete])
+        
         //AlertView.alertPopUpTwo(view: self, title: "Appointment has been canceled!", alertMessage: "", buttonTitle: "OK")
         AlertView.apptCancelAlert(view: self, alertTitle: "Appointment has been canceled!", alertMessage: "")
         apptObjectShared.isCancelled = true
         apptObjectShared.isActive = false
         apptObjectShared.isComplete = false
+        
+        let refCancel = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["isCancelled": apptObjectShared.isCancelled])
+        let refActive = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["isActive": apptObjectShared.isActive])
+        let refComplete = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["isComplete": apptObjectShared.isComplete])
 //        var mainViewController:ClientAppointmentHistoryVC?
 //
 //        var zipBool = "0"
@@ -126,7 +137,6 @@ class ApptDetailVC: UIViewController {
         apptObjectShared.isComplete = false
         apptObjectShared.firebaseApptID = clientApptKey
         
-        
         AlertView.apptCreateAlert(view: self, alertTitle: "Appointment request has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.")
         
         //rateAppAlert()
@@ -152,15 +162,15 @@ class ApptDetailVC: UIViewController {
         treatment = apptObjectShared.treatment1!
         
         let activeAttributes: [NSAttributedStringKey: Any] =
-            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20)!,
              NSAttributedStringKey.strikethroughStyle: 0]
         
         let cancelledAttributes: [NSAttributedStringKey: Any] =
-            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20)!,
              NSAttributedStringKey.strikethroughStyle: 1]
         
         let completeAttributes: [NSAttributedStringKey: Any] =
-            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20)!,
              NSAttributedStringKey.strikethroughStyle: 0]
 
         if self.apptObjectShared.isCancelled == true {
@@ -193,6 +203,39 @@ class ApptDetailVC: UIViewController {
         self.userFullNameLabel.text = userObjectShared.firstName! + " " + userObjectShared.lastName!
         self.userPhoneLabel.text = userObjectShared.phoneNumber!
         self.userEmailLabel.text = userObjectShared.email!
+        
+        if self.apptObjectShared.firebaseApptID == nil {
+            performUIUpdatesOnMain {
+                self.cancelApptOutlet.isHidden = true
+                self.requestApptOutlet.isHidden = false
+            }
+           
+        } else {
+            performUIUpdatesOnMain {
+                self.cancelApptOutlet.isHidden = false
+                self.requestApptOutlet.isHidden = true
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //AppointmentData.dispose()
+        
+//        self.apptObjectShared.firebaseApptID = firebaseApptIDString
+//        self.apptObjectShared.firebaseApptID = firebaseClientIDString
+//        self.apptObjectShared.isCancelled = isCancelledBool
+//        self.apptObjectShared.isActive = isActiveBool
+//        self.apptObjectShared.isComplete = isCompleteBool
+//        self.apptObjectShared.firstName = firstName
+//        self.apptObjectShared.lastName = lastName
+//        self.apptObjectShared.phoneNumber = phoneNumber
+//        self.apptObjectShared.email = email
+//        self.apptObjectShared.date = date
+//        self.apptObjectShared.treatment1 = treatment
+//        self.apptObjectShared.notes = notes
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

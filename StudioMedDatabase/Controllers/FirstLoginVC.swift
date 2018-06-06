@@ -14,8 +14,15 @@ import GoogleSignIn
 
 class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInUIDelegate {
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    @IBOutlet weak var activityOverlay: UIView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user:
+        GIDGoogleUser!, withError error: Error!) {
+        
         print("error on first loginvc")
+        //AlertView.alertPopUp(view: self, alertMessage: "Error: \(error)")
     }
 
 
@@ -28,18 +35,19 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInU
         }
 
         @IBAction func logInEmail(_ sender: Any) {
-//            let firebaseAuth = Auth.auth()
-//            do {
-//                try firebaseAuth.signOut()
-//                print ("google signout okay")
-//            } catch let signOutError as NSError {
-//                print ("Error signing out: %@", signOutError)
-//            }
+            let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            
+            navigationController?.pushViewController(loginVC, animated: true)
         }
     
 
     
     @IBAction func googleLogin(_ sender: Any) {
+//        performUIUpdatesOnMain {
+//            self.activityOverlay.isHidden = false
+//            self.activityIndicator.isHidden = false
+//            //self.activityIndicator.isAnimating = true
+//        }
        GIDSignIn.sharedInstance().signIn()
     }
     
@@ -49,7 +57,15 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInU
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         
+        self.activityOverlay.isHidden = true
+        self.activityIndicator.isHidden = true
+        
         GIDSignIn.sharedInstance().uiDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         navigationController?.navigationBar.isHidden = true
     }
 }
 

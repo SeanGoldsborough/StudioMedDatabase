@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OsA-UN-5eu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fne-ud-dyf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,10 +27,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--STUDIO MED-->
+        <!--Cheese-->
         <scene sceneID="qiu-Gc-1KH">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JMB-XB-QoF" customClass="LoginVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" title="Cheese" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JMB-XB-QoF" customClass="LoginVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I0s-gC-CTn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="forgotPassword:" destination="JMB-XB-QoF" eventType="touchUpInside" id="xss-Kz-39V"/>
+                                            <action selector="forgotPassword:" destination="JMB-XB-QoF" eventType="touchUpInside" id="iLa-c3-oTZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -181,7 +181,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pAc-Tg-U8R"/>
                     </view>
-                    <navigationItem key="navigationItem" title="STUDIO MED" id="qRP-sg-UMH"/>
+                    <navigationItem key="navigationItem" id="qRP-sg-UMH"/>
                     <connections>
                         <outlet property="emailTextField" destination="Rna-P1-58J" id="xgl-QN-IRV"/>
                         <outlet property="passwordTextField" destination="Lyw-bw-6x8" id="Ehz-VL-YVV"/>
@@ -189,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3m-46-okI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-831" y="-54"/>
+            <point key="canvasLocation" x="-492" y="-54.422788605697157"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="tne-QT-ifu">
@@ -755,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ec-He-peS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2489" y="434"/>
+            <point key="canvasLocation" x="2828" y="433.13343328335833"/>
         </scene>
         <!--AdminTabBarVC-->
         <scene sceneID="Yhg-by-SSY">
@@ -773,7 +773,7 @@
                         <segue destination="uwy-Rn-VOd" kind="relationship" relationship="viewControllers" id="AUU-jp-qfq"/>
                         <segue destination="a3Y-cu-K33" kind="relationship" relationship="viewControllers" id="PJh-HC-5NC"/>
                         <segue destination="C1I-tG-yLg" kind="relationship" relationship="viewControllers" id="cZs-PB-CFV"/>
-                        <segue destination="ZXI-Hi-eXy" kind="relationship" relationship="viewControllers" id="5mS-cG-4E1"/>
+                        <segue destination="eeF-9A-2uT" kind="relationship" relationship="viewControllers" id="u2v-IW-gm1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vU5-vb-rpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -871,7 +871,7 @@
         <scene sceneID="NSK-jd-fBM">
             <objects>
                 <navigationController title="Create Appt" automaticallyAdjustsScrollViewInsets="NO" id="bwi-5L-LYN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create Appt" id="0f0-Rx-UUr">
+                    <tabBarItem key="tabBarItem" title="Create Appt" selectedImage="newCalendarIcon" id="0f0-Rx-UUr">
                         <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -889,11 +889,11 @@
             </objects>
             <point key="canvasLocation" x="1134" y="1104"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Clients-->
         <scene sceneID="icy-4y-tST">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a3Y-cu-K33" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="uX6-Ec-GLu"/>
+                    <tabBarItem key="tabBarItem" title="Clients" selectedImage="allClientsIcon" id="uX6-Ec-GLu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="7Ry-Dd-AzM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -909,11 +909,11 @@
             </objects>
             <point key="canvasLocation" x="137" y="-1047"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Appointments-->
         <scene sceneID="Usp-4b-zKe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uwy-Rn-VOd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="eoS-Av-96w"/>
+                    <tabBarItem key="tabBarItem" title="Appointments" image="apptHistoryIcon" id="eoS-Av-96w"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="UXv-B8-VMN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1036,7 +1036,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9H-bd-wR2">
                                         <rect key="frame" x="0.0" y="416" width="343" height="60"/>
-                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="OCn-jk-Ruu"/>
                                             <constraint firstAttribute="height" constant="60" id="ShY-zd-j89"/>
@@ -1045,7 +1045,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="Cancel Appointment">
-                                            <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -1054,7 +1054,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9C-bv-x9s">
                                         <rect key="frame" x="0.0" y="484" width="343" height="60"/>
-                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="52K-cN-VHH"/>
                                             <constraint firstAttribute="height" constant="60" id="TsP-Uh-Rca"/>
@@ -1063,7 +1063,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
                                         <state key="normal" title="Request Appointment">
-                                            <color key="titleColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -1090,6 +1090,8 @@
                     <connections>
                         <outlet property="apptDateAndTimeLabel" destination="G3n-9H-8jI" id="RfO-Vv-YGh"/>
                         <outlet property="apptStatusLabel" destination="0Jc-kh-J31" id="TV0-IN-T6u"/>
+                        <outlet property="cancelApptOutlet" destination="s9H-bd-wR2" id="D4Y-HZ-aXr"/>
+                        <outlet property="requestApptOutlet" destination="O9C-bv-x9s" id="9dA-pk-hea"/>
                         <outlet property="treatmentLabel" destination="XWx-2P-rA5" id="5g3-Xn-0CQ"/>
                         <outlet property="userEmailLabel" destination="5LS-ar-cOq" id="YHV-OW-NDK"/>
                         <outlet property="userFullNameLabel" destination="b6G-JE-dtl" id="rkt-9E-J2n"/>
@@ -1576,11 +1578,11 @@
             </objects>
             <point key="canvasLocation" x="1804" y="3426"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Appt History-->
         <scene sceneID="f0F-nw-7Rl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cKT-KX-8KD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="history" id="sYf-w4-EVC">
+                    <tabBarItem key="tabBarItem" title="Appt History" selectedImage="apptHistoryIcon" id="sYf-w4-EVC">
                         <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1602,7 +1604,7 @@
         <scene sceneID="PiT-Jy-Ddm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jEh-3U-JcJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Info" id="cfU-pO-eQS">
+                    <tabBarItem key="tabBarItem" title="My Info" selectedImage="oneUserIcon" id="cfU-pO-eQS">
                         <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1624,7 +1626,7 @@
         <scene sceneID="AXp-mj-pZu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6X-k9-MWG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contact Us" id="M3v-wc-qf7">
+                    <tabBarItem key="tabBarItem" title="Contact Us" selectedImage="phoneIcon" id="M3v-wc-qf7">
                         <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1915,7 +1917,6 @@
                                         </state>
                                         <connections>
                                             <action selector="logInEmail:" destination="OsA-UN-5eu" eventType="touchUpInside" id="vwn-jU-fsQ"/>
-                                            <segue destination="JMB-XB-QoF" kind="presentation" modalTransitionStyle="crossDissolve" id="wfe-0U-M2O"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOt-L3-enj" customClass="GIDSignInButton">
@@ -1975,7 +1976,7 @@
                                 </constraints>
                             </stackView>
                             <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StudioMedLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="GlY-lw-yz5">
-                                <rect key="frame" x="62" y="158" width="250" height="200"/>
+                                <rect key="frame" x="62" y="202" width="250" height="200"/>
                                 <color key="tintColor" red="0.98760443929999997" green="0.57333081959999999" blue="0.51162141559999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ILT-iP-de6"/>
@@ -1991,11 +1992,22 @@
                                     <constraint firstAttribute="height" constant="50" id="jb0-Ue-xrc"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWS-DI-zHP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="0.49748501712328769" colorSpace="calibratedWhite"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-En-EOu">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.093929146510000006" green="0.1119644776" blue="0.1199635152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="t69-i7-iMT" firstAttribute="trailing" secondItem="GlY-lw-yz5" secondAttribute="trailing" constant="63" id="0gm-2y-rHY"/>
+                            <constraint firstItem="Zgp-En-EOu" firstAttribute="centerY" secondItem="Yma-X8-ehp" secondAttribute="centerY" id="6T2-Uj-lDb"/>
+                            <constraint firstItem="t69-i7-iMT" firstAttribute="trailing" secondItem="wWS-DI-zHP" secondAttribute="trailing" id="Cg0-uA-VMX"/>
                             <constraint firstItem="lft-yQ-dgn" firstAttribute="top" secondItem="Yma-X8-ehp" secondAttribute="top" id="Mk1-hn-sCc"/>
+                            <constraint firstItem="Zgp-En-EOu" firstAttribute="centerX" secondItem="Yma-X8-ehp" secondAttribute="centerX" id="Of1-Tt-zCz"/>
                             <constraint firstItem="GlY-lw-yz5" firstAttribute="centerX" secondItem="Yma-X8-ehp" secondAttribute="centerX" id="Ovn-t9-pv7"/>
                             <constraint firstItem="lft-yQ-dgn" firstAttribute="trailing" secondItem="t69-i7-iMT" secondAttribute="trailing" id="Si2-dm-NCf"/>
                             <constraint firstItem="GlY-lw-yz5" firstAttribute="top" secondItem="t69-i7-iMT" secondAttribute="top" constant="138" id="Tch-UC-z1k"/>
@@ -2003,7 +2015,11 @@
                             <constraint firstItem="lft-yQ-dgn" firstAttribute="bottom" secondItem="t69-i7-iMT" secondAttribute="bottom" id="cla-7i-ves"/>
                             <constraint firstItem="lft-yQ-dgn" firstAttribute="leading" secondItem="t69-i7-iMT" secondAttribute="leading" id="ecJ-9L-T1B"/>
                             <constraint firstItem="0gT-Lj-zym" firstAttribute="top" secondItem="8YL-1A-eNw" secondAttribute="bottom" constant="184" id="g32-rT-fud"/>
+                            <constraint firstItem="wWS-DI-zHP" firstAttribute="bottom" secondItem="t69-i7-iMT" secondAttribute="bottom" id="hYB-Mf-8bE"/>
                             <constraint firstAttribute="bottom" secondItem="Hdz-8z-diK" secondAttribute="bottom" constant="20" symbolic="YES" id="iTA-GT-yTg"/>
+                            <constraint firstItem="Hdz-8z-diK" firstAttribute="top" secondItem="wWS-DI-zHP" secondAttribute="bottom" constant="-200" id="igg-ab-C3b"/>
+                            <constraint firstItem="wWS-DI-zHP" firstAttribute="leading" secondItem="t69-i7-iMT" secondAttribute="leading" id="n2a-IN-zJ1"/>
+                            <constraint firstItem="wWS-DI-zHP" firstAttribute="top" secondItem="Yma-X8-ehp" secondAttribute="top" id="rXN-OP-kwB"/>
                             <constraint firstItem="Hdz-8z-diK" firstAttribute="centerX" secondItem="Yma-X8-ehp" secondAttribute="centerX" id="rgi-kh-B48"/>
                             <constraint firstItem="GlY-lw-yz5" firstAttribute="leading" secondItem="t69-i7-iMT" secondAttribute="leading" constant="62" id="s0B-m4-dBg"/>
                         </constraints>
@@ -2011,6 +2027,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="UcG-H9-8C1"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Zgp-En-EOu" id="1X7-6j-bED"/>
+                        <outlet property="activityOverlay" destination="wWS-DI-zHP" id="FLk-wj-W55"/>
                         <outlet property="signInButton" destination="eOt-L3-enj" id="ftH-h1-oYo"/>
                     </connections>
                 </viewController>
@@ -2485,7 +2503,7 @@ Welcome to the StudioMed iOS App. By accessing and using this app, you are agree
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjc-aN-bDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7102" y="455"/>
+            <point key="canvasLocation" x="7440.8000000000002" y="454.72263868065971"/>
         </scene>
         <!--TreatmentDetailVC-->
         <scene sceneID="Iz6-jo-Rtu">
@@ -2507,7 +2525,7 @@ Welcome to the StudioMed iOS App. By accessing and using this app, you are agree
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwB-sy-tWe">
-                                <rect key="frame" x="16" y="100" width="343" height="370"/>
+                                <rect key="frame" x="16" y="100" width="343" height="294"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">We respect your privacy
 The following privacy policy describes the personal information we collect from you, how we use it, what measures we take to ensure it is confidential and safe, and what you could do to control our use of it. By using our website www.studiomed.life, the user agrees without any limitation or qualification to be bounded by the details of this privacy policy listed below.
@@ -2558,6 +2576,16 @@ The following privacy policy describes the personal information we collect from 
                                     <action selector="selectTreatmentButton:" destination="DXc-jD-6lV" eventType="touchUpInside" id="528-7w-fsm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-4c-HdX">
+                                <rect key="frame" x="16" y="402" width="343" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="e4w-ed-RfW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2570,9 +2598,12 @@ The following privacy policy describes the personal information we collect from 
                             <constraint firstItem="Xjk-av-tfc" firstAttribute="top" secondItem="AeD-oG-9ge" secondAttribute="bottom" id="Llh-IB-T0K"/>
                             <constraint firstItem="vwB-sy-tWe" firstAttribute="top" secondItem="Xjk-av-tfc" secondAttribute="bottom" id="MYU-08-zbs"/>
                             <constraint firstItem="ijj-hA-nE1" firstAttribute="leading" secondItem="pDa-EB-GvB" secondAttribute="leading" constant="16" id="O7k-3M-KYN"/>
+                            <constraint firstItem="yIJ-4c-HdX" firstAttribute="leading" secondItem="pDa-EB-GvB" secondAttribute="leading" constant="16" id="Qhb-XL-fWl"/>
                             <constraint firstItem="AeD-oG-9ge" firstAttribute="leading" secondItem="nLT-6I-cQf" secondAttribute="leadingMargin" constant="51" id="S8Y-b6-g2V"/>
-                            <constraint firstItem="ijj-hA-nE1" firstAttribute="top" secondItem="vwB-sy-tWe" secondAttribute="bottom" id="XgT-cM-LyX"/>
+                            <constraint firstItem="ijj-hA-nE1" firstAttribute="top" secondItem="yIJ-4c-HdX" secondAttribute="bottom" constant="8" id="SNs-fl-16X"/>
+                            <constraint firstItem="pDa-EB-GvB" firstAttribute="trailing" secondItem="yIJ-4c-HdX" secondAttribute="trailing" constant="16" id="ci1-Od-TAs"/>
                             <constraint firstItem="pDa-EB-GvB" firstAttribute="trailing" secondItem="ijj-hA-nE1" secondAttribute="trailing" constant="16" id="ciJ-Nq-wSc"/>
+                            <constraint firstItem="yIJ-4c-HdX" firstAttribute="top" secondItem="vwB-sy-tWe" secondAttribute="bottom" constant="8" id="hRN-4u-pz8"/>
                             <constraint firstItem="vwB-sy-tWe" firstAttribute="leading" secondItem="pDa-EB-GvB" secondAttribute="leading" constant="16" id="hYW-2b-igN"/>
                             <constraint firstItem="Xjk-av-tfc" firstAttribute="trailing" secondItem="pDa-EB-GvB" secondAttribute="trailing" id="jf4-69-noL"/>
                             <constraint firstItem="pDa-EB-GvB" firstAttribute="trailing" secondItem="vwB-sy-tWe" secondAttribute="trailing" constant="16" id="jvh-7O-CHR"/>
@@ -2583,6 +2614,7 @@ The following privacy policy describes the personal information we collect from 
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="Xjk-av-tfc" id="V9X-e1-fp5"/>
+                        <outlet property="priceLabel" destination="yIJ-4c-HdX" id="gz1-xs-McM"/>
                         <outlet property="selectButton" destination="ijj-hA-nE1" id="l2Q-DH-2K4"/>
                         <outlet property="textView" destination="vwB-sy-tWe" id="wRd-uU-guw"/>
                     </connections>
@@ -3288,7 +3320,7 @@ The following privacy policy describes the personal information we collect from 
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Xc-1O-sxI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Reset Password" id="qF7-hT-hlu"/>
+                    <tabBarItem key="tabBarItem" title="Reset Password" selectedImage="UserIDCardIcon" id="qF7-hT-hlu"/>
                     <navigationItem key="navigationItem" id="49T-xt-5DE"/>
                     <connections>
                         <outlet property="emailTextField" destination="0sj-6K-QvE" id="Tb2-BS-zS1"/>
@@ -3299,10 +3331,10 @@ The following privacy policy describes the personal information we collect from 
             </objects>
             <point key="canvasLocation" x="137" y="-2409"/>
         </scene>
-        <!--AddNewAdminVC-->
+        <!--AddNewAdminFormVC-->
         <scene sceneID="NKC-AG-26a">
             <objects>
-                <viewController storyboardIdentifier="AddNewAdminVC" title="AddNewAdminVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZXI-Hi-eXy" customClass="AddNewAdminVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewAdminFormVC" title="AddNewAdminFormVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZXI-Hi-eXy" customClass="AddNewAdminFormVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qvp-PE-6sO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3463,7 +3495,7 @@ The following privacy policy describes the personal information we collect from 
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4fu-o6-M6h"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="HaJ-Ah-Hxc"/>
+                    <tabBarItem key="tabBarItem" title="Add Admin" selectedImage="addAdminIcon" id="HaJ-Ah-Hxc"/>
                     <navigationItem key="navigationItem" id="OLa-Ev-MvN"/>
                     <connections>
                         <outlet property="emailText" destination="Lg6-Cq-yfN" id="S52-39-IIE"/>
@@ -3477,7 +3509,63 @@ The following privacy policy describes the personal information we collect from 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDP-3Y-67S" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="-3072"/>
+            <point key="canvasLocation" x="1529" y="-3099"/>
+        </scene>
+        <!--AddNewAdminVC-->
+        <scene sceneID="psw-2M-hT8">
+            <objects>
+                <viewController storyboardIdentifier="AddNewAdminVC" title="AddNewAdminVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dxQ-t7-wXY" customClass="AddNewAdminVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T2P-5i-fnD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StudioMedLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="599-OG-jOq">
+                                <rect key="frame" x="16" y="104" width="343" height="50"/>
+                                <color key="tintColor" red="0.98760443929999997" green="0.57333081959999999" blue="0.51162141559999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="4qd-IJ-6o8"/>
+                                    <constraint firstAttribute="height" constant="50" id="O5A-RM-Ljo"/>
+                                    <constraint firstAttribute="width" constant="343" id="PND-WF-S71"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYF-CA-UQE">
+                                <rect key="frame" x="16" y="305" width="343" height="56"/>
+                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="03g-KN-lYU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="84r-Zh-h5H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="28"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Create New Admin">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAdminButton:" destination="dxQ-t7-wXY" eventType="touchUpInside" id="Zw4-ch-yni"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="599-OG-jOq" firstAttribute="top" secondItem="c5T-Gj-U0h" secondAttribute="top" constant="40" id="2MJ-KU-Kgw"/>
+                            <constraint firstItem="599-OG-jOq" firstAttribute="leading" secondItem="T2P-5i-fnD" secondAttribute="leading" constant="16" id="3iU-WT-qZY"/>
+                            <constraint firstItem="c5T-Gj-U0h" firstAttribute="trailing" secondItem="mYF-CA-UQE" secondAttribute="trailing" constant="16" id="Prn-gT-hsu"/>
+                            <constraint firstItem="mYF-CA-UQE" firstAttribute="leading" secondItem="c5T-Gj-U0h" secondAttribute="leading" constant="16" id="UjP-f6-nQt"/>
+                            <constraint firstItem="c5T-Gj-U0h" firstAttribute="bottom" secondItem="mYF-CA-UQE" secondAttribute="bottom" constant="257" id="akH-yp-JoL"/>
+                            <constraint firstItem="c5T-Gj-U0h" firstAttribute="trailing" secondItem="599-OG-jOq" secondAttribute="trailing" constant="16" id="cFo-QQ-xNR"/>
+                            <constraint firstItem="mYF-CA-UQE" firstAttribute="centerX" secondItem="T2P-5i-fnD" secondAttribute="centerX" id="qiZ-tb-NUS"/>
+                            <constraint firstItem="mYF-CA-UQE" firstAttribute="centerY" secondItem="T2P-5i-fnD" secondAttribute="centerY" id="tke-j3-140"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c5T-Gj-U0h"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pbn-mc-cJG">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ob0-Km-AP0"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue1-zb-TFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="-3099"/>
         </scene>
         <!--Admin View Notes-->
         <scene sceneID="1b6-eS-tJJ">
@@ -3816,10 +3904,10 @@ The following privacy policy describes the personal information we collect from 
             </objects>
             <point key="canvasLocation" x="3140" y="1873"/>
         </scene>
-        <!--TermsOfServiceViewController-->
+        <!--About Studio MedVC-->
         <scene sceneID="lXH-IO-uT6">
             <objects>
-                <viewController storyboardIdentifier="AboutStudioMedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zTZ-Lq-fcc" userLabel="TermsOfServiceViewController" customClass="AboutStudioMedVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutStudioMedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zTZ-Lq-fcc" customClass="AboutStudioMedVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WSL-QN-FY6"/>
                         <viewControllerLayoutGuide type="bottom" id="1pi-vI-VCI"/>
@@ -3832,18 +3920,6 @@ The following privacy policy describes the personal information we collect from 
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKQ-3C-qrB">
-                                <rect key="frame" x="16" y="100" width="343" height="567"/>
-                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Studio Med is among the first to offer concierge medical services to the residents of New York City. By providing convenient and flexible care, patients in the heart of Manhattan get the care they need 24/7, 365 days a year. The office of Studio Med is in Midtown East, New York, but the practitioners can go wherever a patient most needs them.
-
-Under the concierge model, patients get medical services that suit their lives, instead of forcing them to meet the demands of the practice's schedule. With unlimited access to physicians and medical practitioners around the clock, patients can schedule anything from routine exams to urgent care or house calls. Studio Med proudly offers same-day blood work, in addition to telemedicine.
-
-Individuals and families in New York City find comfort in Studio Med’s approach to concierge medicine. Unlimited access to healthcare means that patients have little to no wait time when they need access to medical staff — any day, anytime, on every day of the year. The goal of Studio Med is to offer patients a new kind of medical care that caters to their needs. Whether a patient needs pre-op labs, pain management, or something innovative such as IV therapy, Studio Med providers can assist. All patients get just what they need — when they need it — when they join the Studio Med family.</mutableString>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About StudioMed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20W-yk-0wK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -3854,26 +3930,89 @@ Individuals and families in New York City find comfort in Studio Med’s approac
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yTI-WP-ez9">
+                                <rect key="frame" x="16" y="108" width="343" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="uxI-nH-Wxw"/>
+                                </constraints>
+                            </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKQ-3C-qrB">
+                                <rect key="frame" x="16" y="250" width="343" height="417"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Studio Med is among the first to offer concierge medical services to the residents of New York City. By providing convenient and flexible care, patients in the heart of Manhattan get the care they need 24/7, 365 days a year. The office of Studio Med is in Midtown East, New York, but the practitioners can go wherever a patient most needs them.
+
+Under the concierge model, patients get medical services that suit their lives, instead of forcing them to meet the demands of the practice's schedule. With unlimited access to physicians and medical practitioners around the clock, patients can schedule anything from routine exams to urgent care or house calls. Studio Med proudly offers same-day blood work, in addition to telemedicine.
+
+Individuals and families in New York City find comfort in Studio Med’s approach to concierge medicine. Unlimited access to healthcare means that patients have little to no wait time when they need access to medical staff — any day, anytime, on every day of the year. The goal of Studio Med is to offer patients a new kind of medical care that caters to their needs. Whether a patient needs pre-op labs, pain management, or something innovative such as IV therapy, Studio Med providers can assist. All patients get just what they need — when they need it — when they join the Studio Med family.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nKQ-3C-qrB" firstAttribute="leading" secondItem="SnH-59-Oaz" secondAttribute="leading" constant="16" id="3oe-gI-0o6"/>
+                            <constraint firstItem="nKQ-3C-qrB" firstAttribute="top" secondItem="yTI-WP-ez9" secondAttribute="bottom" constant="8" symbolic="YES" id="BMx-MZ-rpM"/>
                             <constraint firstItem="1pi-vI-VCI" firstAttribute="top" secondItem="nKQ-3C-qrB" secondAttribute="bottom" id="Dyu-7l-Wck"/>
+                            <constraint firstItem="SnH-59-Oaz" firstAttribute="trailing" secondItem="yTI-WP-ez9" secondAttribute="trailing" constant="16" id="Pki-ZQ-YGX"/>
                             <constraint firstItem="nKQ-3C-qrB" firstAttribute="centerX" secondItem="mwG-36-BuX" secondAttribute="centerX" id="Xfn-Xc-Fo2"/>
                             <constraint firstItem="20W-yk-0wK" firstAttribute="leading" secondItem="SnH-59-Oaz" secondAttribute="leading" id="Zeg-om-bVZ"/>
                             <constraint firstItem="20W-yk-0wK" firstAttribute="top" secondItem="mwG-36-BuX" secondAttribute="top" id="huc-EP-p4Y"/>
                             <constraint firstItem="20W-yk-0wK" firstAttribute="trailing" secondItem="SnH-59-Oaz" secondAttribute="trailing" id="jPy-TK-sBW"/>
                             <constraint firstItem="mwG-36-BuX" firstAttribute="leading" secondItem="20W-yk-0wK" secondAttribute="leading" id="m8v-ZP-RRH"/>
                             <constraint firstItem="SnH-59-Oaz" firstAttribute="trailing" secondItem="nKQ-3C-qrB" secondAttribute="trailing" constant="16" id="mMv-JZ-5Qb"/>
+                            <constraint firstItem="yTI-WP-ez9" firstAttribute="top" secondItem="20W-yk-0wK" secondAttribute="bottom" constant="8" id="oeC-OU-Gqa"/>
                             <constraint firstItem="20W-yk-0wK" firstAttribute="top" secondItem="SnH-59-Oaz" secondAttribute="top" id="qVf-Q8-A0x"/>
-                            <constraint firstItem="nKQ-3C-qrB" firstAttribute="top" secondItem="20W-yk-0wK" secondAttribute="bottom" id="uKA-OL-qAA"/>
+                            <constraint firstItem="yTI-WP-ez9" firstAttribute="leading" secondItem="SnH-59-Oaz" secondAttribute="leading" constant="16" id="rNf-X0-fEY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SnH-59-Oaz"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="yTI-WP-ez9" id="4ZB-t2-ZEg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3b-4P-1uz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3804" y="2552"/>
+            <point key="canvasLocation" x="3804" y="2551.5742128935535"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B1I-ge-HvN">
+            <objects>
+                <navigationController storyboardIdentifier="FirstLoginNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HKj-bM-vug" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="aEM-pP-w7F">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.98760443929999997" green="0.57333081959999999" blue="0.51162141559999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OsA-UN-5eu" kind="relationship" relationship="rootViewController" id="AIj-AP-fqb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZO-eD-5Qk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2346" y="-54"/>
+        </scene>
+        <!--Add Admin-->
+        <scene sceneID="b1a-jq-yuy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeF-9A-2uT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Add Admin" selectedImage="addAdminIcon" id="im4-l0-dhY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" backIndicatorImage="ArrowLeftShape" id="LAW-6e-IGO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dxQ-t7-wXY" kind="relationship" relationship="rootViewController" id="2PG-xc-3Cq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVk-56-S8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="-3099"/>
         </scene>
     </scenes>
     <resources>
@@ -3882,12 +4021,18 @@ Individuals and families in New York City find comfort in Studio Med’s approac
         <image name="StudioMedLogo" width="1248" height="288"/>
         <image name="StudioMedLogoWhite" width="1248" height="288"/>
         <image name="StudioMedSteth" width="183" height="325"/>
+        <image name="UserIDCardIcon" width="37" height="26"/>
+        <image name="addAdminIcon" width="22" height="26"/>
+        <image name="allClientsIcon" width="22" height="26"/>
+        <image name="apptHistoryIcon" width="26" height="26"/>
         <image name="bubble_clear.png" width="16" height="16"/>
         <image name="bubble_dark.png" width="16" height="16"/>
         <image name="calendar.png" width="16" height="16"/>
+        <image name="newCalendarIcon" width="29" height="26"/>
+        <image name="oneUserIcon" width="18" height="26"/>
+        <image name="phoneIcon" width="20" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QBN-yL-dUU"/>
-        <segue reference="wfe-0U-M2O"/>
     </inferredMetricsTieBreakers>
 </document>

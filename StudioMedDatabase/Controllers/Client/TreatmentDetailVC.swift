@@ -13,7 +13,8 @@ import Firebase
 class TreatmentDetailVC: UIViewController, UITextViewDelegate {
     var name: String?
     var about: String?
-    var appointment = AppointmentData.sharedInstance()
+    var price: String?
+    var appointment = AppointmentData.sharedInstance
     
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
@@ -27,6 +28,7 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     //
     @IBAction func selectTreatmentButton(_ sender: Any) {
@@ -70,19 +72,24 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
                 
                 print("data for iv treatmentNameText treatment detail vc is: \(treatmentNameText)")
                 
+                print("data for iv priceNumberText treatment detail vc is: \(priceNumberText)")
+                
                 
                 let treatment = Treatment(nameText: treatmentNameText, aboutText: aboutText, priceText: priceNumberText, bestForText: bestForText)
                 print("data for ivtreatmentDict is \(treatmentDict)")
 //                self.name = treatment.name
 //                self.about = treatment.about
+                //self.price = treatment.price
                 self.treatments.append(treatment)
                 //                print("users array is \(self.users)")
                 performUIUpdatesOnMain {
                     //self.textView.reloadData()
                     self.nameLabel.text = self.name!
                     self.textView.text = self.about!
+                    self.priceLabel.text = treatment.price!
                     print("data for iv name = \(self.name)")
-                    self.selectButton.setTitle("Select \(self.name!)", for: UIControlState.normal)
+                    self.selectButton.setTitle("Select \(self.name!.uppercased())", for: UIControlState.normal)
+                    
                 }
             }
             //self.tableView.reloadData()
@@ -116,7 +123,7 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
                     self.nameLabel.text = self.name!
                     self.textView.text = self.about!
                     print("data for others called name = \(self.name)")
-                    self.selectButton.setTitle("Select \(self.name!)", for: UIControlState.normal)
+                    self.selectButton.setTitle("Select \(self.name!.uppercased())", for: UIControlState.normal)
                 }
             }
             //self.tableView.reloadData()
@@ -141,6 +148,10 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
             name = "IVIG"
         } else if name == "CINQAIR® (Reslizumab)" {
             name = "CINQAIR®"
+        }
+        
+        if price == " " {
+            self.priceLabel.isHidden = true
         }
         
         print("data for others called name = \(self.name)")

@@ -12,7 +12,7 @@ import Firebase
 
 class AdminViewNotes: UIViewController, UITextViewDelegate {
     
-    var appointment = AppointmentData.sharedInstance()
+    var appointment = AppointmentData.sharedInstance
     
     var keyboardIsShown = false
     

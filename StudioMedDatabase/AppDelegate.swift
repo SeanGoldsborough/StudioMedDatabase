@@ -165,7 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if UIApplication.isFirstLaunch() {
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingVC
         } else {
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstLoginNavVC")
         }
         
 //        if currentCount > 4 {
