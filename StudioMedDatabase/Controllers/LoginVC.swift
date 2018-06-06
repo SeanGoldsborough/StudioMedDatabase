@@ -18,6 +18,7 @@ class LoginVC: UIViewController {
     
     var userObjectShared = UserData.sharedInstance()
     var currentUser = Auth.auth().currentUser?.uid
+    var adminUsers = [String]()
     
     var keyboardIsShown = false
     
@@ -28,6 +29,23 @@ class LoginVC: UIViewController {
 //    @IBOutlet weak var activityOverlay: UIView!
 //    
 //    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    func getAdminUserID() {
+        databaseHandle = ref.child("admin").child("adminUsers").observe(.childAdded, with: { (snapshot) in
+            if let userDict = snapshot.value as? [String : AnyObject] {
+                let firebaseUID = userDict["fireBaseUID"] as! String
+                self.adminUsers.append(firebaseUID)
+                print("adminUsers array is \(self.adminUsers)")
+            }
+        })
+    }
+    
+//    func isValid(_ item: String)  -> Bool {
+//
+//        let whitelist = ["https://apple.com","https://facebook.com","https://stackoverflow.com"]
+//
+//        return whitelist.contains { $0 == item }
+//    }
     
     @IBAction func signInButton(_ sender: Any) {
         
@@ -43,18 +61,18 @@ class LoginVC: UIViewController {
                     //self.userObjectShared.firstName = Auth.auth().currentUser?.displayName
                     self.currentUser = Auth.auth().currentUser?.uid
                     
-                        if Auth.auth().currentUser?.uid == "K7MxWsDyJwYbJ6BzpzNDWyI9nrg2" {
-                            //Go to the AdminTabVC if the login is sucessful and is Admin User
+                        if self.adminUsers.contains(where: { $0 == Auth.auth().currentUser?.uid }) {
+
                             let adminTabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "AdminTabBarVC") as! AdminTabBarVC
                             self.present(adminTabBarVC, animated: true)
-                            //self.navigationController?.pushViewController(clientTabVC, animated: true)
+                            //self.navigationController?.pushViewController(adminTabBarVC, animated: true)
                             
                         } else {
 
                         //Go to the ClientTabVC if the login is sucessful
                         let clientTabVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
-                        self.present(clientTabVC, animated: true)
-                        //self.navigationController?.pushViewController(clientTabVC, animated: true)
+                        //self.present(clientTabVC, animated: true)
+                        self.navigationController?.pushViewController(clientTabVC, animated: true)
                         }
                     
                 } else {
@@ -91,6 +109,7 @@ class LoginVC: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         ref = Database.database().reference()
+        getAdminUserID()
         
         emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])

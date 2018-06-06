@@ -58,8 +58,16 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             apptObjectShared.treatment1 = "Select A Treatment"
             apptObjectShared.notes = "Add A Note For The Doctor"
             
-            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginVC")
-            present(loginVC, animated: true, completion: nil)
+//            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginVC")
+//            present(loginVC, animated: true, completion: nil)
+            let firstLoginNavVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginNavVC")
+            //                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+            //                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
+            present(firstLoginNavVC, animated: true, completion: {
+                
+                self.tabBarController?.view.removeFromSuperview()
+                print("tab bar remove called")
+            })
             //self.dismiss(animated: true, completion: nil)
 //            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
 //            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);

@@ -32,8 +32,16 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         do {
             try firebaseAuth.signOut()
             print ("google signout okay")
-            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginVC")
-            present(loginVC, animated: true, completion: nil)
+//            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginVC")
+//            present(loginVC, animated: true, completion: nil)
+            let firstLoginNavVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginNavVC")
+            //                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+            //                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
+            present(firstLoginNavVC, animated: true, completion: {
+                
+                self.tabBarController?.view.removeFromSuperview()
+                print("tab bar remove called")
+            })
             print("logged out success \(firebaseAuth.currentUser)")
             
         } catch let error as NSError {
@@ -75,12 +83,8 @@ class ListOfUsersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewWillAppear(animated)
         if users == nil {
            getData()
-        }
-        
-        
+        } 
         //let query = ref.queryOrderedByKey() /*or a more sophisticated query of your choice*/
-
-        
     }
     
     // MARK: - Private instance methods
