@@ -871,9 +871,7 @@
         <scene sceneID="NSK-jd-fBM">
             <objects>
                 <navigationController title="Create Appt" automaticallyAdjustsScrollViewInsets="NO" id="bwi-5L-LYN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create Appt" selectedImage="newCalendarIcon" id="0f0-Rx-UUr">
-                        <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Create Appt" image="newCalendarIcon" selectedImage="newCalendarIcon" id="0f0-Rx-UUr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="ArrowLeftShape" id="VkF-vK-920">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -893,7 +891,7 @@
         <scene sceneID="icy-4y-tST">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a3Y-cu-K33" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Clients" selectedImage="allClientsIcon" id="uX6-Ec-GLu"/>
+                    <tabBarItem key="tabBarItem" title="Clients" image="allClientsIcon" selectedImage="allClientsIcon" id="uX6-Ec-GLu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="7Ry-Dd-AzM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1582,7 +1580,7 @@
         <scene sceneID="f0F-nw-7Rl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cKT-KX-8KD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Appt History" selectedImage="apptHistoryIcon" id="sYf-w4-EVC">
+                    <tabBarItem key="tabBarItem" title="Appt History" image="apptHistoryIcon" selectedImage="apptHistoryIcon" id="sYf-w4-EVC">
                         <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1604,9 +1602,7 @@
         <scene sceneID="PiT-Jy-Ddm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jEh-3U-JcJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Info" selectedImage="oneUserIcon" id="cfU-pO-eQS">
-                        <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="My Info" image="patient_info-512 copy" selectedImage="patient_info-512 copy" id="cfU-pO-eQS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" backIndicatorImage="ArrowLeftShape" id="crz-FR-Hxc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1626,9 +1622,7 @@
         <scene sceneID="AXp-mj-pZu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6X-k9-MWG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contact Us" selectedImage="phoneIcon" id="M3v-wc-qf7">
-                        <color key="badgeColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Contact Us" image="phone2" selectedImage="phone2" id="M3v-wc-qf7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="973-bi-EFs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -3320,7 +3314,7 @@ The following privacy policy describes the personal information we collect from 
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Xc-1O-sxI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Reset Password" selectedImage="UserIDCardIcon" id="qF7-hT-hlu"/>
+                    <tabBarItem key="tabBarItem" title="Reset Password" image="patient_info-512 copy" selectedImage="patient_info-512 copy" id="qF7-hT-hlu"/>
                     <navigationItem key="navigationItem" id="49T-xt-5DE"/>
                     <connections>
                         <outlet property="emailTextField" destination="0sj-6K-QvE" id="Tb2-BS-zS1"/>
@@ -3998,7 +3992,7 @@ Individuals and families in New York City find comfort in Studio Med’s approac
         <scene sceneID="b1a-jq-yuy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eeF-9A-2uT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add Admin" selectedImage="addAdminIcon" id="im4-l0-dhY"/>
+                    <tabBarItem key="tabBarItem" title="Add Admin" image="addAdminIcon" selectedImage="addAdminIcon" id="im4-l0-dhY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" backIndicatorImage="ArrowLeftShape" id="LAW-6e-IGO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -4014,6 +4008,175 @@ Individuals and families in New York City find comfort in Studio Med’s approac
             </objects>
             <point key="canvasLocation" x="137" y="-3099"/>
         </scene>
+        <!--Request Appt DetailVC-->
+        <scene sceneID="MIU-Gt-L03">
+            <objects>
+                <viewController storyboardIdentifier="RequestApptDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ozB-1F-6fo" customClass="RequestApptDetailVC" customModule="StudioMedDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9lx-FA-qR4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Appointment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBd-nz-PVg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="05z-Gc-JnZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="g67-nz-NL8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KSX-Kz-0je">
+                                <rect key="frame" x="16" y="100" width="343" height="544"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRV-Jm-Gwt">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="NcK-sP-h9Z"/>
+                                            <constraint firstAttribute="width" constant="343" id="d0v-Yg-IcH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appt Date &amp; Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-IE-vGO">
+                                        <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="BM0-6N-GjK"/>
+                                            <constraint firstAttribute="width" constant="343" id="FZW-EH-9h7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treatment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL2-Hb-kyc">
+                                        <rect key="frame" x="0.0" y="116" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="gS0-ig-iHK"/>
+                                            <constraint firstAttribute="height" constant="50" id="kVC-Hc-kUi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayj-tU-CDT">
+                                        <rect key="frame" x="0.0" y="174" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9Mb-eu-LGH"/>
+                                            <constraint firstAttribute="width" constant="343" id="kkg-Dc-rEq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GA-Fb-9Su">
+                                        <rect key="frame" x="0.0" y="232" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="Ytx-Pe-T6r"/>
+                                            <constraint firstAttribute="height" constant="50" id="obO-rK-c41"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAH-NT-yeE">
+                                        <rect key="frame" x="0.0" y="290" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0NZ-xh-3OU"/>
+                                            <constraint firstAttribute="width" constant="343" id="c3Q-A8-aaM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKx-VL-mrP">
+                                        <rect key="frame" x="0.0" y="348" width="343" height="60"/>
+                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="4bA-iF-MkN"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Bvz-1w-w44"/>
+                                            <constraint firstAttribute="height" constant="60" id="zSd-6F-tZG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="View Notes">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="viewNotes:" destination="MFx-20-jgy" eventType="touchUpInside" id="ceR-Nb-9Y4"/>
+                                            <action selector="viewNotesButton:" destination="ozB-1F-6fo" eventType="touchUpInside" id="5Yz-7Q-ZWt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U8-xi-oMt">
+                                        <rect key="frame" x="0.0" y="416" width="343" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="S0L-FS-dfG"/>
+                                            <constraint firstAttribute="height" constant="60" id="e6r-RM-sq6"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="mwW-YS-a7w"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Cancel Appointment">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelApptButton:" destination="ozB-1F-6fo" eventType="touchUpInside" id="EZi-5h-sWl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEt-p2-Yc6">
+                                        <rect key="frame" x="0.0" y="484" width="343" height="60"/>
+                                        <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="1Yu-d6-cEi"/>
+                                            <constraint firstAttribute="height" constant="60" id="EUy-DQ-USG"/>
+                                            <constraint firstAttribute="width" constant="343" id="rsl-LS-TTs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Request Appointment">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmAppt:" destination="ozB-1F-6fo" eventType="touchUpInside" id="kJE-6p-Zur"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KSX-Kz-0je" firstAttribute="top" secondItem="oBd-nz-PVg" secondAttribute="bottom" id="0FN-GF-iKp"/>
+                            <constraint firstItem="oBd-nz-PVg" firstAttribute="centerX" secondItem="9lx-FA-qR4" secondAttribute="centerX" id="Jkh-XK-R7t"/>
+                            <constraint firstItem="KSX-Kz-0je" firstAttribute="centerY" secondItem="9lx-FA-qR4" secondAttribute="centerY" id="V7l-MI-3l1"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="KSX-Kz-0je" secondAttribute="bottom" constant="16" id="fP6-sm-yID"/>
+                            <constraint firstItem="KSX-Kz-0je" firstAttribute="leading" secondItem="F3E-TQ-E0I" secondAttribute="leading" constant="16" id="hy4-ev-IJn"/>
+                            <constraint firstItem="F3E-TQ-E0I" firstAttribute="trailing" secondItem="KSX-Kz-0je" secondAttribute="trailing" constant="16" id="pNk-YH-zqA"/>
+                            <constraint firstItem="KSX-Kz-0je" firstAttribute="centerX" secondItem="9lx-FA-qR4" secondAttribute="centerX" id="s1f-BS-6hw"/>
+                            <constraint firstItem="oBd-nz-PVg" firstAttribute="leading" secondItem="9lx-FA-qR4" secondAttribute="leading" id="vnL-yD-tFe"/>
+                            <constraint firstItem="oBd-nz-PVg" firstAttribute="top" secondItem="F3E-TQ-E0I" secondAttribute="top" id="xTO-Fn-aUf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F3E-TQ-E0I"/>
+                    </view>
+                    <connections>
+                        <outlet property="apptDateAndTimeLabel" destination="cLb-IE-vGO" id="vIx-pa-bY9"/>
+                        <outlet property="apptStatusLabel" destination="RRV-Jm-Gwt" id="cJl-1u-Lbj"/>
+                        <outlet property="cancelApptOutlet" destination="6U8-xi-oMt" id="WOF-V9-9Ap"/>
+                        <outlet property="requestApptOutlet" destination="uEt-p2-Yc6" id="puR-lX-HMJ"/>
+                        <outlet property="treatmentLabel" destination="JL2-Hb-kyc" id="nGM-Mv-MCj"/>
+                        <outlet property="userEmailLabel" destination="QAH-NT-yeE" id="V0e-0E-mJc"/>
+                        <outlet property="userFullNameLabel" destination="Ayj-tU-CDT" id="aTj-EC-ElH"/>
+                        <outlet property="userPhoneLabel" destination="1GA-Fb-9Su" id="uZc-yt-GZr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rzy-fU-m3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4508" y="1103"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ArrowLeftShape" width="10" height="16"/>
@@ -4021,7 +4184,6 @@ Individuals and families in New York City find comfort in Studio Med’s approac
         <image name="StudioMedLogo" width="1248" height="288"/>
         <image name="StudioMedLogoWhite" width="1248" height="288"/>
         <image name="StudioMedSteth" width="183" height="325"/>
-        <image name="UserIDCardIcon" width="37" height="26"/>
         <image name="addAdminIcon" width="22" height="26"/>
         <image name="allClientsIcon" width="22" height="26"/>
         <image name="apptHistoryIcon" width="26" height="26"/>
@@ -4029,8 +4191,8 @@ Individuals and families in New York City find comfort in Studio Med’s approac
         <image name="bubble_dark.png" width="16" height="16"/>
         <image name="calendar.png" width="16" height="16"/>
         <image name="newCalendarIcon" width="29" height="26"/>
-        <image name="oneUserIcon" width="18" height="26"/>
-        <image name="phoneIcon" width="20" height="26"/>
+        <image name="patient_info-512 copy" width="25" height="25"/>
+        <image name="phone2" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QBN-yL-dUU"/>

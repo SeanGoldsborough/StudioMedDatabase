@@ -1,21 +1,29 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "oneUserIcon.png",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "2x"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "3x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "oneUserIcon.png",
+      "unassigned" : true,
+      "scale" : "1x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

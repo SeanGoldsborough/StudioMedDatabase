@@ -15,6 +15,7 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
     var about: String?
     var price: String?
     var appointment = AppointmentData.sharedInstance
+    var newAppointment = NewAppointmentData.sharedInstance
     
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
@@ -36,7 +37,8 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
  
        // delegate?.setResultOfGetTreatment(valueSent: name!)
         print("the name label text is \(nameLabel.text)")
-        appointment.treatment1 = nameLabel.text!
+        //appointment.treatment1 = nameLabel.text!
+        newAppointment.treatment1 = nameLabel.text!
         var vcCount = 4
         if selectedIndex == 1 || selectedIndex == 2 {
             vcCount = 3

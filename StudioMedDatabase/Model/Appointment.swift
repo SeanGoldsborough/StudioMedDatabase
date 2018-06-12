@@ -40,19 +40,76 @@ class Appointment {
     }
 }
 
-class AppointmentDataLite : NSObject {
+class NewAppointment : NSObject {
     
+    public var firebaseApptID: String?
+    public var firebaseClientID: String?
+    public var isCancelled: Bool?
+    public var isActive: Bool?
+    public var isComplete: Bool?
     public var date: String?
     public var time: String?
+    public var firstName: String?
+    public var lastName: String?
+    public var phoneNumber: String?
+    public var email: String?
     public var treatment1: String?
     public var notes: String?
    
-        class func sharedInstance() -> AppointmentDataLite {
+        class func sharedInstance() -> NewAppointment {
             struct Singleton {
-                static var sharedInstance = AppointmentDataLite()
+                static var sharedInstance = NewAppointment()
             }
             return Singleton.sharedInstance
         }
+}
+
+class NewAppointmentData : NSObject {
+    public var firebaseApptID: String?
+    public var firebaseClientID: String?
+    public var isCancelled: Bool?
+    public var isActive: Bool?
+    public var isComplete: Bool?
+    public var date: String?
+    public var time: String?
+    public var firstName: String?
+    public var lastName: String?
+    public var phoneNumber: String?
+    public var email: String?
+    public var treatment1: String?
+    public var notes: String?
+    
+    
+    
+    // MARK: Shared Instance
+    
+    struct Singleton {
+        static var sharedInstance: NewAppointmentData?
+    }
+    
+    class var sharedInstance: NewAppointmentData {
+        if Singleton.sharedInstance == nil {
+            Singleton.sharedInstance = NewAppointmentData()
+            print("init a singleton shared instance")
+        }
+        return Singleton.sharedInstance!
+    }
+    
+    class func dispose() {
+        NewAppointmentData.Singleton.sharedInstance = nil
+        print("Disposed AppointmentData Singleton sharedInstance")
+        print(NewAppointmentData.sharedInstance)
+    }
+    
+    //    class func sharedInstance() -> AppointmentData {
+    //        struct Singleton {
+    //            static var sharedInstance = AppointmentData()
+    //        }
+    //        return Singleton.sharedInstance
+    //    }
+    
+    
+    
 }
     
 

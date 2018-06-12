@@ -14,6 +14,8 @@ class ApptNotesVC: UIViewController, UITextViewDelegate {
     
     var appointment = AppointmentData.sharedInstance
     
+    var newAppointment = NewAppointmentData.sharedInstance
+    
     var keyboardIsShown = false
     
     var delegate:GetDataProtocol?
@@ -21,8 +23,9 @@ class ApptNotesVC: UIViewController, UITextViewDelegate {
      @IBOutlet weak var notesTextView: UITextView!
 
     @IBAction func saveButton(_ sender: Any) {
-        //TODO: save to notes in appt object in firebase?
-        appointment.notes = notesTextView.text
+        
+        //appointment.notes = notesTextView.text
+        newAppointment.notes = notesTextView.text
         //send notes data to UILabel in CreateApptVC
         delegate?.setResultOfGetNotes(valueSent: notesTextView.text!)
         self.navigationController?.popViewController(animated: true)

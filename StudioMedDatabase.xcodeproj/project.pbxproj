@@ -58,6 +58,7 @@
 		C656EFE6209F60310032E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C656EFE3209F60300032E26F /* GoogleService-Info.plist */; };
 		C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */; };
 		C674E4C320C4ADCA00587B15 /* AboutStudioMedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */; };
+		C685DDFF20CF14C70022C418 /* RequestApptDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C685DDFE20CF14C70022C418 /* RequestApptDetailVC.swift */; };
 		C69DB17920BE9A920022A426 /* AddNewAdminFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17820BE9A920022A426 /* AddNewAdminFormVC.swift */; };
 		C69DB17B20BEAFB90022A426 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */; };
 		C69DB17D20BF2EAC0022A426 /* AdminViewNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */; };
@@ -154,6 +155,7 @@
 		C656EFE3209F60300032E26F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewNotesVC.swift; sourceTree = "<group>"; };
 		C674E4C220C4ADCA00587B15 /* AboutStudioMedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutStudioMedVC.swift; sourceTree = "<group>"; };
+		C685DDFE20CF14C70022C418 /* RequestApptDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApptDetailVC.swift; sourceTree = "<group>"; };
 		C69DB17820BE9A920022A426 /* AddNewAdminFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdminFormVC.swift; sourceTree = "<group>"; };
 		C69DB17A20BEAFB90022A426 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		C69DB17C20BF2EAC0022A426 /* AdminViewNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewNotes.swift; sourceTree = "<group>"; };
@@ -277,11 +279,12 @@
 				C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */,
 				C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */,
 				C64265DD20A0E27000D412D8 /* CreateApptVC.swift */,
+				C685DDFE20CF14C70022C418 /* RequestApptDetailVC.swift */,
 				C608F30B20B7387900410951 /* DatePickerFramework */,
 				C631F03A20AF820700D985E2 /* GetDateVC.swift */,
 				C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */,
-				C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */,
 				C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */,
+				C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */,
 				C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */,
 				C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */,
 				C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */,
@@ -652,6 +655,7 @@
 				C64265EB20A1335500D412D8 /* ListOfAppointmentsVC.swift in Sources */,
 				C6BF8C8E20BC5B3700C652E5 /* Notifications.swift in Sources */,
 				C6BAB64820A629250078A8C0 /* TreatmentDetailVC.swift in Sources */,
+				C685DDFF20CF14C70022C418 /* RequestApptDetailVC.swift in Sources */,
 				C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */,
 				C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */,
 				C64265DE20A0E27000D412D8 /* CreateApptVC.swift in Sources */,

@@ -59,21 +59,15 @@ class AdminApptDetailVC: UIViewController {
         //let clientApptKey = ref.child(date).key
         let fullName =  self.apptObjectShared.firstName! + " " +  self.apptObjectShared.lastName!
         let adminKey = ref.child("\(fullName)").childByAutoId().key
-//        let post = ["isCancelled": isCancelled, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
-//            "lastName": "\(self.userObjectShared.lastName!)",
-//            "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
-//            "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
-        
+
         let post = ["firebaseApptID": clientApptKey,"firebaseClientID": uid, "isCancelled": isCancelled, "isActive": isActive, "isComplete": isComplete, "date": "\(date)", "firstName": "\(self.apptObjectShared.firstName!)",
             "lastName": "\(self.apptObjectShared.lastName!)",
             "phoneNumber": "\(self.apptObjectShared.phoneNumber!)",
             "email": "\(self.apptObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
-        let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
+        //let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
         let adminChildUpdates = ["/admin/appts/allAppts/\(clientApptKey)": post]
-        ref.updateChildValues(clientChildUpdates)
+       // ref.updateChildValues(clientChildUpdates)
         ref.updateChildValues(adminChildUpdates)
-//
-//        print("user id is: \(userID).")
 
         AlertView.apptCancelAlert(view: self, alertTitle: "Appointment has been canceled!", alertMessage: "")
         apptObjectShared.isCancelled = true
@@ -91,35 +85,34 @@ class AdminApptDetailVC: UIViewController {
             self.apptStatusLabel.textColor = UIColor.black
         }
         
-//        var ref: DatabaseReference!
-//        ref = Database.database().reference()
-//        let userID = Auth.auth().currentUser?.uid
-//
-//        let isCancelled = false
-//        let uid = self.userObjectShared.fireBaseUID
-//        let date = self.apptObjectShared.date!
-//        let treatment = self.apptObjectShared.treatment1!
-//        let notes = self.apptObjectShared.notes ?? ""
-//        let clientKey = ref.child(uid!).key
-//        let clientApptKey = ref.childByAutoId().key
-//        //let clientApptKey = ref.child(date).key
-//        let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
-//        let adminKey = ref.child("\(fullName)").childByAutoId().key
-//        let post = ["isCancelled": isCancelled, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
-//            "lastName": "\(self.userObjectShared.lastName!)",
-//            "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
-//            "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
-//        let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
-//        let adminChildUpdates = ["/admin/appts/allAppts/\(adminKey)": post]
-//        ref.updateChildValues(clientChildUpdates)
-//        ref.updateChildValues(adminChildUpdates)
-//
-//        print("user id is: \(userID).")
-//
-//
-        AlertView.apptCreateAlert(view: self, alertTitle: "Appointment complete!", alertMessage: "")
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userID = Auth.auth().currentUser?.uid
         
-        //rateAppAlert()
+        let isCancelled = false
+        let isActive = false
+        let isComplete = true
+        let uid = self.apptObjectShared.firebaseClientID!
+        let date = self.apptObjectShared.date!
+        let treatment = self.apptObjectShared.treatment1!
+        let notes = self.apptObjectShared.notes ?? ""
+        let clientKey = self.apptObjectShared.firebaseClientID    //ref.child(uid!).key
+        let clientApptKey = self.apptObjectShared.firebaseApptID!
+        let fullName =  self.apptObjectShared.firstName! + " " +  self.apptObjectShared.lastName!
+        let adminKey = ref.child("\(fullName)").childByAutoId().key
+        
+        let post = ["firebaseApptID": clientApptKey,"firebaseClientID": uid, "isCancelled": isCancelled, "isActive": isActive, "isComplete": isComplete, "date": "\(date)", "firstName": "\(self.apptObjectShared.firstName!)",
+            "lastName": "\(self.apptObjectShared.lastName!)",
+            "phoneNumber": "\(self.apptObjectShared.phoneNumber!)",
+            "email": "\(self.apptObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
+        let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
+        let adminChildUpdates = ["/admin/appts/allAppts/\(clientApptKey)": post]
+        ref.updateChildValues(clientChildUpdates)
+        ref.updateChildValues(adminChildUpdates)
+
+        AlertView.apptCreateAlert(view: self, alertTitle: "Appointment complete!", alertMessage: "")
+        apptObjectShared.isCancelled = false
+        apptObjectShared.isComplete = true
     }
 
     override func viewDidLoad() {

@@ -75,6 +75,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         print("user name is: \(userName)")
         tableView.dataSource = self
         tableView.delegate = self
+        performUIUpdatesOnMain {
+            self.tableView.reloadData()
+        }
         
         
         
@@ -97,9 +100,16 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        getData()
-        performUIUpdatesOnMain {
-            self.tableView.reloadData()
+        
+        if appointments.count > 1 {
+            
+            performUIUpdatesOnMain {
+                self.appointments.removeAll()
+                self.getData()
+                self.tableView.reloadData()
+            }
         }
+        
     }
     
     func getData() {
@@ -132,7 +142,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
                     self.tableView.reloadData()
                 }
             }
-            //self.tableView.reloadData()
+            self.tableView.reloadData()
         })
     }
     
@@ -152,40 +162,98 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         cell.textLabel?.text = appointment.firstName + " " + appointment.lastName
         cell.detailTextLabel?.text = appointment.date + "    " + appointment.treatment1
   
+//        if appointment.isCancelled == true && appointment.isActive == false {
+//            
+//            performUIUpdatesOnMain {
+//           
+//                let topAttributes: [NSAttributedStringKey: Any] =
+//                    [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+//                     NSAttributedStringKey.strikethroughStyle: 1]
+//                
+//                let bottomAttributes: [NSAttributedStringKey: Any] =
+//                    [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+//                     NSAttributedStringKey.strikethroughStyle: 1]
+//                
+//                let topText = appointment.firstName + " " + appointment.lastName
+//                let bottomText = appointment.date + "    " + appointment.treatment1
+//                
+//                cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
+//                cell.textLabel?.textColor = UIColor.lightGray
+//                cell.textLabel?.alpha = 0.5
+//                
+//                cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
+//                cell.detailTextLabel?.textColor = UIColor.lightGray
+//                cell.detailTextLabel?.alpha = 0.5
+//                
+//                cell.backgroundColor = UIColor.darkGray
+//                
+//            self.tableView.reloadData()
+//                
+//            }
+//            
+//        } else if appointment.isCancelled == false && appointment.isActive == true
+//        {
+//            performUIUpdatesOnMain {
+//                cell.textLabel?.textColor = UIColor.white
+//                cell.backgroundColor = UIColor.black
+//                 self.tableView.reloadData()
+//            }
+//            
+//        }
+        
         if appointment.isCancelled == true {
             
-            performUIUpdatesOnMain {
-           
-                let topAttributes: [NSAttributedStringKey: Any] =
-                    [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
-                     NSAttributedStringKey.strikethroughStyle: 1]
-                
-                let bottomAttributes: [NSAttributedStringKey: Any] =
-                    [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
-                     NSAttributedStringKey.strikethroughStyle: 1]
-                
-                let topText = appointment.firstName + " " + appointment.lastName
-                let bottomText = appointment.date + "    " + appointment.treatment1
-                
-                cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
-                cell.textLabel?.textColor = UIColor.lightGray
-                cell.textLabel?.alpha = 0.5
-                
-                cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
-                cell.detailTextLabel?.textColor = UIColor.lightGray
-                cell.detailTextLabel?.alpha = 0.5
-                
-                cell.backgroundColor = UIColor.darkGray
-                
-            self.tableView.reloadData()
-                
-            }
+            let topAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
             
-        } else if appointment.isCancelled == false {
-            performUIUpdatesOnMain {
-                cell.textLabel?.textColor = UIColor.white
-                cell.backgroundColor = UIColor.black  
-            }
+            let bottomAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let topText = appointment.date + "    " + appointment.treatment1
+            let bottomText = appointment.firstName + " " + appointment.lastName
+            
+            
+            cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
+            cell.textLabel?.textColor = UIColor(rgb: 0xFF6666)
+            cell.textLabel?.alpha = 0.5
+            
+            cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
+            cell.detailTextLabel?.textColor = UIColor(rgb: 0xFF6666)
+            cell.detailTextLabel?.alpha = 0.5
+            
+            cell.backgroundColor = UIColor.darkGray
+            
+        } else if appointment.isComplete == true {
+            
+            let topAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let bottomAttributes: [NSAttributedStringKey: Any] =
+                [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
+                 NSAttributedStringKey.strikethroughStyle: 1]
+            
+            let topText = appointment.date + "    " + appointment.treatment1
+            let bottomText = appointment.firstName + " " + appointment.lastName
+            
+            
+            cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
+            cell.textLabel?.textColor = UIColor.lightGray
+            cell.textLabel?.alpha = 0.5
+            
+            cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+            cell.detailTextLabel?.alpha = 0.5
+            
+            cell.backgroundColor = UIColor.darkGray
+            
+        }
+        else {
+            cell.textLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.textColor = UIColor.white
+            //cell.backgroundColor = UIColor.white
             
         }
 
@@ -193,12 +261,11 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let appointment: Appointment
-        
         appointment = appointments[indexPath.row]
-          print("selected appt is can = \(appointment.isCancelled)")
-        
-//        self.coloredCellIndex = indexPath.row
+        print("selected appt is can = \(appointment.isCancelled)")
+
         let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
         
         //apptObjectShared = appointments[indexPath.row]
@@ -217,18 +284,20 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
                 let treatment = appointments[indexPath.row].treatment1
                 let notes = appointments[indexPath.row].notes
         
-            self.apptObjectShared.firebaseApptID = firebaseApptIDString
-            self.apptObjectShared.firebaseApptID = firebaseClientIDString
-            self.apptObjectShared.isCancelled = isCancelledBool
-            self.apptObjectShared.isActive = isActiveBool
-            self.apptObjectShared.isComplete = isCompleteBool
-            self.apptObjectShared.firstName = firstName
-            self.apptObjectShared.lastName = lastName
-            self.apptObjectShared.phoneNumber = phoneNumber
-            self.apptObjectShared.email = email
-            self.apptObjectShared.date = date
-            self.apptObjectShared.treatment1 = treatment
-            self.apptObjectShared.notes = notes
+                self.apptObjectShared.firebaseApptID = firebaseApptIDString
+                self.apptObjectShared.firebaseClientID = firebaseClientIDString
+                self.apptObjectShared.isCancelled = isCancelledBool
+                self.apptObjectShared.isActive = isActiveBool
+                self.apptObjectShared.isComplete = isCompleteBool
+                self.apptObjectShared.firstName = firstName
+                self.apptObjectShared.lastName = lastName
+                self.apptObjectShared.phoneNumber = phoneNumber
+                self.apptObjectShared.email = email
+                self.apptObjectShared.date = date
+                self.apptObjectShared.treatment1 = treatment
+                self.apptObjectShared.notes = notes
+        
+                print("table view appt history did select this date \(self.apptObjectShared.date)")
         
         
         

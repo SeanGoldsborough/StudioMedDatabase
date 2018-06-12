@@ -39,8 +39,9 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
     
     var apptArray: [AppointmentData] = ApptArray.sharedInstance.listOfAppts
     var apptObject = AppointmentData()
-    var apptDataLiteShared = AppointmentDataLite.sharedInstance()
+   // var apptDataLiteShared = AppointmentDataLite.sharedInstance()
     var apptObjectShared = AppointmentData.sharedInstance
+    var newApptObjectShared = NewAppointmentData.sharedInstance
     
     var valueFromGetDateVC:String?
     var valueFromApptNotesVC:String?
@@ -71,8 +72,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             //self.dismiss(animated: true, completion: nil)
 //            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
 //            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
-            
-            
+         
             print("logged out success \(firebaseAuth.currentUser)")
             userObjectShared.firstName = ""
             print("logged out success \(userObjectShared)")
@@ -113,9 +113,9 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         let dateAndTime = picker.selectedDateString
         //title = dateAndTime
         self.dateTimeButton.setTitle("\(dateAndTime)", for: UIControlState.normal)
-        self.apptObjectShared.date = dateAndTime
-        //self.apptDataLiteShared.date = dateAndTime
-        
+        //self.apptObjectShared.date = dateAndTime
+        self.newApptObjectShared.date = dateAndTime
+
     }
     
      @IBAction func selectDateTime(_ sender: Any) {
@@ -142,9 +142,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             let formatter = DateFormatter()
             formatter.dateFormat = "MM/dd/YYYY hh:mm aa"
             //self.title = formatter.string(from: date)
-            
-        
-        }
+       }
         picker.delegate = self
         self.picker = picker
     }
@@ -152,18 +150,58 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
     @IBAction func selectTreatmentOne(_ sender: Any) {
     }
     
-    
     @IBAction func createApptButton(_ sender: Any) {
+        
+        self.newApptObjectShared.email = userObject.email
+        self.newApptObjectShared.firebaseApptID = nil
+        self.newApptObjectShared.firebaseClientID = userObjectShared.fireBaseUID
+        self.newApptObjectShared.firstName = userObject.firstName
+        self.newApptObjectShared.isCancelled = false
+        self.newApptObjectShared.isActive = true
+        self.newApptObjectShared.isComplete = false
+        self.newApptObjectShared.lastName = userObject.lastName
+        self.newApptObjectShared.phoneNumber = userObject.phoneNumber
 
+        //apptArray.append(newApptObjectShared)
+
+        print("user array count is: \(apptArray.count)")
+        print("user object name is: \(self.newApptObjectShared.firstName)")
+        print("user object name is: \(userObject.email)")
+        print("user object name is: \(self.newApptObjectShared.email)")
+
+        if newApptObjectShared.date == nil || newApptObjectShared.treatment1 == nil || dateTimeButton.titleLabel?.text == "Select A Date & Time" || treatmentOneButton.titleLabel?.text == "Select A Treatment" {
+            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+        } else {
+            let isCancelled = false
+            let isActive = true
+            let isComplete = false
+            let uid = self.userObjectShared.fireBaseUID
+            let date = self.newApptObjectShared.date!
+            let treatment = self.newApptObjectShared.treatment1!
+            let notes = self.valueFromApptNotesVC ?? ""
+            let clientKey = ref.child(uid!).key
+            let clientApptKey = ref.childByAutoId().key
+
+            let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "RequestApptDetailVC") as! RequestApptDetailVC
+
+            navigationController?.pushViewController(apptDetailVC, animated: true)
+        }
+        
+//
+//
+//
+//        self.apptObjectShared.email = userObject.email
+//        self.apptObjectShared.firebaseApptID = nil
+//        self.apptObjectShared.firebaseClientID = userObjectShared.fireBaseUID
+//        self.apptObjectShared.firstName = userObject.firstName
 //        self.apptObjectShared.isCancelled = false
 //        self.apptObjectShared.isActive = true
 //        self.apptObjectShared.isComplete = false
-//        self.apptObjectShared.firebaseClientID = userObjectShared.fireBaseUID
-//        self.apptObjectShared.firstName = userObject.firstName
 //        self.apptObjectShared.lastName = userObject.lastName
 //        self.apptObjectShared.phoneNumber = userObject.phoneNumber
-//        self.apptObjectShared.email = userObject.email
 //
+//
+//        //newApptObjectShared
 //        apptArray.append(apptObjectShared)
 //
 //        print("user array count is: \(apptArray.count)")
@@ -186,53 +224,13 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
 //
 //            let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
 //
-//            apptDetailVC.apptDateAndTimeLabel.text = apptDataLiteShared.date! + " " + apptDataLiteShared.time!
-//            apptDetailVC.treatmentLabel.text = apptDataLiteShared.treatment1!
+////            apptDetailVC.apptDateAndTimeLabel.text = apptDataLiteShared.date!
+////            apptDetailVC.treatmentLabel.text = apptDataLiteShared.treatment1!
 //
 //            navigationController?.pushViewController(apptDetailVC, animated: true)
 //        }
-        
-        self.apptObjectShared.isCancelled = false
-        self.apptObjectShared.isActive = true
-        self.apptObjectShared.isComplete = false
-        self.apptObjectShared.firebaseClientID = userObjectShared.fireBaseUID
-        self.apptObjectShared.firstName = userObject.firstName
-        self.apptObjectShared.lastName = userObject.lastName
-        self.apptObjectShared.phoneNumber = userObject.phoneNumber
-        self.apptObjectShared.email = userObject.email
-        
-        apptArray.append(apptObjectShared)
-        
-        print("user array count is: \(apptArray.count)")
-        print("user object name is: \(self.apptObjectShared.firstName)")
-        print("user object name is: \(userObject.email)")
-        print("user object name is: \(self.apptObjectShared.email)")
-        
-        if apptObjectShared.date == nil || apptObjectShared.treatment1 == nil || dateTimeButton.titleLabel?.text == "Select A Date & Time" || treatmentOneButton.titleLabel?.text == "Select A Treatment" {
-            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
-        } else {
-            let isCancelled = false
-            let isActive = true
-            let isComplete = false
-            let uid = self.userObjectShared.fireBaseUID
-            let date = self.apptObjectShared.date!
-            let treatment = self.apptObjectShared.treatment1!
-            let notes = self.valueFromApptNotesVC ?? ""
-            let clientKey = ref.child(uid!).key
-            let clientApptKey = ref.childByAutoId().key
-            
-            let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
-            
-//            apptDetailVC.apptDateAndTimeLabel.text = apptDataLiteShared.date!
-//            apptDetailVC.treatmentLabel.text = apptDataLiteShared.treatment1!
-            
-            navigationController?.pushViewController(apptDetailVC, animated: true)
-        }
-        
     }
-    
 
-    
     func getOneUserData() {
         
         var ref: DatabaseReference!
@@ -272,7 +270,6 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
                 print("userDict is \(self.userObjectShared.phoneNumber)")
                 print("userDict is \(self.userObjectShared.zipCode)")
                 print("userDict is \(self.userObjectShared.email)")
-                
             }
             // ...
         }) { (error) in
@@ -280,46 +277,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             print(error.localizedDescription)
         }
     }
-
-    
-    func getUserData() {
-        
-        let userID : String = (Auth.auth().currentUser?.uid)!
-        print("Current user ID is" + userID)
-        
-        self.ref.child("clients").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
-             print("Current snapshot value is...")
-            print(snapshot.value)
-            
-//            let userEmail = (snapshot.value as! NSDictionary)["email"] as! String
-//            print(userEmail)
-            
-            
-        })
- 
-        let user = Auth.auth().currentUser
-        if let user = user {
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            let uid = user.uid
-            let email = user.email
-            let firstName = user.displayName
-            let phone = user.phoneNumber
-            
-            self.userObjectShared.firstName = firstName!
-
-            print("userID is: \(uid)")
-            print("email is: \(email)")
-            print("name is: \(firstName)")
-            print("phone is: \(phone)")
-            self.greetingLabel.text = "Welcome, \(self.userObjectShared.firstName!)!"
-       }
-        
-        
-
-    }
-    
+  
     //TODO: FIX IT SO IT WORKS WITH RIGHT PROMPTS
 //    func rateAppAlert() {
 //        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
@@ -328,6 +286,32 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
 //            AlertView.alertPopUp(view: self, alertMessage: "Rate the app!")
 //        }
 //    }
+    
+    func resetApptForm() {
+        
+        if apptObjectShared.date == nil {
+        //apptObjectShared.date = "Select A Date & Time"
+        self.dateTimeButton.setTitle("Select A Date & Time", for: UIControlState.normal)
+        } else {
+            apptObjectShared.date = apptObjectShared.date
+        }
+        
+        if apptObjectShared.treatment1 == nil {
+            //apptObjectShared.treatment1 = "Select A Treatment"
+            self.treatmentOneButton.setTitle("Select A Treatment", for: UIControlState.normal)
+        } else {
+            apptObjectShared.treatment1 = apptObjectShared.treatment1
+        }
+        
+        if apptObjectShared.notes == nil {
+            //apptObjectShared.notes = "Add A Note For The Doctor"
+            self.addNotesButton.setTitle("Add A Note For The Doctor", for: UIControlState.normal)
+        } else {
+            apptObjectShared.notes = apptObjectShared.notes
+        }
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -339,93 +323,51 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         navigationItem.backBarButtonItem?.title = ""
 
         getOneUserData()
+        
+//        performUIUpdatesOnMain {
+//            self.resetApptForm()
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          //AppointmentData.dispose()
+       // resetApptForm()
+//        performUIUpdatesOnMain {
+//            self.resetApptForm()
+//        }
     }
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+  
+        print("value from TreatmentDetailVC is2: \(newApptObjectShared.treatment1)")
+            print("value from GetDateVC is: \(newApptObjectShared.date)")
         
-       
-        
-        print("value from TreatmentDetailVC is2: \(apptObjectShared.treatment1)")
-            print("value from GetDateVC is: \(apptObjectShared.date)")
-//            self.dateTimeButton.setTitle("\(valueFromGetDateVC)", for: UIControlState.normal)
-//
-//            print("value from TreatmentDetailVC is: \(valueFromTreatmentDetailVC)")
-//            self.treatmentOneButton.setTitle("\(apptObjectShared.treatment1)", for: UIControlState.normal)
-//
-//            print("value from ApptNotesVC is: \(valueFromApptNotesVC)")
-//            self.addNotesButton.setTitle("\(valueFromApptNotesVC)", for: UIControlState.normal)
-        
-        
-        
-        //        let conditionRef = ref.child("users")
-        //        conditionRef.observe(.value, with: (snap: DataSnapshot) -> Void) in
-        //        self.firstNameText.text = snap.value.description
-        //self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName").removeValue()
-        //self.ref.child("client").child(user.uid).setValue(["username": username])
-        //self.ref.child("client").child("users").child("userEmail").child("meaty").child("firstName")
-        // self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName")
-        //        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["firstName": "Jenny"])
-        //        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["lastName": "Bae"])
-        //print("stuff here is: \(self.ref.child("client").child("users").child("userEmail").child("meaty"))")
-        
-        //        let key = ref.child("meaty").childByAutoId().key
-        //        let post = ["firstName": "userID",
-        //                    "lastName": "username",
-        //                    "phoneNumber": "title",
-        //                    "email": "body"]
-        //        let childUpdates = ["/client/users/userEmail/meaty/appointments/\(key)": post]
-        //        ref.updateChildValues(childUpdates)
-        //
-        //        let key2 = ref.child("appt").childByAutoId().key
-        //        let post2 = ["date": "02/01/01",
-        //                     "time": "14:00PM",
-        //                    "treatment": "stuff",
-        //                    "location": "in office"]
-        //        let childUpdates2 = ["/client/users/userEmail/meaty/appointments/appt\(key2)": post2]
-        //        ref.updateChildValues(childUpdates2)
-        
-//        if let valueToDisplay = valueFromGetDateVC {
-//            print("value from GetDateVC is: \(valueToDisplay)")
-//            self.dateTimeButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
-//        } else if let valueToDisplay = valueFromTreatmentDetailVC {
-//            print("value from TreatmentDetailVC is: \(valueToDisplay)")
-//            self.treatmentOneButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
-//        } else if let valueToDisplay = valueFromApptNotesVC {
-//            print("value from ApptNotesVC is: \(valueToDisplay)")
-//            self.addNotesButton.setTitle("\(valueToDisplay)", for: UIControlState.normal)
+//        performUIUpdatesOnMain {
+//            self.resetApptForm()
 //        }
-        
-//        if let dateToDisplay = apptObjectShared.date, let timeToDisplay = apptObjectShared.time {
-//            print("value from GetDateVC is: \(dateToDisplay) \(timeToDisplay)")
-//            self.dateTimeButton.setTitle("\(dateToDisplay) \(timeToDisplay)", for: UIControlState.normal)
-//        }
-        
        
         getOneUserData()
         
-        if let dateToDisplay = apptObjectShared.date, let timeToDisplay = apptObjectShared.time {
+        if let dateToDisplay = newApptObjectShared.date, let timeToDisplay = newApptObjectShared.time {
             print("value from GetDateVC is: \(dateToDisplay) \(timeToDisplay)")
             let dateAndTime = "\(dateToDisplay) \(timeToDisplay)"
             self.dateTimeButton.setTitle("\(dateAndTime)", for: UIControlState.normal)
+//            if dateToDisplay == nil {
+//                self.dateTimeButton.setTitle("Select A Date & Time", for: UIControlState.normal)
+//            }
         }
         
-        if let notesValueToDisplay = apptObjectShared.notes {
+        if let notesValueToDisplay = newApptObjectShared.notes {
             print("value from ApptNotesVC is: \(notesValueToDisplay)")
             self.addNotesButton.setTitle("\(notesValueToDisplay)", for: UIControlState.normal)
         }
         
-        if let treatmentValue = apptObjectShared.treatment1 {
+        if let treatmentValue = newApptObjectShared.treatment1 {
             print("value from TreatmentDetailVC is: \(treatmentValue)")
             self.treatmentOneButton.setTitle("\(treatmentValue)", for: UIControlState.normal)
         }
    }
-    
-    
 }
 

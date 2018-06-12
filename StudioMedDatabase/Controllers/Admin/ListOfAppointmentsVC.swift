@@ -84,7 +84,9 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
         print("user name is: \(userName)")
         tableView.dataSource = self
         tableView.delegate = self
-        
+        performUIUpdatesOnMain {
+            self.tableView.reloadData()
+        }
         
         if appointments.count < 1 {
             getData()
@@ -110,6 +112,9 @@ class ListOfAppointmentsVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        performUIUpdatesOnMain {
+            self.tableView.reloadData()
+        }
      
 //        let query = ref.queryOrderedByKey() /*or a more sophisticated query of your choice*/
 //

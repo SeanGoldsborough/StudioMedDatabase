@@ -23,7 +23,7 @@ class AboutStudioMedVC: UIViewController {
         let initialLocation = CLLocation(latitude: 40.761952, longitude: -73.968933)
         centerMapOnLocation(location: initialLocation)
     
-        let mapPin = MapPin(title: "StudioMed", addressName: "133 E 58th St Ste 512, New York NY 10022", coordinate: CLLocationCoordinate2D(latitude: 40.761952, longitude: -73.968933))
+        let mapPin = MapPin(title: "StudioMed \n 133 E 58th St Ste 512, New York NY 10022", addressName: "Tap For Directions", coordinate: CLLocationCoordinate2D(latitude: 40.761952, longitude: -73.968933))
         mapView.addAnnotation(mapPin)
     }
     
