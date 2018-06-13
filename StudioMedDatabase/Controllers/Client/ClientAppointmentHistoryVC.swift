@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseCore
 import FirebaseDatabase
+//import GoogleSignIn
 
 
 
@@ -38,6 +39,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     var coloredCellIndex = 1000
     
     @IBAction func logOutButton(_ sender: Any) {
+         //GIDSignIn.sharedInstance().signOut()
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -217,11 +219,11 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
             cell.textLabel?.textColor = UIColor(rgb: 0xFF6666)
-            cell.textLabel?.alpha = 0.5
+           // cell.textLabel?.alpha = 0.5
             
             cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
             cell.detailTextLabel?.textColor = UIColor(rgb: 0xFF6666)
-            cell.detailTextLabel?.alpha = 0.5
+            //cell.detailTextLabel?.alpha = 0.5
             
             cell.backgroundColor = UIColor.darkGray
             
@@ -240,17 +242,17 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
-            cell.textLabel?.textColor = UIColor.lightGray
-            cell.textLabel?.alpha = 0.5
+            cell.textLabel?.textColor = UIColor.white
+            //cell.textLabel?.alpha = 0.5
             
             cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
-            cell.detailTextLabel?.textColor = UIColor.lightGray
-            cell.detailTextLabel?.alpha = 0.5
+            cell.detailTextLabel?.textColor = UIColor.white
+            //cell.detailTextLabel?.alpha = 0.5
             
-            cell.backgroundColor = UIColor.darkGray
+            //cell.backgroundColor = UIColor.darkGray
             
         }
-        else {
+        else if appointment.isActive == true {
             cell.textLabel?.textColor = UIColor.white
             cell.detailTextLabel?.textColor = UIColor.white
             //cell.backgroundColor = UIColor.white

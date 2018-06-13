@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import GoogleSignIn
 
 class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -72,24 +73,21 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
             let termsOfServiceVC = storyboard?.instantiateViewController(withIdentifier: "TermsOfServiceVC") as! TermsOfServiceVC
             navigationController?.pushViewController(termsOfServiceVC, animated: true)
         case 5:
+             GIDSignIn.sharedInstance().signOut()
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()
                 print ("google signout okay")
                 
                 let firstLoginNavVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginNavVC")
-//                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
-//                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
+
                 present(firstLoginNavVC, animated: true, completion: {
                     
                     self.tabBarController?.view.removeFromSuperview()
                     print("tab bar remove called")
                 })
-               // self.tabBarController?.view.removeFromSuperview()
-                //present(loginVC, animated: true, completion: nil)
-                print("logged out success \(firebaseAuth.currentUser)")
-                
-              
+
+                print("logged out success \(firebaseAuth.currentUser)")      
                 
             } catch let error as NSError {
                 AlertView.alertPopUp(view: self, alertMessage: (error.localizedDescription))

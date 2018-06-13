@@ -21,9 +21,9 @@ class EditInfoVC: UIViewController {
     var userApptArray = [""]
     
     var keyboardIsShown = false
-    
-    
-    
+    var activeField: UITextField?
+
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!
     @IBOutlet weak var phoneNumberTF: UITextField!
@@ -51,26 +51,6 @@ class EditInfoVC: UIViewController {
         print("FirstNameText is: \(self.firstNameTF.text).")
         print("LastNameText is: \(self.lastNameTF.text).")
         print("email allowed is: \(self.emailAllowedSwitch.isOn).")
-        
-//        let key = ref.child("client").child("clients").child(userID!).key
-//        let post = [
-//
-//                    "allowEmailNewsletter": self.emailSwitchBool,
-//                    "allowNotifications": self.notificationsSwitchBool,
-//                    "appointments": self.userApptArray,
-//                    "email":"\(self.emailTF.text!)",
-//                    "fireBaseUID":"\(userID!)",
-//                    "firstName":"\(self.firstNameTF.text!)",
-//                    "lastName":"\(self.lastNameTF.text!)",
-//                    "password":"\(userID!)",
-//                    "phoneNumber":"\(self.phoneNumberTF.text!)",
-//                    "zipCode":"\(self.zipCodeTF.text!)"] as [String : Any]
-//
-//        let childUpdates = ["/client/clients/\(key)": post]//,
-//                            //"/user-posts/\(userID)/\(key)/": post]
-//        print("child updates are: \(childUpdates)")
-//        ref.updateChildValues(childUpdates)
-//       // ref.upda
 //
         self.navigationController?.popViewController(animated: true)
 
@@ -193,12 +173,69 @@ class EditInfoVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getOneUserData()
+        
+         subscribeToNotification()
     }
     @objc func doneButtonAction() {
         self.view.endEditing(true)
     }
     
 }
+//// MARK: - CreateAccountVC: UITextFieldDelegate
+//extension EditInfoVC: UITextFieldDelegate {
+//
+//    // MARK: UITextFieldDelegate
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//
+//        if textField == firstNameTF {
+//            textField.resignFirstResponder()
+//            lastNameTF.becomeFirstResponder()
+//        } else if textField == lastNameTF {
+//            textField.resignFirstResponder()
+//            phoneNumberTF.becomeFirstResponder()
+//        } else if textField == phoneNumberTF {
+//            textField.resignFirstResponder()
+//            zipCodeTF.becomeFirstResponder()
+//        } else if textField == zipCodeTF {
+//            textField.resignFirstResponder()
+//            emailTF.becomeFirstResponder()
+//        } else if textField == emailTF {
+//            textField.resignFirstResponder()
+//        }
+//        return true
+//    }
+//
+//
+//    //    // MARK: Show/Hide Keyboard
+//    //
+//    @objc func keyboardWillShow(_ notification: Notification) {
+//        if !keyboardIsShown {
+//            view.frame.origin.y = -keyboardHeight(notification) / 2.6
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(_ notification: Notification) {
+//        if keyboardIsShown {
+//            view.frame.origin.y = 0
+//        }
+//    }
+//
+//    @objc func keyboardDidShow(_ notification: Notification) {
+//        keyboardIsShown = true
+//    }
+//
+//    @objc func keyboardDidHide(_ notification: Notification) {
+//        keyboardIsShown = false
+//    }
+//
+//    func keyboardHeight(_ notification: Notification) -> CGFloat {
+//        let userInfo = (notification as NSNotification).userInfo
+//        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+//        return keyboardSize.cgRectValue.height
+//    }
+//}
+
 // MARK: - CreateAccountVC: UITextFieldDelegate
 extension EditInfoVC: UITextFieldDelegate {
     
@@ -220,8 +257,51 @@ extension EditInfoVC: UITextFieldDelegate {
             emailTF.becomeFirstResponder()
         } else if textField == emailTF {
             textField.resignFirstResponder()
-        }
+//            passwordTF.becomeFirstResponder()
+        } //else if textField == passwordTF {
+//            textField.resignFirstResponder()
+//        }
         return true
+    }
+    
+    
+    
+    @objc func keyboardWasShown(notification: NSNotification){
+        //Need to calculate keyboard exact size due to Apple suggestions
+        self.scrollView.isScrollEnabled = true
+        var info = notification.userInfo!
+        let keyboardSize = ((info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size.height)! + 160.0
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize, 0.0)
+        
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect : CGRect = self.view.frame
+        aRect.size.height -= keyboardSize + 200
+        if let activeField = self.activeField {
+            if (!aRect.contains(activeField.frame.origin)){
+                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
+    }
+    
+    @objc func keyboardWillBeHidden(notification: NSNotification){
+        //Once keyboard disappears, restore original positions
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        self.view.endEditing(true)
+        self.scrollView.isScrollEnabled = false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField){
+        activeField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
+        activeField = nil
     }
     
     
@@ -253,15 +333,42 @@ extension EditInfoVC: UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
 }
-// MARK: - CreateAccountVC (Notifications)
+//// MARK: - EditInfoVC (Notifications)
+//
+//private extension EditInfoVC {
+//
+//    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+//        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+//    }
+//
+//    func unsubscribeFromAllNotifications() {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+//}
+
+// MARK: - EditInfoVC (Notifications)
 
 private extension EditInfoVC {
     
-    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    //    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+    //        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    //    }
+    func subscribeToNotification(){
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func unsubscribeFromAllNotifications() {
-        NotificationCenter.default.removeObserver(self)
+    
+    
+    //    func unsubscribeFromAllNotifications() {
+    //        NotificationCenter.default.removeObserver(self)
+    //    }
+    
+    func unsubscribeFromAllNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 }
+

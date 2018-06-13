@@ -22,6 +22,8 @@ class CreateAccountVC: UIViewController {
     
     var activeField: UITextField?
   
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityOverlay: UIView!
     @IBOutlet weak var firstNameText: UITextField!
     
     @IBOutlet weak var lastNameText: UITextField!
@@ -35,35 +37,47 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     
     var keyboardIsShown = false
-
-    @IBAction func backButton(_ sender: Any) {
+    
+    @IBAction func cancelButton(_ sender: Any) {
         if let viewToAnimate = self.view {
-        
-        UIView.animate(withDuration: 0.3) {
-            viewToAnimate.alpha = 0
-            self.dismiss(animated: true, completion: nil)
-        }
-//            UIView.animate(withDuration: 5, delay: 0, options: .curveEaseIn, animations: {
-//                viewToAnimate.alpha = 0
-//            }) { _ in
-//                viewToAnimate.removeFromSuperview()
-//                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "FirstLoginVC") as! FirstLoginVC
-//                self.present(loginVC, animated: true)
-//
-//            }
+            
+            UIView.animate(withDuration: 0.3) {
+                viewToAnimate.alpha = 0
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
+
     @IBAction func createAccountButton(_ sender: Any) {
-        
-        
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+        }
+    
         if firstNameText.text == "" || lastNameText.text == "" || phoneNumberText.text == "" || zipCodeText.text == "" || emailText.text == "" || passwordText.text == "" {
-            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+            
+            performUIUpdatesOnMain {
+                self.activityOverlay?.isHidden = true
+                self.activityIndicator?.stopAnimating()
+                AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+            }
+            
         } else if zipCodes.sharedInstance.zipCodeArray.contains(self.zipCodeText.text!) == false {
-            AlertView.alertPopUp(view: self, alertMessage: "We're sorry but we are not currently servicing your area. Please check back with us soon!")
+            
+            performUIUpdatesOnMain {
+                self.activityOverlay?.isHidden = true
+                self.activityIndicator?.stopAnimating()
+                AlertView.alertPopUp(view: self, alertMessage: "We're sorry but we are not currently servicing your area. Please check back with us soon!")
+            }
+            
         } else {
             Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { (user, error) in
                 
                 if error == nil {
+                    performUIUpdatesOnMain {
+                        self.activityOverlay?.isHidden = true
+                        self.activityIndicator?.stopAnimating()
+                    }
                     print("You have successfully signed up")
                     print(self.userObject.fireBaseUID = Auth.auth().currentUser?.uid)
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
@@ -78,7 +92,6 @@ class CreateAccountVC: UIViewController {
                     
                     if self.firstNameText.text == "" || self.lastNameText.text == "" || self.phoneNumberText.text == "" || self.zipCodeText.text == "" || self.emailText.text == "" || self.passwordText.text == "" {
                         AlertView.alertPopUp(view: self, alertMessage: "Please enter the neccessary info.")
-                    
                         
                         } else {
                         let fullName = "\(self.firstNameText.text! + " " + self.lastNameText.text!)"
@@ -99,29 +112,27 @@ class CreateAccountVC: UIViewController {
                         //navigationController?.pushViewController(clientTabVC, animated: true)
                     }
                 } else {
-                    AlertView.alertPopUp(view: self, alertMessage: (error?.localizedDescription)!)
+                    performUIUpdatesOnMain {
+                        self.activityOverlay?.isHidden = true
+                        self.activityIndicator?.stopAnimating()
+                        AlertView.alertPopUp(view: self, alertMessage: (error?.localizedDescription)!)
+                    }
+                    
                 }
             }         
         }
         print("user array count is: \(userArray.count)")
         print("user object name is: \(userObject.firstName)")
-       // createAppt()
-        //print("createAppt was called")
     }
- 
-//    func createAppt() {
-//        let key = ref.child("\(firstNameText.text! + " " + lastNameText.text!)").child("appointments").childByAutoId().key
-//        let post = ["firstName": "\(firstNameText.text!)",
-//            "lastName": "\(lastNameText.text!)",
-//            "phoneNumber": "\(phoneNumberText.text!)",
-//            "email": "\(emailText.text!)"]
-//        let childUpdates = ["/client/users/\(firstNameText.text! + " " + lastNameText.text!)`/appointments/\(key)": post]
-//        ref.updateChildValues(childUpdates)
-//    }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = true
+            self.activityIndicator?.stopAnimating()
+        }
+        
         ref = Database.database().reference()
         
         firstNameText.delegate = self
@@ -135,8 +146,6 @@ class CreateAccountVC: UIViewController {
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
-        doneBtn.tintColor = UIColor.white
-//        let nextBtn: UIBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(changeResponder))
         doneBtn.tintColor = UIColor.white
         toolbar.barTintColor = UIColor.black
         toolbar.isTranslucent = true
@@ -152,10 +161,6 @@ class CreateAccountVC: UIViewController {
         self.passwordText.inputAccessoryView = toolbar
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @objc func changeResponder() {
         var textField: UITextField!
         if textField == firstNameText {
@@ -185,44 +190,12 @@ class CreateAccountVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
-//        subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))
-//        subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
-//        subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
-        
        subscribeToNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let conditionRef = ref.child("users")
-//        conditionRef.observe(.value, with: (snap: DataSnapshot) -> Void) in
-//        self.firstNameText.text = snap.value.description
-        //self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName").removeValue()
-        //self.ref.child("client").child(user.uid).setValue(["username": username])
-        //self.ref.child("client").child("users").child("userEmail").child("meaty").child("firstName")
-       // self.ref.child("client").child("users").child("userEmail").child("meaty").child("lastName")
-//        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["firstName": "Jenny"])
-//        self.ref.child("client").child("users").child("userEmail").child("meaty").setValue(["lastName": "Bae"])
-        //print("stuff here is: \(self.ref.child("client").child("users").child("userEmail").child("meaty"))")
-        
-//        let key = ref.child("meaty").childByAutoId().key
-//        let post = ["firstName": "userID",
-//                    "lastName": "username",
-//                    "phoneNumber": "title",
-//                    "email": "body"]
-//        let childUpdates = ["/client/users/userEmail/meaty/appointments/\(key)": post]
-//        ref.updateChildValues(childUpdates)
-//        
-//        let key2 = ref.child("appt").childByAutoId().key
-//        let post2 = ["date": "02/01/01",
-//                     "time": "14:00PM",
-//                    "treatment": "stuff",
-//                    "location": "in office"]
-//        let childUpdates2 = ["/client/users/userEmail/meaty/appointments/appt\(key2)": post2]
-//        ref.updateChildValues(childUpdates2)
     }
-    
 }
 
 // MARK: - CreateAccountVC: UITextFieldDelegate
@@ -252,9 +225,7 @@ extension CreateAccountVC: UITextFieldDelegate {
         }
         return true
     }
-    
-    
-    
+
     @objc func keyboardWasShown(notification: NSNotification){
         //Need to calculate keyboard exact size due to Apple suggestions
         self.scrollView.isScrollEnabled = true
@@ -292,8 +263,7 @@ extension CreateAccountVC: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField){
         activeField = nil
     }
-    
-    
+
     //    // MARK: Show/Hide Keyboard
     //
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -325,21 +295,12 @@ extension CreateAccountVC: UITextFieldDelegate {
 // MARK: - CreateAccountVC (Notifications)
 
 private extension CreateAccountVC {
-    
-//    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-//        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
-//    }
+
     func subscribeToNotification(){
         //Adding notifies on keyboard appearing
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    
-    
-    
-//    func unsubscribeFromAllNotifications() {
-//        NotificationCenter.default.removeObserver(self)
-//    }
     
     func unsubscribeFromAllNotifications(){
         //Removing notifies on keyboard appearing

@@ -17,7 +17,6 @@ class ApptDetailVC: UIViewController {
     var newApptObjectShared = NewAppointmentData.sharedInstance
     var statusVarString = String()
 
-    @IBOutlet weak var requestApptOutlet: UIButton!
     @IBAction func viewNotesButton(_ sender: Any) {
         
         let clientViewNotesVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientViewNotesVC") as! ClientViewNotesVC
@@ -27,17 +26,6 @@ class ApptDetailVC: UIViewController {
     
     func passDataFromNewApptSharedObject() {
         print("self.apptObjectShared.firebaseApptID is: \(self.apptObjectShared.firebaseApptID)")
-        print("self.apptObjectShared.firebaseClientID is: \(self.apptObjectShared.firebaseClientID)")
-        print("self.apptObjectShared.isCancelled is: \(self.apptObjectShared.isCancelled)")
-        print("self.apptObjectShared.isActive is: \(self.apptObjectShared.isActive)")
-        print("self.apptObjectShared.isComplete: \(self.apptObjectShared.isComplete)")
-        print("self.apptObjectShared.firstName is: \(self.apptObjectShared.firstName)")
-        print("self.apptObjectShared.lastName is: \(self.apptObjectShared.lastName)")
-        print("self.apptObjectShared.phoneNumber is: \(self.apptObjectShared.phoneNumber)")
-        print("self.apptObjectShared.email is: \(self.apptObjectShared.email)")
-        print("self.apptObjectShared.date is: \(self.apptObjectShared.date)")
-        print("self.apptObjectShared.treatment1 is: \(self.apptObjectShared.treatment1)")
-        print("self.apptObjectShared.notes is: \(self.apptObjectShared.notes)")
         
         self.apptObjectShared.date = self.newApptObjectShared.date
         self.apptObjectShared.email = self.newApptObjectShared.email
@@ -55,17 +43,6 @@ class ApptDetailVC: UIViewController {
         print("CALLLEDPASS!!!")
         
         print("self.apptObjectShared.firebaseApptID is: \(self.apptObjectShared.firebaseApptID)")
-        print("self.apptObjectShared.firebaseClientID is: \(self.apptObjectShared.firebaseClientID)")
-        print("self.apptObjectShared.isCancelled is: \(self.apptObjectShared.isCancelled)")
-        print("self.apptObjectShared.isActive is: \(self.apptObjectShared.isActive)")
-        print("self.apptObjectShared.isComplete: \(self.apptObjectShared.isComplete)")
-        print("self.apptObjectShared.firstName is: \(self.apptObjectShared.firstName)")
-        print("self.apptObjectShared.lastName is: \(self.apptObjectShared.lastName)")
-        print("self.apptObjectShared.phoneNumber is: \(self.apptObjectShared.phoneNumber)")
-        print("self.apptObjectShared.email is: \(self.apptObjectShared.email)")
-        print("self.apptObjectShared.date is: \(self.apptObjectShared.date)")
-        print("self.apptObjectShared.treatment1 is: \(self.apptObjectShared.treatment1)")
-        print("self.apptObjectShared.notes is: \(self.apptObjectShared.notes)")
     }
     
     func zeroOutNewApptSharedObject() {
@@ -83,7 +60,6 @@ class ApptDetailVC: UIViewController {
         self.newApptObjectShared.treatment1 = nil
     }
     
-    
     func zeroOutApptSharedObject() {
         self.apptObjectShared.date = nil
         self.apptObjectShared.email = nil
@@ -98,7 +74,6 @@ class ApptDetailVC: UIViewController {
         self.apptObjectShared.phoneNumber = nil
         self.apptObjectShared.treatment1 = nil
     }
-    
     
     @IBOutlet weak var cancelApptOutlet: UIButton!
     
@@ -148,45 +123,6 @@ class ApptDetailVC: UIViewController {
         }
 
         AlertView.apptCancelAlert(view: self, alertTitle: "Appointment has been canceled!", alertMessage: "")
-    }
-
-    
-    
-    @IBAction func confirmAppt(_ sender: Any) {
-
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-
-        let isActive = true
-        let isCancelled = false
-        let isComplete = false
-        let uid = self.userObjectShared.fireBaseUID
-        let userID = Auth.auth().currentUser?.uid
-        let date = self.apptObjectShared.date!
-        let treatment = self.apptObjectShared.treatment1!
-        let notes = self.apptObjectShared.notes ?? ""
-        let clientKey = ref.child(uid!).key
-        let clientApptKey = ref.childByAutoId().key
-        let fullName = self.userObjectShared.firstName! + " " + self.userObjectShared.lastName!
-        let adminKey = ref.child("\(fullName)").childByAutoId().key
-
-        let post = ["firebaseApptID": clientApptKey,"firebaseClientID": uid, "isCancelled": isCancelled, "isActive": isActive, "isComplete": isComplete, "date": "\(date)", "firstName": "\(self.userObjectShared.firstName!)",
-            "lastName": "\(self.userObjectShared.lastName!)",
-            "phoneNumber": "\(self.userObjectShared.phoneNumber!)",
-            "email": "\(self.userObjectShared.email!)", "treatment1": "\(treatment)", "notes": "\(notes)"] as [String : Any]
-        let clientChildUpdates = ["/client/clients/\(clientKey)/appointments/\(clientApptKey)": post]
-        let adminChildUpdates = ["/admin/appts/allAppts/\(clientApptKey)": post]
-        ref.updateChildValues(clientChildUpdates)
-        ref.updateChildValues(adminChildUpdates)
-
-        print("user id is: \(userID).")
-//
-        apptObjectShared.isActive = true
-        apptObjectShared.isCancelled = false
-        apptObjectShared.isComplete = false
-        apptObjectShared.firebaseApptID = clientApptKey
-        
-        AlertView.apptCreateAlert(view: self, alertTitle: "Appointment request has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.")
     }
     
     func setTextAttributes() {
@@ -248,8 +184,6 @@ class ApptDetailVC: UIViewController {
         
         performUIUpdatesOnMain {
             
-            //self.passDataFromNewApptSharedObject()
-            
             self.apptDateAndTimeLabel.text = self.apptObjectShared.date!
             self.treatmentLabel.text = self.apptObjectShared.treatment1!
             
@@ -258,86 +192,6 @@ class ApptDetailVC: UIViewController {
             self.userEmailLabel.text = self.userObjectShared.email!
  
             self.setTextAttributes()
-        }
-        
-     
-        
-        
-//        print("self.apptObjectShared.firebaseApptID is: \(self.apptObjectShared.firebaseApptID)")
-//        print("self.apptObjectShared.firebaseClientID is: \(self.apptObjectShared.firebaseClientID)")
-//        print("self.apptObjectShared.isCancelled is: \(self.apptObjectShared.isCancelled)")
-//        print("self.apptObjectShared.isActive is: \(self.apptObjectShared.isActive)")
-//        print("self.apptObjectShared.isComplete: \(self.apptObjectShared.isComplete)")
-//        print("self.apptObjectShared.firstName is: \(self.apptObjectShared.firstName)")
-//        print("self.apptObjectShared.lastName is: \(self.apptObjectShared.lastName)")
-//        print("self.apptObjectShared.phoneNumber is: \(self.apptObjectShared.phoneNumber)")
-//        print("self.apptObjectShared.email is: \(self.apptObjectShared.email)")
-//        print("self.apptObjectShared.date is: \(self.apptObjectShared.date)")
-//        print("self.apptObjectShared.treatment1 is: \(self.apptObjectShared.treatment1)")
-//        print("self.apptObjectShared.notes is: \(self.apptObjectShared.notes)")
-
-//        var date = self.apptDateAndTimeLabel.text
-//        var treatment = self.treatmentLabel.text
-        
-//        date = apptObjectShared.date!
-//        treatment = apptObjectShared.treatment1!
-//
-//        let activeAttributes: [NSAttributedStringKey: Any] =
-//            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20)!,
-//             NSAttributedStringKey.strikethroughStyle: 0]
-//
-//        let cancelledAttributes: [NSAttributedStringKey: Any] =
-//            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20)!,
-//             NSAttributedStringKey.strikethroughStyle: 1]
-//
-//        let completeAttributes: [NSAttributedStringKey: Any] =
-//            [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20)!,
-//             NSAttributedStringKey.strikethroughStyle: 0]
-//
-//        if self.apptObjectShared.isCancelled == true {
-//
-//            self.apptDateAndTimeLabel.attributedText = NSAttributedString(string: date!, attributes: cancelledAttributes)
-//            self.apptDateAndTimeLabel.textColor = UIColor(rgb: 0xFF6666)
-//
-//            self.treatmentLabel.attributedText = NSAttributedString(string: treatment!, attributes: cancelledAttributes)
-//            self.treatmentLabel.textColor = UIColor(rgb: 0xFF6666)
-//
-//        } else if self.apptObjectShared.isCancelled == false && self.apptObjectShared.isActive == true {
-//
-//            self.apptDateAndTimeLabel.attributedText = NSAttributedString(string: date!, attributes: activeAttributes)
-//            self.apptDateAndTimeLabel.textColor = UIColor.green
-//
-//            self.treatmentLabel.attributedText = NSAttributedString(string: treatment!, attributes: activeAttributes)
-//            self.treatmentLabel.textColor = UIColor.green
-//
-//        } else if self.apptObjectShared.isCancelled == false && self.apptObjectShared.isActive == false {
-//
-//            apptDateAndTimeLabel.attributedText = NSAttributedString(string: date!, attributes: completeAttributes)
-//
-//            treatmentLabel.attributedText = NSAttributedString(string: treatment!, attributes: completeAttributes)
-//        }  
-        
-        
-        
-//        self.apptStatusLabel.text = "Appointment is: \(statusVarString)"
-//        self.apptDateAndTimeLabel.text = apptObjectShared.date!
-//        self.treatmentLabel.text = apptObjectShared.treatment1!
-//
-//        self.userFullNameLabel.text = userObjectShared.firstName! + " " + userObjectShared.lastName!
-//        self.userPhoneLabel.text = userObjectShared.phoneNumber!
-       
-        
-        if self.apptObjectShared.firebaseApptID == nil {
-            performUIUpdatesOnMain {
-                self.cancelApptOutlet.isHidden = true
-                self.requestApptOutlet.isHidden = false
-            }
-           
-        } else {
-            performUIUpdatesOnMain {
-                self.cancelApptOutlet.isHidden = false
-                self.requestApptOutlet.isHidden = true
-            }
         }
     }
     
@@ -354,26 +208,5 @@ class ApptDetailVC: UIViewController {
         performUIUpdatesOnMain {
            // self.zeroOutApptSharedObject()
         }
-        
-        
-//        self.apptObjectShared.firebaseApptID = firebaseApptIDString
-//        self.apptObjectShared.firebaseApptID = firebaseClientIDString
-//        self.apptObjectShared.isCancelled = isCancelledBool
-//        self.apptObjectShared.isActive = isActiveBool
-//        self.apptObjectShared.isComplete = isCompleteBool
-//        self.apptObjectShared.firstName = firstName
-//        self.apptObjectShared.lastName = lastName
-//        self.apptObjectShared.phoneNumber = phoneNumber
-//        self.apptObjectShared.email = email
-//        self.apptObjectShared.date = date
-//        self.apptObjectShared.treatment1 = treatment
-//        self.apptObjectShared.notes = notes
-        
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

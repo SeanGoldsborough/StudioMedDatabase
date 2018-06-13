@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // ...
             print("error on google sign-in \(error)")
             return
-        } else {
+ } else {
             // Perform any operations on signed in user here.
             let userId = user.userID// For client-side use only!
             let idToken = user.authentication.idToken // Safe to send to the server
@@ -42,9 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("userId on google sign-in is \(user.userID)")
             print("userObject first name on google sign-in is \(userObject.firstName)")
             
-            if firstName == "Konrad" && idToken != nil {
-                userIsAdmin = true
-            }
+//            if firstName == "Konrad" && idToken != nil {
+//                userIsAdmin = true
+//            }
+//
+//            if userObject.phoneNumber == nil {
+//                let mainStoryboard: UIStoryboard = UIStoryboard(name: "CreateAccountVC", bundle: nil)
+//                let initialViewController: UIViewController
+//                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
+//                AlertView.alertPopUp(view: initialViewController, alertMessage: "please complete sign up form")
+//            }
             // ...
         }
         
@@ -69,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
                 
                 if userIsAdmin == true {
-                let adminTabBarVC = mainStoryBoard.instantiateViewController(withIdentifier: "AdminTabBarVC") as! AdminTabBarVC
+                let adminTabBarVC = mainStoryBoard.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
                 let appDelegate = UIApplication.shared.delegate
                 appDelegate?.window??.rootViewController = adminTabBarVC
                     

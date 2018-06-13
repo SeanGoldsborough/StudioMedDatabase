@@ -12,7 +12,8 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 
-class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInUIDelegate {
+
+class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInDelegate  {
     
     @IBOutlet weak var activityOverlay: UIView!
     
@@ -20,11 +21,16 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInU
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user:
         GIDGoogleUser!, withError error: Error!) {
-        
+
+                performUIUpdatesOnMain {
+                    self.activityOverlay.isHidden = true
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+                }
+
         print("error on first loginvc")
         //AlertView.alertPopUp(view: self, alertMessage: "Error: \(error)")
     }
-
 
    // var signInVariable = userSignedInGlobal
 
@@ -46,7 +52,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInU
 //        performUIUpdatesOnMain {
 //            self.activityOverlay.isHidden = false
 //            self.activityIndicator.isHidden = false
-//            //self.activityIndicator.isAnimating = true
+//            self.activityIndicator.startAnimating()
 //        }
        GIDSignIn.sharedInstance().signIn()
     }
@@ -60,7 +66,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInU
         self.activityOverlay.isHidden = true
         self.activityIndicator.isHidden = true
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self as! GIDSignInUIDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
