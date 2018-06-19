@@ -442,16 +442,34 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0s-KC-mMo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tqD-lw-rPK">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tqD-lw-rPK" firstAttribute="centerX" secondItem="w0s-KC-mMo" secondAttribute="centerX" id="0Po-gp-ygE"/>
+                                    <constraint firstItem="tqD-lw-rPK" firstAttribute="centerY" secondItem="w0s-KC-mMo" secondAttribute="centerY" id="EOj-Lb-NR8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YUI-8f-xal" firstAttribute="leading" secondItem="Itv-qR-QRh" secondAttribute="leading" constant="16" id="2dc-Ce-CFj"/>
                             <constraint firstItem="YUI-8f-xal" firstAttribute="centerX" secondItem="HOs-P3-NZI" secondAttribute="centerX" id="AYi-KD-EFE"/>
+                            <constraint firstAttribute="bottom" secondItem="w0s-KC-mMo" secondAttribute="bottom" id="L15-Un-yvn"/>
                             <constraint firstItem="EZb-Io-bBp" firstAttribute="trailing" secondItem="Itv-qR-QRh" secondAttribute="trailing" id="LtU-W0-l7M"/>
                             <constraint firstItem="EZb-Io-bBp" firstAttribute="leading" secondItem="Itv-qR-QRh" secondAttribute="leading" id="Nbm-Ug-aG4"/>
                             <constraint firstItem="YUI-8f-xal" firstAttribute="centerY" secondItem="HOs-P3-NZI" secondAttribute="centerY" id="RGV-fu-PFI"/>
+                            <constraint firstItem="w0s-KC-mMo" firstAttribute="trailing" secondItem="Itv-qR-QRh" secondAttribute="trailing" id="TW3-G8-7sH"/>
+                            <constraint firstItem="w0s-KC-mMo" firstAttribute="top" secondItem="HOs-P3-NZI" secondAttribute="top" id="W3b-X0-z4a"/>
                             <constraint firstItem="Itv-qR-QRh" firstAttribute="trailing" secondItem="YUI-8f-xal" secondAttribute="trailing" constant="16" id="bsn-lU-AaW"/>
                             <constraint firstItem="EZb-Io-bBp" firstAttribute="top" secondItem="Itv-qR-QRh" secondAttribute="top" id="rj3-UR-F0F"/>
+                            <constraint firstItem="w0s-KC-mMo" firstAttribute="leading" secondItem="Itv-qR-QRh" secondAttribute="leading" id="vkC-mx-xR0"/>
                             <constraint firstItem="EZb-Io-bBp" firstAttribute="trailing" secondItem="Itv-qR-QRh" secondAttribute="trailing" id="wDl-P2-i0R"/>
                             <constraint firstItem="Itv-qR-QRh" firstAttribute="bottom" secondItem="YUI-8f-xal" secondAttribute="bottom" constant="140" id="wnN-Qa-JVl"/>
                         </constraints>
@@ -466,6 +484,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="tqD-lw-rPK" id="itE-Yd-8ZX"/>
+                        <outlet property="activityOverlay" destination="w0s-KC-mMo" id="igH-fG-zg3"/>
                         <outlet property="addNotesButton" destination="8VW-HJ-9lk" id="iOp-O1-LrD"/>
                         <outlet property="dateTimeButton" destination="ii8-qK-VIi" id="9t4-6s-XFq"/>
                         <outlet property="greetingLabel" destination="EZb-Io-bBp" id="Z71-qM-aBO"/>
@@ -785,6 +805,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbs-De-W0G">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kKk-Hq-mI4">
+                                        <rect key="frame" x="169" y="283" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kKk-Hq-mI4" firstAttribute="centerY" secondItem="Zbs-De-W0G" secondAttribute="centerY" id="T6c-Ed-Sha"/>
+                                    <constraint firstItem="kKk-Hq-mI4" firstAttribute="centerX" secondItem="Zbs-De-W0G" secondAttribute="centerX" id="hbb-0V-rl9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.77639585730000005" green="0.77652460339999996" blue="0.77636843919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -793,8 +827,12 @@
                             <constraint firstItem="pI7-WP-5CX" firstAttribute="top" secondItem="JVp-1T-ZiU" secondAttribute="bottom" id="H6E-Da-rmK"/>
                             <constraint firstItem="JVp-1T-ZiU" firstAttribute="trailing" secondItem="ADZ-8k-Fs1" secondAttribute="trailing" id="IWT-Dn-23g"/>
                             <constraint firstItem="JVp-1T-ZiU" firstAttribute="leading" secondItem="ADZ-8k-Fs1" secondAttribute="leading" id="O8K-mD-rJe"/>
+                            <constraint firstItem="Zbs-De-W0G" firstAttribute="trailing" secondItem="ADZ-8k-Fs1" secondAttribute="trailing" id="QQh-zP-BMC"/>
+                            <constraint firstItem="Zbs-De-W0G" firstAttribute="top" secondItem="eJm-R3-PJF" secondAttribute="top" id="Rfy-3F-JGc"/>
                             <constraint firstItem="pI7-WP-5CX" firstAttribute="trailing" secondItem="JVp-1T-ZiU" secondAttribute="trailing" id="WIY-0J-kzf"/>
+                            <constraint firstAttribute="bottom" secondItem="Zbs-De-W0G" secondAttribute="bottom" id="bxK-ou-sZ2"/>
                             <constraint firstItem="pI7-WP-5CX" firstAttribute="bottom" secondItem="ADZ-8k-Fs1" secondAttribute="bottom" id="eSl-rZ-rQe"/>
+                            <constraint firstItem="Zbs-De-W0G" firstAttribute="leading" secondItem="ADZ-8k-Fs1" secondAttribute="leading" id="lEk-io-Wzu"/>
                             <constraint firstItem="pI7-WP-5CX" firstAttribute="leading" secondItem="JVp-1T-ZiU" secondAttribute="leading" id="m1k-Xm-RaL"/>
                             <constraint firstItem="JVp-1T-ZiU" firstAttribute="top" secondItem="ADZ-8k-Fs1" secondAttribute="top" id="opH-X3-K4I"/>
                             <constraint firstItem="JVp-1T-ZiU" firstAttribute="top" secondItem="ADZ-8k-Fs1" secondAttribute="top" id="x8d-9X-yiO"/>
@@ -810,6 +848,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="kKk-Hq-mI4" id="mFb-sU-qd7"/>
+                        <outlet property="activityOverlay" destination="Zbs-De-W0G" id="owk-ew-7XV"/>
                         <outlet property="tableView" destination="pI7-WP-5CX" id="F46-2i-WKl"/>
                     </connections>
                 </viewController>
@@ -1008,18 +1048,38 @@
                                     <constraint firstAttribute="width" constant="250" id="OoN-gw-fcZ"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XXA-w3-Z2V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iSB-iX-FmU">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="iSB-iX-FmU" firstAttribute="centerY" secondItem="XXA-w3-Z2V" secondAttribute="centerY" id="18r-Rd-8z7"/>
+                                    <constraint firstItem="iSB-iX-FmU" firstAttribute="centerX" secondItem="XXA-w3-Z2V" secondAttribute="centerX" id="Web-rh-LCF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OGD-e3-b9a" firstAttribute="centerX" secondItem="LcQ-9E-Mim" secondAttribute="centerX" id="3Rp-Ox-K4Q"/>
+                            <constraint firstItem="XXA-w3-Z2V" firstAttribute="trailing" secondItem="rG6-wu-jtr" secondAttribute="trailing" id="DrZ-P0-u77"/>
                             <constraint firstItem="OGD-e3-b9a" firstAttribute="top" secondItem="rG6-wu-jtr" secondAttribute="top" constant="106" id="IqW-aS-t7D"/>
                             <constraint firstItem="eRY-v4-UEH" firstAttribute="centerY" secondItem="LcQ-9E-Mim" secondAttribute="centerY" id="Lxg-O4-AlW"/>
                             <constraint firstItem="eRY-v4-UEH" firstAttribute="centerX" secondItem="LcQ-9E-Mim" secondAttribute="centerX" id="lUA-NA-dTR"/>
+                            <constraint firstItem="XXA-w3-Z2V" firstAttribute="top" secondItem="LcQ-9E-Mim" secondAttribute="top" id="mOa-mR-p2j"/>
+                            <constraint firstItem="XXA-w3-Z2V" firstAttribute="leading" secondItem="rG6-wu-jtr" secondAttribute="leading" id="vtH-Tn-AOz"/>
+                            <constraint firstItem="XXA-w3-Z2V" firstAttribute="bottom" secondItem="rG6-wu-jtr" secondAttribute="bottom" id="xXV-yv-7qq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rG6-wu-jtr"/>
                     </view>
                     <navigationItem key="navigationItem" id="2ru-LO-hT6"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="iSB-iX-FmU" id="xLV-PL-mkA"/>
+                        <outlet property="activityOverlay" destination="XXA-w3-Z2V" id="XjB-q8-3Ic"/>
                         <outlet property="emailTextField" destination="DYV-Cn-ap0" id="KVz-up-V6S"/>
                         <outlet property="passwordTextField" destination="DSD-hu-Nc7" id="xeV-tc-zUy"/>
                     </connections>
@@ -1179,20 +1239,40 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRk-yT-3jt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vNb-o0-UnR">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vNb-o0-UnR" firstAttribute="centerY" secondItem="GRk-yT-3jt" secondAttribute="centerY" id="4B2-u1-QOP"/>
+                                    <constraint firstItem="vNb-o0-UnR" firstAttribute="centerX" secondItem="GRk-yT-3jt" secondAttribute="centerX" id="o49-g3-RYV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BNi-A1-Wwu" firstAttribute="leading" secondItem="zWb-B4-PFW" secondAttribute="leading" id="7uF-zf-7Ql"/>
+                            <constraint firstItem="GRk-yT-3jt" firstAttribute="top" secondItem="MF5-Oi-bhE" secondAttribute="top" id="BZp-U2-iD6"/>
                             <constraint firstItem="BNi-A1-Wwu" firstAttribute="trailing" secondItem="zWb-B4-PFW" secondAttribute="trailing" id="Dul-P2-Jit"/>
+                            <constraint firstItem="GRk-yT-3jt" firstAttribute="leading" secondItem="zWb-B4-PFW" secondAttribute="leading" id="FLS-14-2Zt"/>
                             <constraint firstItem="ki5-ME-znJ" firstAttribute="trailing" secondItem="BNi-A1-Wwu" secondAttribute="trailing" id="Kku-nW-91Q"/>
+                            <constraint firstItem="GRk-yT-3jt" firstAttribute="bottom" secondItem="zWb-B4-PFW" secondAttribute="bottom" id="Pdo-ih-IXd"/>
                             <constraint firstItem="BNi-A1-Wwu" firstAttribute="top" secondItem="MF5-Oi-bhE" secondAttribute="top" id="XTQ-eV-yvv"/>
                             <constraint firstItem="ki5-ME-znJ" firstAttribute="leading" secondItem="BNi-A1-Wwu" secondAttribute="leading" id="goF-cP-L1Z"/>
                             <constraint firstItem="ki5-ME-znJ" firstAttribute="top" secondItem="BNi-A1-Wwu" secondAttribute="bottom" constant="8" symbolic="YES" id="mZ0-99-OtR"/>
+                            <constraint firstItem="GRk-yT-3jt" firstAttribute="trailing" secondItem="zWb-B4-PFW" secondAttribute="trailing" id="vAu-u3-czJ"/>
                             <constraint firstItem="ki5-ME-znJ" firstAttribute="bottom" secondItem="zWb-B4-PFW" secondAttribute="bottom" id="vqL-GZ-z4q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zWb-B4-PFW"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="vNb-o0-UnR" id="LmA-1G-deX"/>
+                        <outlet property="activityOverlay" destination="GRk-yT-3jt" id="PcG-Kx-Luu"/>
                         <outlet property="emailAllowedSwitch" destination="EOq-Ro-LTC" id="w5n-E8-Elb"/>
                         <outlet property="emailTF" destination="3vq-a8-qi1" id="eb0-4h-Ktm"/>
                         <outlet property="firstNameTF" destination="Eqj-ru-3fB" id="U1s-bU-fmz"/>
@@ -1629,13 +1709,31 @@ Welcome to the StudioMed iOS App. By accessing and using this app, you are agree
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncv-y1-VHW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qiP-J3-Re1">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qiP-J3-Re1" firstAttribute="centerY" secondItem="ncv-y1-VHW" secondAttribute="centerY" id="ojz-KU-JOZ"/>
+                                    <constraint firstItem="qiP-J3-Re1" firstAttribute="centerX" secondItem="ncv-y1-VHW" secondAttribute="centerX" id="ujG-89-xTZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ncv-y1-VHW" firstAttribute="leading" secondItem="gkz-bc-Gnq" secondAttribute="leading" id="32T-b7-Gz7"/>
                             <constraint firstItem="9FX-LE-CEE" firstAttribute="top" secondItem="GIm-bz-IJE" secondAttribute="top" id="56i-18-gBZ"/>
                             <constraint firstItem="9FX-LE-CEE" firstAttribute="trailing" secondItem="gkz-bc-Gnq" secondAttribute="trailing" id="H6Q-5l-RZd"/>
                             <constraint firstItem="9FX-LE-CEE" firstAttribute="bottom" secondItem="gkz-bc-Gnq" secondAttribute="bottom" id="UJt-e8-bVh"/>
+                            <constraint firstItem="ncv-y1-VHW" firstAttribute="top" secondItem="GIm-bz-IJE" secondAttribute="top" id="ZIw-N1-pV3"/>
                             <constraint firstItem="9FX-LE-CEE" firstAttribute="leading" secondItem="gkz-bc-Gnq" secondAttribute="leading" id="hwj-9h-iDO"/>
+                            <constraint firstItem="ncv-y1-VHW" firstAttribute="bottom" secondItem="gkz-bc-Gnq" secondAttribute="bottom" id="zh4-zQ-Rzz"/>
+                            <constraint firstItem="ncv-y1-VHW" firstAttribute="trailing" secondItem="gkz-bc-Gnq" secondAttribute="trailing" id="ztM-Zz-8KX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gkz-bc-Gnq"/>
                     </view>
@@ -1647,6 +1745,8 @@ Welcome to the StudioMed iOS App. By accessing and using this app, you are agree
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="qiP-J3-Re1" id="Kp8-VW-W1r"/>
+                        <outlet property="activityOverlay" destination="ncv-y1-VHW" id="DwC-LR-DT8"/>
                         <outlet property="tableView" destination="9FX-LE-CEE" id="ArR-9Z-wYu"/>
                     </connections>
                 </viewController>
@@ -1725,7 +1825,7 @@ The following privacy policy describes the personal information we collect from 
                                     <action selector="selectTreatmentButton:" destination="DXc-jD-6lV" eventType="touchUpInside" id="528-7w-fsm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-4c-HdX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIJ-4c-HdX">
                                 <rect key="frame" x="16" y="402" width="343" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1814,14 +1914,32 @@ The following privacy policy describes the personal information we collect from 
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXw-iU-f8d">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jed-iM-2lD">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="jed-iM-2lD" firstAttribute="centerY" secondItem="PXw-iU-f8d" secondAttribute="centerY" id="5kD-SW-3yt"/>
+                                    <constraint firstItem="jed-iM-2lD" firstAttribute="centerX" secondItem="PXw-iU-f8d" secondAttribute="centerX" id="DZx-nq-fCc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="PXw-iU-f8d" firstAttribute="leading" secondItem="O51-Lq-GdT" secondAttribute="leading" id="DCH-WW-OtM"/>
                             <constraint firstItem="t98-ai-gng" firstAttribute="top" secondItem="O51-Lq-GdT" secondAttribute="top" id="IVN-gz-2pB"/>
                             <constraint firstItem="t98-ai-gng" firstAttribute="leading" secondItem="O51-Lq-GdT" secondAttribute="leading" id="Iik-Sm-8XN"/>
                             <constraint firstItem="adN-wz-i2M" firstAttribute="top" secondItem="t98-ai-gng" secondAttribute="bottom" id="LLD-UL-Agn"/>
+                            <constraint firstItem="PXw-iU-f8d" firstAttribute="trailing" secondItem="O51-Lq-GdT" secondAttribute="trailing" id="O0r-m4-S4c"/>
                             <constraint firstItem="adN-wz-i2M" firstAttribute="leading" secondItem="O51-Lq-GdT" secondAttribute="leading" id="Suw-cz-MrK"/>
+                            <constraint firstAttribute="bottom" secondItem="PXw-iU-f8d" secondAttribute="bottom" id="f5e-F3-6GU"/>
                             <constraint firstItem="t98-ai-gng" firstAttribute="trailing" secondItem="O51-Lq-GdT" secondAttribute="trailing" id="hdX-ZF-bhi"/>
+                            <constraint firstItem="PXw-iU-f8d" firstAttribute="top" secondItem="O07-gT-BZu" secondAttribute="top" id="hyK-C0-MTg"/>
                             <constraint firstItem="adN-wz-i2M" firstAttribute="trailing" secondItem="O51-Lq-GdT" secondAttribute="trailing" id="kCU-qK-28g"/>
                             <constraint firstItem="adN-wz-i2M" firstAttribute="bottom" secondItem="O51-Lq-GdT" secondAttribute="bottom" id="rn9-ao-flu"/>
                             <constraint firstItem="adN-wz-i2M" firstAttribute="top" secondItem="t98-ai-gng" secondAttribute="bottom" id="sZr-I3-ITa"/>
@@ -1837,6 +1955,8 @@ The following privacy policy describes the personal information we collect from 
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="jed-iM-2lD" id="FWg-Ez-EMM"/>
+                        <outlet property="activityOverlay" destination="PXw-iU-f8d" id="Ttj-Xc-Okb"/>
                         <outlet property="tableView" destination="adN-wz-i2M" id="lG0-uq-rZd"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,8 @@ import FirebaseAuth
 class  ResetPasswordVC: UIViewController {
     
     var keyboardIsShown = false
+    @IBOutlet weak var activityOverlay: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,16 +25,29 @@ class  ResetPasswordVC: UIViewController {
     }
     @IBAction func resetPasswordButton(_ sender: Any) {
         
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+        }
+        
         if self.emailTextField.text == "" {
-            let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .alert)
             
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            
-            present(alertController, animated: true, completion: nil)
+            performUIUpdatesOnMain {
+                self.activityOverlay?.isHidden = true
+                self.activityIndicator?.stopAnimating()
+                AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+            }
+//            let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .alert)
+//
+//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//            alertController.addAction(defaultAction)
+//
+//            present(alertController, animated: true, completion: nil)
             
         } else {
             Auth.auth().sendPasswordReset(withEmail: self.emailTextField.text!, completion: { (error) in
+                
+                
                 
                 var title = ""
                 var message = ""
@@ -46,12 +61,18 @@ class  ResetPasswordVC: UIViewController {
                     self.emailTextField.text = ""
                 }
                 
+                performUIUpdatesOnMain {
+                    self.activityOverlay?.isHidden = true
+                    self.activityIndicator?.stopAnimating()
+
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 
                 self.present(alertController, animated: true, completion: nil)
+                    
+                }
             })
         }
     }
@@ -60,6 +81,10 @@ class  ResetPasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = true
+            self.activityIndicator?.stopAnimating()
+        }
         navigationController?.navigationBar.isHidden = false
         self.emailTextField.delegate = self
         

@@ -153,7 +153,10 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
         }
         
         if price == " " {
-            self.priceLabel.isHidden = true
+            performUIUpdatesOnMain {
+                self.priceLabel.isHidden = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+            }
+            
         }
         
         print("data for others called name = \(self.name)")

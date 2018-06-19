@@ -25,6 +25,10 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var selectedIndex = Int()
     var treatmentCatName = ["ivTherapy", "urgentCare", "houseCalls", "telemedicine"]
     
+    @IBOutlet weak var activityOverlay: UIView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBAction func logoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -45,6 +49,12 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+            //            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+        }
         ref = Database.database().reference()
         print("user name is: \(userName)")
         tableView.dataSource = self
@@ -91,6 +101,8 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 self.treatments.append(treatment)
 //                print("users array is \(self.users)")
                 performUIUpdatesOnMain {
+                    self.activityOverlay?.isHidden = true
+                    self.activityIndicator?.stopAnimating()
                     self.tableView.reloadData()
                 }
             }

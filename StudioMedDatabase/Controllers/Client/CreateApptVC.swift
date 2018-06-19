@@ -47,14 +47,25 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
     var valueFromApptNotesVC:String?
     var valueFromTreatmentDetailVC:String?
     
+    @IBOutlet weak var activityOverlay: UIView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func logOutButton(_ sender: Any) {
         
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+        }
         //GIDSignIn.sharedInstance().signOut()
 
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             print ("google signout okay")
+            performUIUpdatesOnMain {
+                self.activityOverlay?.isHidden = true
+                self.activityIndicator?.stopAnimating()
+            }
             
             apptObjectShared.date = "Select A Date & Time"
             apptObjectShared.time = ""
@@ -226,6 +237,11 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = true
+            self.activityIndicator?.stopAnimating()
+        }
 
         ref = Database.database().reference()
         navigationController?.navigationBar.barTintColor = UIColor.black

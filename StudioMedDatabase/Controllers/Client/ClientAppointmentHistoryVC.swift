@@ -18,7 +18,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
     
+    @IBOutlet weak var activityOverlay: UIView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     //var arrayOfUsers = [UserData]()
@@ -39,11 +41,19 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     var coloredCellIndex = 1000
     
     @IBAction func logOutButton(_ sender: Any) {
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+        }
          //GIDSignIn.sharedInstance().signOut()
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             print ("google signout okay")
+            performUIUpdatesOnMain {
+                self.activityOverlay?.isHidden = true
+                self.activityIndicator?.stopAnimating()
+            }
             
             apptObjectShared.date = "Select A Date & Time"
             apptObjectShared.treatment1 = "Select A Treatment"
@@ -78,6 +88,8 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.delegate = self
         performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
             self.tableView.reloadData()
         }
         
@@ -142,6 +154,8 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
                 print("apptDict array is \(self.appointments)")
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
+                    self.activityOverlay?.isHidden = true
+                    self.activityIndicator?.stopAnimating()
                 }
             }
             self.tableView.reloadData()

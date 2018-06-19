@@ -26,6 +26,8 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var selectedIndex = Int()
     var treatmentCatName = ["ivTherapy", "urgentCare", "houseCalls", "telemedicine"]
     
+    @IBOutlet weak var activityOverlay: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func logoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -45,6 +47,11 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+            //            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+        }
         ref = Database.database().reference()
         print("user name is: \(userName)")
         navigationItem.backBarButtonItem?.image = #imageLiteral(resourceName: "ArrowLeftShape")
@@ -91,6 +98,8 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.treatmentCat.append(treatmentFourText)
  
                 performUIUpdatesOnMain {
+                    self.activityOverlay?.isHidden = true
+                    self.activityIndicator?.stopAnimating()
                     self.tableView.reloadData()
                 }
             }

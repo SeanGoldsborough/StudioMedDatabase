@@ -66,7 +66,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInD
         self.activityOverlay.isHidden = true
         self.activityIndicator.isHidden = true
         
-        GIDSignIn.sharedInstance().uiDelegate = self as! GIDSignInUIDelegate
+       // GIDSignIn.sharedInstance().uiDelegate = self 
     }
     
     override func viewWillAppear(_ animated: Bool) {

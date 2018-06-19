@@ -30,8 +30,16 @@ class EditInfoVC: UIViewController {
     @IBOutlet weak var zipCodeTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityOverlay: UIView!
     //TODO: Fix this so that it updates only the field that was changed and doesnt rewrite the entire object
     @IBAction func submitButton(_ sender: Any) {
+        
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = false
+            self.activityIndicator?.startAnimating()
+        }
+        
 
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -51,6 +59,12 @@ class EditInfoVC: UIViewController {
         print("FirstNameText is: \(self.firstNameTF.text).")
         print("LastNameText is: \(self.lastNameTF.text).")
         print("email allowed is: \(self.emailAllowedSwitch.isOn).")
+        
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = true
+            self.activityIndicator?.stopAnimating()
+//            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
+        }
 //
         self.navigationController?.popViewController(animated: true)
 
@@ -140,6 +154,10 @@ class EditInfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        performUIUpdatesOnMain {
+            self.activityOverlay?.isHidden = true
+            self.activityIndicator?.stopAnimating()
+        }
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.black
         firstNameTF.delegate = self
