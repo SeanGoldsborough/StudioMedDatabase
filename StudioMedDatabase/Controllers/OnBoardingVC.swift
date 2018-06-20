@@ -40,6 +40,8 @@ class  OnBoardingVC: UIViewController {
         
         
         @IBAction func signupButton(_ sender: Any) {
+            let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
+            navigationController?.pushViewController(createAccountVC, animated: true)
 
         }
 
