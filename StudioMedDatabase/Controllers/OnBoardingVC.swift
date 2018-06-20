@@ -52,8 +52,6 @@ class  OnBoardingVC: UIViewController {
             collectionView.delegate = self
             collectionView.isPagingEnabled = true
             
-            //configurePageControl()
-            
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = 0
             
@@ -69,7 +67,7 @@ class  OnBoardingVC: UIViewController {
         
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            //configurePageControl()
+           
             pageControl.numberOfPages = images.count
             return images.count
         }

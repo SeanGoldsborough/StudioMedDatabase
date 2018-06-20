@@ -49,11 +49,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInD
 
     
     @IBAction func googleLogin(_ sender: Any) {
-//        performUIUpdatesOnMain {
-//            self.activityOverlay.isHidden = false
-//            self.activityIndicator.isHidden = false
-//            self.activityIndicator.startAnimating()
-//        }
+
        GIDSignIn.sharedInstance().signIn()
     }
     

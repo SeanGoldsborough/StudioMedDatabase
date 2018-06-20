@@ -40,14 +40,6 @@ class LoginVC: UIViewController {
         })
     }
     
-//    func isValid(_ item: String)  -> Bool {
-//
-//        let whitelist = ["https://apple.com","https://facebook.com","https://stackoverflow.com"]
-//
-//        return whitelist.contains { $0 == item }
-//    }
-    
-    
     @IBAction func signInButton(_ sender: Any) {
         
         performUIUpdatesOnMain {
@@ -104,8 +96,7 @@ class LoginVC: UIViewController {
        navigationController?.pushViewController(resetPasswordVC, animated: true)
     }
     @IBAction func signUpButton(_ sender: Any) {
-//        let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
-//        navigationController?.pushViewController(createAccountVC, animated: true)
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
