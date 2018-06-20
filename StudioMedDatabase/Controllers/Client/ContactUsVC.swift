@@ -40,20 +40,15 @@ class ContactUsVC: UIViewController {
     
     func sendEmail() {
         let composeVC = MFMailComposeViewController()
-        //composeVC.mailComposeDelegate = self
         composeVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate
-        // Configure the fields of the interface.
         composeVC.setToRecipients(["smgoldsborough@gmail.com"])
         composeVC.setSubject("")
         composeVC.setMessageBody("", isHTML: false)
-        // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
     }
     
     func mailComposeController(controller: MFMailComposeViewController,
                                didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        // Check the result or perform other tasks.
-        // Dismiss the mail compose view controller.
         if result == .cancelled {
             controller.dismiss(animated: true, completion: nil)
         } else if result == .sent {

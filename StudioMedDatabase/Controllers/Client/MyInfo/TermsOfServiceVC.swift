@@ -14,17 +14,7 @@ class TermsOfServiceVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.barTintColor = UIColor.clear
-//        navigationController?.navigationBar.isTranslucent = false
-//       navigationController?.navigationBar.backItem?.backBarButtonItem?.tintColor = UIColor.white
         
         navigationController?.navigationBar.isHidden = false
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 }

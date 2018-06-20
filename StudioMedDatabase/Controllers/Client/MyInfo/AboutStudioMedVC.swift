@@ -26,12 +26,7 @@ class AboutStudioMedVC: UIViewController {
         let mapPin = MapPin(title: "StudioMed \n 133 E 58th St Ste 512, New York NY 10022", addressName: "Tap For Directions", coordinate: CLLocationCoordinate2D(latitude: 40.761952, longitude: -73.968933))
         mapView.addAnnotation(mapPin)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     let regionRadius: CLLocationDistance = 500
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -41,33 +36,24 @@ class AboutStudioMedVC: UIViewController {
 }
 
 extension AboutStudioMedVC: MKMapViewDelegate {
-    // 1
+  
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // 2
+      
         guard let annotation = annotation as? MapPin else { return nil }
-        // 3
+    
         let identifier = "marker"
         var view: MKMarkerAnnotationView
-        
-        
-        // 4
+
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            // 5
-            
+
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            
-//            let detailLabel = UILabel()
-//            detailLabel.numberOfLines = 0
-//            detailLabel.font = detailLabel.font.withSize(12)
-//            detailLabel.text = "Tap For Directions"
-//            view.detailCalloutAccessoryView = detailLabel
         }
         return view
     }

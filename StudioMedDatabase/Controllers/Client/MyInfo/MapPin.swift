@@ -27,7 +27,6 @@ class MapPin: NSObject, MKAnnotation {
         return addressName
     }
     
-    // Annotation right callout accessory opens this mapItem in Maps app
     func mapItem() -> MKMapItem {
         let addressDict = [CNPostalAddressStreetKey: subtitle!]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
@@ -35,11 +34,4 @@ class MapPin: NSObject, MKAnnotation {
         mapItem.name = title
         return mapItem
     }
-    
-//    let detailLabel = UILabel()
-//    detailLabel.numberOfLines = 0
-//    detailLabel.font = detailLabel.font.withSize(12)
-//    detailLabel.text = artwork.subtitle
-//    detailCalloutAccessoryView = detailLabel
-    
 }
