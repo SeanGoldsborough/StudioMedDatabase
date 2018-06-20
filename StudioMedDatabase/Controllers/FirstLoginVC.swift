@@ -18,21 +18,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate  {
     @IBOutlet weak var activityOverlay: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-//    func sign(_ signIn: GIDSignIn!, didSignInFor user:
-//        GIDGoogleUser!, withError error: Error!) {
-//
-//                performUIUpdatesOnMain {
-//                    self.activityOverlay.isHidden = true
-//                    self.activityIndicator.isHidden = true
-//                    self.activityIndicator.stopAnimating()
-//                }
-//
-//        print("error on first loginvc")
-//        //AlertView.alertPopUp(view: self, alertMessage: "Error: \(error)")
-//    }
 
-   // var signInVariable = userSignedInGlobal
 
    @IBOutlet weak var signInButton: UIButton!
     
