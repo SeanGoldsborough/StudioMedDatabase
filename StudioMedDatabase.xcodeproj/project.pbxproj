@@ -15,7 +15,6 @@
 		C608F30820B5DC0700410951 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C608F30420B5DC0600410951 /* StepCollectionViewFlowLayout.swift */; };
 		C631F03B20AF820700D985E2 /* GetDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03A20AF820700D985E2 /* GetDateVC.swift */; };
 		C631F03D20AF860E00D985E2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03C20AF860E00D985E2 /* Protocols.swift */; };
-		C631F03F20B125ED00D985E2 /* RequestTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */; };
 		C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F04020B135E600D985E2 /* ScaleSegue.swift */; };
 		C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */; };
 		C64265D1209F662E00D412D8 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265D0209F662E00D412D8 /* CreateAccountVC.swift */; };
@@ -33,13 +32,10 @@
 		C642660020A25AE200D412D8 /* ClientAccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */; };
 		C642660220A25CA900D412D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642660120A25CA900D412D8 /* ResetPasswordVC.swift */; };
 		C642660420A4FB1E00D412D8 /* FirstLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */; };
-		C644538E20A63601001AEF32 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644538D20A63601001AEF32 /* Test.swift */; };
 		C644539020A64A9A001AEF32 /* ApptNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */; };
 		C644539220A9A8A1001AEF32 /* TreatmentsCatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */; };
 		C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548B20AD9620001AEF32 /* OnBoardingVC.swift */; };
-		C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548D20AD9863001AEF32 /* CalendarVC.swift */; };
 		C644549020AD9A2C001AEF32 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */; };
-		C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */; };
 		C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656EF71209F5EF90032E26F /* AppDelegate.swift */; };
 		C656EF77209F5EF90032E26F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C656EF75209F5EF90032E26F /* Main.storyboard */; };
 		C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C656EF78209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld */; };
@@ -97,7 +93,6 @@
 		C608F30420B5DC0600410951 /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		C631F03A20AF820700D985E2 /* GetDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateVC.swift; sourceTree = "<group>"; };
 		C631F03C20AF860E00D985E2 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimeVC.swift; sourceTree = "<group>"; };
 		C631F04020B135E600D985E2 /* ScaleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		C631F04420B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C64265D0209F662E00D412D8 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
@@ -115,13 +110,10 @@
 		C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAccountInfoVC.swift; sourceTree = "<group>"; };
 		C642660120A25CA900D412D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		C642660320A4FB1E00D412D8 /* FirstLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLoginVC.swift; sourceTree = "<group>"; };
-		C644538D20A63601001AEF32 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		C644538F20A64A9A001AEF32 /* ApptNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptNotesVC.swift; sourceTree = "<group>"; };
 		C644539120A9A8A1001AEF32 /* TreatmentsCatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsCatVC.swift; sourceTree = "<group>"; };
 		C644548B20AD9620001AEF32 /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
-		C644548D20AD9863001AEF32 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		C644548F20AD9A2C001AEF32 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
-		C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C656EF6E209F5EF90032E26F /* StudioMedDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioMedDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656EF71209F5EF90032E26F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C656EF76209F5EF90032E26F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,9 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				C64265EC20A1375C00D412D8 /* ClientTabVC.swift */,
-				C644548D20AD9863001AEF32 /* CalendarVC.swift */,
-				C631F03E20B125ED00D985E2 /* RequestTimeVC.swift */,
-				C644549120AD9A6D001AEF32 /* CalendarCollectionViewCell.swift */,
 				C64265DD20A0E27000D412D8 /* CreateApptVC.swift */,
 				C685DDFE20CF14C70022C418 /* RequestApptDetailVC.swift */,
 				C608F30B20B7387900410951 /* DatePickerFramework */,
@@ -246,7 +235,6 @@
 				C6BAB64320A621240078A8C0 /* TreatmentsVC.swift */,
 				C6BAB64720A629250078A8C0 /* TreatmentDetailVC.swift */,
 				C674E4C020C1C15E00587B15 /* ClientViewNotesVC.swift */,
-				C644538D20A63601001AEF32 /* Test.swift */,
 				C631F03C20AF860E00D985E2 /* Protocols.swift */,
 				C631F04020B135E600D985E2 /* ScaleSegue.swift */,
 				C6BF8C5220BC4AAE00C652E5 /* SearchFooter.swift */,
@@ -573,7 +561,6 @@
 				C642660220A25CA900D412D8 /* ResetPasswordVC.swift in Sources */,
 				C642660020A25AE200D412D8 /* ClientAccountInfoVC.swift in Sources */,
 				C6BAB63920A5155A0078A8C0 /* ZipCodeArray.swift in Sources */,
-				C644538E20A63601001AEF32 /* Test.swift in Sources */,
 				C64265E920A1305100D412D8 /* LoginVC.swift in Sources */,
 				C644539220A9A8A1001AEF32 /* TreatmentsCatVC.swift in Sources */,
 				C64265E720A12D8600D412D8 /* Appointment.swift in Sources */,
@@ -583,8 +570,6 @@
 				C644549020AD9A2C001AEF32 /* CalendarExtensions.swift in Sources */,
 				C608F30520B5DC0700410951 /* DateCollectionViewCell.swift in Sources */,
 				C631F04520B1BEC900D985E2 /* OnBoardingCollectionViewCell.swift in Sources */,
-				C644548E20AD9863001AEF32 /* CalendarVC.swift in Sources */,
-				C644549220AD9A6D001AEF32 /* CalendarCollectionViewCell.swift in Sources */,
 				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
 				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
 				C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */,
@@ -612,7 +597,6 @@
 				C64265E120A0F47100D412D8 /* User.swift in Sources */,
 				C608F30620B5DC0700410951 /* DateTimePicker.swift in Sources */,
 				C64265F420A1FFF700D412D8 /* ApptDetailVC.swift in Sources */,
-				C631F03F20B125ED00D985E2 /* RequestTimeVC.swift in Sources */,
 				C656EF72209F5EF90032E26F /* AppDelegate.swift in Sources */,
 				C642660420A4FB1E00D412D8 /* FirstLoginVC.swift in Sources */,
 				C6BAB64120A533110078A8C0 /* ContactUsVC.swift in Sources */,

@@ -15,25 +15,17 @@ import FirebaseAuth
 class CreateAccountVC: UIViewController {
     
     var ref: DatabaseReference!
-    
     var userArray: [UserData] = UserArray.sharedInstance.listOfUsers
     var userObject = UserData()
      @IBOutlet weak var scrollView: UIScrollView!
-    
     var activeField: UITextField?
-  
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityOverlay: UIView!
     @IBOutlet weak var firstNameText: UITextField!
-    
     @IBOutlet weak var lastNameText: UITextField!
-    
     @IBOutlet weak var phoneNumberText: UITextField!
-    
     @IBOutlet weak var zipCodeText: UITextField!
-    
     @IBOutlet weak var emailText: UITextField!
-    
     @IBOutlet weak var passwordText: UITextField!
     
     var keyboardIsShown = false
@@ -106,10 +98,8 @@ class CreateAccountVC: UIViewController {
                         self.ref.updateChildValues(childUpdates)
                         
                         let clientTabVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
-                        //listOfAppointmentsVC.userName = fullName
                         
                         self.present(clientTabVC, animated: true)
-                        //navigationController?.pushViewController(clientTabVC, animated: true)
                     }
                 } else {
                     performUIUpdatesOnMain {

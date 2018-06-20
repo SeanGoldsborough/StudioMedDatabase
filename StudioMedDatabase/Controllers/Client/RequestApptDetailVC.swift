@@ -102,7 +102,6 @@ class RequestApptDetailVC: UIViewController {
         apptObjectShared.firebaseApptID = clientApptKey
         
         AlertView.apptCreateAlert(view: self, alertTitle: "Appointment request has been created!", alertMessage: "A member of the StudioMed staff will be in contact shortly to confirm.")
-
     }
     
     func resetApptForm() {
@@ -200,7 +199,6 @@ class RequestApptDetailVC: UIViewController {
             
             self.setTextAttributes()
         }
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -216,8 +214,6 @@ class RequestApptDetailVC: UIViewController {
         performUIUpdatesOnMain {
             // self.zeroOutApptSharedObject()
         }
-
-        
     }
 }
 
