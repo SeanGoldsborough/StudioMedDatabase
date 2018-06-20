@@ -154,7 +154,7 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
         
         if price == " " {
             performUIUpdatesOnMain {
-                self.priceLabel.isHidden = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                self.priceLabel.isHidden = true
             }
             
         }
@@ -168,6 +168,6 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+   
     
 }
