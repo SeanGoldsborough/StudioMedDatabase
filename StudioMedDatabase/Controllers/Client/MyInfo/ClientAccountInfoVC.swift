@@ -32,7 +32,6 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
-        //navigationController?.navigationBar.isHidden = true
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

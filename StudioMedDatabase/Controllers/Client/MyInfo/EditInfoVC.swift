@@ -65,9 +65,7 @@ class EditInfoVC: UIViewController {
             self.activityIndicator?.stopAnimating()
 //            AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
         }
-//
         self.navigationController?.popViewController(animated: true)
-
     }
     
     
@@ -86,11 +84,8 @@ class EditInfoVC: UIViewController {
         else {
             self.notificationsSwitchBool = false
         }
-        
-        //var ref: DatabaseReference!
-        //ref = Database.database().reference()
+
         let userID = Auth.auth().currentUser?.uid
-        
         let ref = Database.database().reference().root.child("client").child("clients").child(userID!).updateChildValues(["allowNotifications": self.notificationsSwitchBool])
     }
     
