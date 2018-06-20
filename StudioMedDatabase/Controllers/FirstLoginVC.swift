@@ -10,31 +10,31 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
-import GoogleSignIn
+//import GoogleSignIn
 
 
-class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInDelegate  {
+class FirstLoginVC: UIViewController, UINavigationControllerDelegate  {
     
     @IBOutlet weak var activityOverlay: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user:
-        GIDGoogleUser!, withError error: Error!) {
-
-                performUIUpdatesOnMain {
-                    self.activityOverlay.isHidden = true
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
-                }
-
-        print("error on first loginvc")
-        //AlertView.alertPopUp(view: self, alertMessage: "Error: \(error)")
-    }
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user:
+//        GIDGoogleUser!, withError error: Error!) {
+//
+//                performUIUpdatesOnMain {
+//                    self.activityOverlay.isHidden = true
+//                    self.activityIndicator.isHidden = true
+//                    self.activityIndicator.stopAnimating()
+//                }
+//
+//        print("error on first loginvc")
+//        //AlertView.alertPopUp(view: self, alertMessage: "Error: \(error)")
+//    }
 
    // var signInVariable = userSignedInGlobal
 
-    @IBOutlet weak var signInButton: GIDSignInButton!
+   @IBOutlet weak var signInButton: UIButton!
     
     @IBAction func signUp(_ sender: Any) {
             //USES STORYBOARD SEGUE AND ANIMATION
@@ -50,7 +50,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate, GIDSignInD
     
     @IBAction func googleLogin(_ sender: Any) {
 
-       GIDSignIn.sharedInstance().signIn()
+      // GIDSignIn.sharedInstance().signIn()
     }
     
     

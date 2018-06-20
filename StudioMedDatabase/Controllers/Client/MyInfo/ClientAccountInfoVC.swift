@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-import GoogleSignIn
+//import GoogleSignIn
 
 class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -72,7 +72,7 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
             let termsOfServiceVC = storyboard?.instantiateViewController(withIdentifier: "TermsOfServiceVC") as! TermsOfServiceVC
             navigationController?.pushViewController(termsOfServiceVC, animated: true)
         case 5:
-             GIDSignIn.sharedInstance().signOut()
+             //GIDSignIn.sharedInstance().signOut()
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()

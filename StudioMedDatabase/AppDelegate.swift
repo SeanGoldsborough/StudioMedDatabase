@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseMessaging
 import FirebaseInstanceID
-import GoogleSignIn
+//import GoogleSignIn
 import UserNotifications
 
 
@@ -23,88 +23,90 @@ var userObject = UserData.sharedInstance()
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if let error = error {
-            // ...
-            print("error on google sign-in \(error)")
-            return
- } else {
-            // Perform any operations on signed in user here.
-            let userId = user.userID// For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let firstName = user.profile.givenName
-
-            userObject.firstName = firstName
-            print("idToken on google sign-in is \(user.authentication.idToken)")
-            print("userId on google sign-in is \(user.userID)")
-            print("userObject first name on google sign-in is \(userObject.firstName)")
-            
-//            if firstName == "Konrad" && idToken != nil {
-//                userIsAdmin = true
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+//        // ...
+//        if let error = error {
+//            // ...
+//            print("error on google sign-in \(error)")
+//            return
+// } else {
+//            // Perform any operations on signed in user here.
+//            let userId = user.userID// For client-side use only!
+//            let idToken = user.authentication.idToken // Safe to send to the server
+//            let firstName = user.profile.givenName
+//
+//            userObject.firstName = firstName
+//            print("idToken on google sign-in is \(user.authentication.idToken)")
+//            print("userId on google sign-in is \(user.userID)")
+//            print("userObject first name on google sign-in is \(userObject.firstName)")
+//
+////            if firstName == "Konrad" && idToken != nil {
+////                userIsAdmin = true
+////            }
+////
+////            if userObject.phoneNumber == nil {
+////                let mainStoryboard: UIStoryboard = UIStoryboard(name: "CreateAccountVC", bundle: nil)
+////                let initialViewController: UIViewController
+////                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
+////                AlertView.alertPopUp(view: initialViewController, alertMessage: "please complete sign up form")
+////            }
+//            // ...
+//        }
+//
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+//                                                       accessToken: authentication.accessToken)
+//        // ...
+//
+//        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+//            if let error = error {
+//               print("error on google sign-in Auth \(error)")
+//                return
+//            } else {
+//                print("Google Authentification Success")
+//                let authID = Auth.auth().currentUser?.uid
+//                print("Auth id is: \(Auth.auth().currentUser?.uid)")
+//
+//                if authID == "foAmqL4Qm3UgpzkTckLOBMHHwd53" || authID == "foAmqL4Qm3UgpzkTckLOBMHHwd53" {
+//                    userIsAdmin = false
+//                }
+//
+//                let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+//
+//                if userIsAdmin == true {
+//                let adminTabBarVC = mainStoryBoard.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
+//                let appDelegate = UIApplication.shared.delegate
+//                appDelegate?.window??.rootViewController = adminTabBarVC
+//
+//                } else {
+//                    let clientTabVC = mainStoryBoard.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
+//
+//                    let appDelegate = UIApplication.shared.delegate
+//                    appDelegate?.window??.rootViewController = clientTabVC
+//
+//                }
 //            }
 //
-//            if userObject.phoneNumber == nil {
-//                let mainStoryboard: UIStoryboard = UIStoryboard(name: "CreateAccountVC", bundle: nil)
-//                let initialViewController: UIViewController
-//                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
-//                AlertView.alertPopUp(view: initialViewController, alertMessage: "please complete sign up form")
-//            }
-            // ...
-        }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        // ...
-        
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if let error = error {
-               print("error on google sign-in Auth \(error)")
-                return
-            } else {
-                print("Google Authentification Success")
-                let authID = Auth.auth().currentUser?.uid
-                print("Auth id is: \(Auth.auth().currentUser?.uid)")
-                
-                if authID == "foAmqL4Qm3UgpzkTckLOBMHHwd53" || authID == "foAmqL4Qm3UgpzkTckLOBMHHwd53" {
-                    userIsAdmin = false
-                }
-                
-                let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
-                
-                if userIsAdmin == true {
-                let adminTabBarVC = mainStoryBoard.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
-                let appDelegate = UIApplication.shared.delegate
-                appDelegate?.window??.rootViewController = adminTabBarVC
-                    
-                } else {
-                    let clientTabVC = mainStoryBoard.instantiateViewController(withIdentifier: "ClientTabVC") as! ClientTabVC
-                    
-                    let appDelegate = UIApplication.shared.delegate
-                    appDelegate?.window??.rootViewController = clientTabVC
-                    
-                }
-            }            }
-            // User is signed in
-            // ...
-        }
+//        }
+//            // User is signed in
+//            // ...
+//        }
     
     
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        
-        if let error = error {
-            // ...
-            print("error on google sign-in disconnect \(error)")
-            return
-        } else {
-            print("google sign-in disconnected correctly!")
-            // Perform any operations when the user disconnects from app here.
-            // ...
-        }
-    }
+//    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+//
+//        if let error = error {
+//            // ...
+//            print("error on google sign-in disconnect \(error)")
+//            return
+//        } else {
+//            print("google sign-in disconnected correctly!")
+//            // Perform any operations when the user disconnects from app here.
+//            // ...
+//        }
+//    }
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
@@ -120,8 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: newFont], for: .normal)
      
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+//        GIDSignIn.sharedInstance().delegate = self
         Messaging.messaging().delegate = self
         
         if #available(iOS 10.0, *) {
@@ -143,10 +145,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
-        
+
         func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
             print("Firebase registration token: \(fcmToken)")
-            
+
             // TODO: If necessary send token to application server.
             // Note: This callback is fired at each app startup and whenever a new token is generated.
         }
@@ -187,11 +189,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
     
-    @available(iOS 9.0, *)
-    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
-        -> Bool {
-            return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
-    }
+//    @available(iOS 9.0, *)
+//    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+//        -> Bool {
+//            return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -262,7 +264,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         print("APNs token retrieved: \(deviceToken)")
         
         // With swizzling disabled you must set the APNs token here.
-        // Messaging.messaging().apnsToken = deviceToken
+         Messaging.messaging().apnsToken = deviceToken
     }
 
 
