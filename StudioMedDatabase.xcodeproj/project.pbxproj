@@ -27,7 +27,6 @@
 		C64265E920A1305100D412D8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265E820A1305100D412D8 /* LoginVC.swift */; };
 		C64265ED20A1375C00D412D8 /* ClientTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265EC20A1375C00D412D8 /* ClientTabVC.swift */; };
 		C64265F420A1FFF700D412D8 /* ApptDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */; };
-		C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FB20A21EA200D412D8 /* CustomHeader.swift */; };
 		C64265FE20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */; };
 		C642660020A25AE200D412D8 /* ClientAccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */; };
 		C642660220A25CA900D412D8 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642660120A25CA900D412D8 /* ResetPasswordVC.swift */; };
@@ -105,7 +104,6 @@
 		C64265E820A1305100D412D8 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C64265EC20A1375C00D412D8 /* ClientTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTabVC.swift; sourceTree = "<group>"; };
 		C64265F320A1FFF700D412D8 /* ApptDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDetailVC.swift; sourceTree = "<group>"; };
-		C64265FB20A21EA200D412D8 /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		C64265FD20A2346D00D412D8 /* ClientAppointmentHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAppointmentHistoryVC.swift; sourceTree = "<group>"; };
 		C64265FF20A25AE200D412D8 /* ClientAccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAccountInfoVC.swift; sourceTree = "<group>"; };
 		C642660120A25CA900D412D8 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				C64265EE20A1F97500D412D8 /* Controllers */,
 				C64265DF20A0F45500D412D8 /* Model */,
 				C64265D4209F6B7E00D412D8 /* UserDataModel.swift */,
-				C64265FB20A21EA200D412D8 /* CustomHeader.swift */,
 				C656EF75209F5EF90032E26F /* Main.storyboard */,
 				C656EF7B209F5EF90032E26F /* Assets.xcassets */,
 				C656EF7D209F5EF90032E26F /* LaunchScreen.storyboard */,
@@ -552,7 +549,6 @@
 				C64265D9209F750500D412D8 /* GCD.swift in Sources */,
 				C656EF7A209F5EF90032E26F /* StudioMedDatabase.xcdatamodeld in Sources */,
 				C674E4C120C1C15E00587B15 /* ClientViewNotesVC.swift in Sources */,
-				C64265FC20A21EA200D412D8 /* CustomHeader.swift in Sources */,
 				C644548C20AD9620001AEF32 /* OnBoardingVC.swift in Sources */,
 				C6BAB63B20A524010078A8C0 /* TermsOfServiceVC.swift in Sources */,
 				C631F04120B135E600D985E2 /* ScaleSegue.swift in Sources */,
