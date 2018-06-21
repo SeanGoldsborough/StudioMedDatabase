@@ -23,10 +23,9 @@ class ApptNotesVC: UIViewController, UITextViewDelegate {
      @IBOutlet weak var notesTextView: UITextView!
 
     @IBAction func saveButton(_ sender: Any) {
-        
-        //appointment.notes = notesTextView.text
+      
         newAppointment.notes = notesTextView.text
-        //send notes data to UILabel in CreateApptVC
+
         delegate?.setResultOfGetNotes(valueSent: notesTextView.text!)
         self.navigationController?.popViewController(animated: true)
     }
@@ -36,36 +35,29 @@ class ApptNotesVC: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTextView.delegate = self
-        //notesTextView.text = "Add notes..."
+        
         notesTextView.textColor = UIColor.white
-        //notesTextView.clearsOnInsertion = true
+     
         notesTextView.placeholder = "How can we help you?"
         
-        //init toolbar
+   
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
-        //create left side empty space so that done button set on right side
+       
         let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "DONE", style: .done, target: self, action: #selector(doneButtonAction))
         doneBtn.tintColor = UIColor.black
         toolbar.setItems([flexSpace, doneBtn], animated: false)
         toolbar.sizeToFit()
-        //setting toolbar as inputAccessoryView
+
         self.notesTextView.inputAccessoryView = toolbar
         
     
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     @objc func doneButtonAction() {
         self.view.endEditing(true)
     }
-    
-    
-    
+  
 }
 
 extension UITextView: UITextViewDelegate {
@@ -139,13 +131,4 @@ extension UITextView: UITextViewDelegate {
     
 }
 
-//extension NSNotification.Name {
-//
-//
-//    public static let UITextViewTextDidBeginEditing: NSNotification.Name
-//
-//    public static let UITextViewTextDidChange: NSNotification.Name
-//
-//    public static let UITextViewTextDidEndEditing: NSNotification.Name
-//}
 

@@ -37,18 +37,9 @@ class  ResetPasswordVC: UIViewController {
                 self.activityIndicator?.stopAnimating()
                 AlertView.alertPopUp(view: self, alertMessage: "Form not completely filled out!")
             }
-//            let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .alert)
-//
-//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//            alertController.addAction(defaultAction)
-//
-//            present(alertController, animated: true, completion: nil)
-            
         } else {
             Auth.auth().sendPasswordReset(withEmail: self.emailTextField.text!, completion: { (error) in
-                
-                
-                
+       
                 var title = ""
                 var message = ""
                 
@@ -76,9 +67,7 @@ class  ResetPasswordVC: UIViewController {
             })
         }
     }
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         performUIUpdatesOnMain {
@@ -87,10 +76,8 @@ class  ResetPasswordVC: UIViewController {
         }
         navigationController?.navigationBar.isHidden = false
         self.emailTextField.delegate = self
-        
-        //init toolbar
+
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
-        //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
         doneBtn.tintColor = UIColor.white
@@ -98,8 +85,7 @@ class  ResetPasswordVC: UIViewController {
         toolbar.isTranslucent = true
         toolbar.setItems([flexSpace, doneBtn], animated: false)
         toolbar.sizeToFit()
-        
-        //setting toolbar as inputAccessoryView
+
         self.emailTextField.inputAccessoryView = toolbar
     }
     

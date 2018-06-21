@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
-//import GoogleSignIn
+
 
 
 class FirstLoginVC: UIViewController, UINavigationControllerDelegate  {
@@ -36,7 +36,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate  {
     
     @IBAction func googleLogin(_ sender: Any) {
 
-      // GIDSignIn.sharedInstance().signIn()
+      
     }
     
     
@@ -48,7 +48,7 @@ class FirstLoginVC: UIViewController, UINavigationControllerDelegate  {
         self.activityOverlay.isHidden = true
         self.activityIndicator.isHidden = true
         
-       // GIDSignIn.sharedInstance().uiDelegate = self 
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {

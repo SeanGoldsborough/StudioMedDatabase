@@ -72,7 +72,7 @@ class CreateAccountVC: UIViewController {
                     }
                     print("You have successfully signed up")
                     print(self.userObject.fireBaseUID = Auth.auth().currentUser?.uid)
-                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
+                   
                     self.userObject.fireBaseUID = Auth.auth().currentUser?.uid
                     self.userObject.firstName = self.firstNameText.text
                     self.userObject.lastName = self.lastNameText.text

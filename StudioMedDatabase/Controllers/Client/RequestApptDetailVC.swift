@@ -21,7 +21,7 @@ class RequestApptDetailVC: UIViewController {
     @IBAction func viewNotesButton(_ sender: Any) {
         
         let clientViewNotesVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientViewNotesVC") as! ClientViewNotesVC
-        //clientViewNotesVC.notesTextView.text = apptObjectShared.notes ?? "No Notes Written."
+        
         navigationController?.pushViewController(clientViewNotesVC, animated: true)
     }
     
@@ -107,21 +107,21 @@ class RequestApptDetailVC: UIViewController {
     func resetApptForm() {
         let createApptVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateApptVC") as! CreateApptVC
         if apptObjectShared.date == nil {
-            //apptObjectShared.date = "Select A Date & Time"
+            
             createApptVC.dateTimeButton.setTitle("Select A Date & Time", for: UIControlState.normal)
         } else {
             apptObjectShared.date = apptObjectShared.date
         }
         
         if apptObjectShared.treatment1 == nil {
-            //apptObjectShared.treatment1 = "Select A Treatment"
+            
             createApptVC.treatmentOneButton.setTitle("Select A Treatment", for: UIControlState.normal)
         } else {
             apptObjectShared.treatment1 = apptObjectShared.treatment1
         }
         
         if apptObjectShared.notes == nil {
-            //apptObjectShared.notes = "Add A Note For The Doctor"
+            
             createApptVC.addNotesButton.setTitle("Add A Note For The Doctor", for: UIControlState.normal)
         } else {
             apptObjectShared.notes = apptObjectShared.notes
@@ -210,7 +210,7 @@ class RequestApptDetailVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //AppointmentData.dispose()
+        
         performUIUpdatesOnMain {
             // self.zeroOutApptSharedObject()
         }

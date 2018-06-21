@@ -11,7 +11,6 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-//import GoogleSignIn
 
 class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -44,8 +43,6 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        //cell.backgroundColor = UIColor.lightGray
         cell.textLabel?.text = clientInfoArray[indexPath.row]
         
         return cell
@@ -72,7 +69,6 @@ class ClientAccountInfoVC: UIViewController, UITableViewDelegate, UITableViewDat
             let termsOfServiceVC = storyboard?.instantiateViewController(withIdentifier: "TermsOfServiceVC") as! TermsOfServiceVC
             navigationController?.pushViewController(termsOfServiceVC, animated: true)
         case 5:
-             //GIDSignIn.sharedInstance().signOut()
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()

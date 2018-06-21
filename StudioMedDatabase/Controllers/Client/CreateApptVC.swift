@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-//import GoogleSignIn
+
 
 class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateTimePickerDelegate{
     
@@ -56,7 +56,7 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
             self.activityOverlay?.isHidden = false
             self.activityIndicator?.startAnimating()
         }
-        //GIDSignIn.sharedInstance().signOut()
+        
 
         let firebaseAuth = Auth.auth()
         do {
@@ -135,8 +135,8 @@ class CreateApptVC: UIViewController, UITextViewDelegate, GetDataProtocol, DateT
         picker.todayButtonTitle = "Today"
         picker.is12HourFormat = true
         picker.dateFormat = "MM/dd/YYYY hh:mm aa"
-        //        picker.isTimePickerOnly = true
-        picker.includeMonth = true // if true the month shows at top
+        
+        picker.includeMonth = true
         picker.completionHandler = { date in
             let formatter = DateFormatter()
             formatter.dateFormat = "MM/dd/YYYY hh:mm aa"

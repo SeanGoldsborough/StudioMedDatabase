@@ -22,7 +22,6 @@ class Appointment {
     var email: String
     var treatment1: String
     var notes: String
-
     
     init(firebaseApptIDString: String, firebaseClientIDString: String, isCancelledBool: Bool, isActiveBool: Bool, isCompleteBool: Bool, firstNameText: String, lastNameText: String, phoneNumberText: String, emailText: String, dateText: String, treatment1Text: String,  notesText: String) {
         firebaseApptID = firebaseApptIDString
@@ -78,9 +77,7 @@ class NewAppointmentData : NSObject {
     public var email: String?
     public var treatment1: String?
     public var notes: String?
-    
-    
-    
+ 
     // MARK: Shared Instance
     
     struct Singleton {
@@ -100,20 +97,7 @@ class NewAppointmentData : NSObject {
         print("Disposed AppointmentData Singleton sharedInstance")
         print(NewAppointmentData.sharedInstance)
     }
-    
-    //    class func sharedInstance() -> AppointmentData {
-    //        struct Singleton {
-    //            static var sharedInstance = AppointmentData()
-    //        }
-    //        return Singleton.sharedInstance
-    //    }
-    
-    
-    
 }
-    
-
-
 
 class AppointmentData : NSObject {
     public var firebaseApptID: String?
@@ -129,9 +113,7 @@ class AppointmentData : NSObject {
     public var email: String?
     public var treatment1: String?
     public var notes: String?
-    
  
-    
     // MARK: Shared Instance
     
     struct Singleton {
@@ -151,16 +133,6 @@ class AppointmentData : NSObject {
         print("Disposed AppointmentData Singleton sharedInstance")
         print(AppointmentData.sharedInstance)
     }
-    
-//    class func sharedInstance() -> AppointmentData {
-//        struct Singleton {
-//            static var sharedInstance = AppointmentData()
-//        }
-//        return Singleton.sharedInstance
-//    }
-
-    
-
 }
 
 
@@ -169,29 +141,4 @@ class ApptArray : NSObject {
     
     static let sharedInstance = ApptArray()
 }
-
-//class Singleton {
-//
-//    private static var privateShared : Singleton?
-//
-//    class func shared() -> Singleton { // change class to final to prevent override
-//        guard let uwShared = privateShared else {
-//            privateShared = Singleton()
-//            return privateShared!
-//        }
-//        return uwShared
-//    }
-//
-//    class func destroy() {
-//        privateShared = nil
-//    }
-//
-//    private init() {
-//        print("init singleton")
-//    }
-//
-//    deinit {
-//        print("deinit singleton")
-//    }
-//}
 

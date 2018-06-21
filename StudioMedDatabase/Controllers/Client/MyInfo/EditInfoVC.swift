@@ -32,14 +32,13 @@ class EditInfoVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityOverlay: UIView!
-    //TODO: Fix this so that it updates only the field that was changed and doesnt rewrite the entire object
+    
     @IBAction func submitButton(_ sender: Any) {
         
         performUIUpdatesOnMain {
             self.activityOverlay?.isHidden = false
             self.activityIndicator?.startAnimating()
         }
-        
 
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -73,11 +72,9 @@ class EditInfoVC: UIViewController {
     @IBOutlet weak var emailAllowedSwitch: UISwitch!
     
     @IBAction func notificationsSwitch(_ sender: Any) {
-        
-        // Get value of "on" to determine current state of UISwitch.
+
         let onState = notificationsAllowedSwitch.isOn
-        
-        // Write label text depending on UISwitch.
+
         if onState {
             self.notificationsSwitchBool = true
         }
@@ -91,11 +88,9 @@ class EditInfoVC: UIViewController {
     
     
     @IBAction func newsletterSwitch(_ sender: Any) {
-        
-        // Get value of "on" to determine current state of UISwitch.
+
         let onState = notificationsAllowedSwitch.isOn
-        
-        // Write label text depending on UISwitch.
+
         if onState {
             self.emailSwitchBool = true
         }
@@ -115,7 +110,7 @@ class EditInfoVC: UIViewController {
         let userID = Auth.auth().currentUser?.uid
 
         ref.child("client").child("clients").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
+
             let userDict = snapshot.value as? NSDictionary
             let fireBaseUIDText  = userDict!["fireBaseUID"] as! String
             let firstNameText = userDict!["firstName"] as! String
@@ -125,7 +120,6 @@ class EditInfoVC: UIViewController {
             let emailText = userDict!["email"] as! String
             let allowNotificationsBool = userDict!["allowNotifications"] as! Bool
             let allowEmailNewsletterBool = userDict!["allowEmailNewsletter"] as! Bool
-            //let user = User(username: username)
             print("userDict1 is \(userDict)")
             
             performUIUpdatesOnMain {
@@ -161,9 +155,7 @@ class EditInfoVC: UIViewController {
         emailTF.delegate = self
         zipCodeTF.delegate = self
 
-        //init toolbar
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
-        //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
         doneBtn.tintColor = UIColor.white
@@ -171,8 +163,7 @@ class EditInfoVC: UIViewController {
         toolbar.isTranslucent = true
         toolbar.setItems([flexSpace, doneBtn], animated: false)
         toolbar.sizeToFit()
-        
-        //setting toolbar as inputAccessoryView
+
         self.firstNameTF.inputAccessoryView = toolbar
         self.lastNameTF.inputAccessoryView = toolbar
         self.phoneNumberTF.inputAccessoryView = toolbar
@@ -194,60 +185,6 @@ class EditInfoVC: UIViewController {
     }
     
 }
-//// MARK: - CreateAccountVC: UITextFieldDelegate
-//extension EditInfoVC: UITextFieldDelegate {
-//
-//    // MARK: UITextFieldDelegate
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//
-//        if textField == firstNameTF {
-//            textField.resignFirstResponder()
-//            lastNameTF.becomeFirstResponder()
-//        } else if textField == lastNameTF {
-//            textField.resignFirstResponder()
-//            phoneNumberTF.becomeFirstResponder()
-//        } else if textField == phoneNumberTF {
-//            textField.resignFirstResponder()
-//            zipCodeTF.becomeFirstResponder()
-//        } else if textField == zipCodeTF {
-//            textField.resignFirstResponder()
-//            emailTF.becomeFirstResponder()
-//        } else if textField == emailTF {
-//            textField.resignFirstResponder()
-//        }
-//        return true
-//    }
-//
-//
-//    //    // MARK: Show/Hide Keyboard
-//    //
-//    @objc func keyboardWillShow(_ notification: Notification) {
-//        if !keyboardIsShown {
-//            view.frame.origin.y = -keyboardHeight(notification) / 2.6
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(_ notification: Notification) {
-//        if keyboardIsShown {
-//            view.frame.origin.y = 0
-//        }
-//    }
-//
-//    @objc func keyboardDidShow(_ notification: Notification) {
-//        keyboardIsShown = true
-//    }
-//
-//    @objc func keyboardDidHide(_ notification: Notification) {
-//        keyboardIsShown = false
-//    }
-//
-//    func keyboardHeight(_ notification: Notification) -> CGFloat {
-//        let userInfo = (notification as NSNotification).userInfo
-//        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-//        return keyboardSize.cgRectValue.height
-//    }
-//}
 
 // MARK: - CreateAccountVC: UITextFieldDelegate
 extension EditInfoVC: UITextFieldDelegate {
@@ -270,17 +207,14 @@ extension EditInfoVC: UITextFieldDelegate {
             emailTF.becomeFirstResponder()
         } else if textField == emailTF {
             textField.resignFirstResponder()
-//            passwordTF.becomeFirstResponder()
-        } //else if textField == passwordTF {
-//            textField.resignFirstResponder()
-//        }
+        }
         return true
     }
     
     
     
     @objc func keyboardWasShown(notification: NSNotification){
-        //Need to calculate keyboard exact size due to Apple suggestions
+
         self.scrollView.isScrollEnabled = true
         var info = notification.userInfo!
         let keyboardSize = ((info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size.height)! + 160.0
@@ -299,7 +233,7 @@ extension EditInfoVC: UITextFieldDelegate {
     }
     
     @objc func keyboardWillBeHidden(notification: NSNotification){
-        //Once keyboard disappears, restore original positions
+  
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
@@ -316,8 +250,7 @@ extension EditInfoVC: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField){
         activeField = nil
     }
-    
-    
+
     //    // MARK: Show/Hide Keyboard
     //
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -346,40 +279,17 @@ extension EditInfoVC: UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
 }
-//// MARK: - EditInfoVC (Notifications)
-//
-//private extension EditInfoVC {
-//
-//    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-//        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
-//    }
-//
-//    func unsubscribeFromAllNotifications() {
-//        NotificationCenter.default.removeObserver(self)
-//    }
-//}
 
 // MARK: - EditInfoVC (Notifications)
 
 private extension EditInfoVC {
     
-    //    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-    //        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
-    //    }
     func subscribeToNotification(){
-        //Adding notifies on keyboard appearing
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    
-    
-    
-    //    func unsubscribeFromAllNotifications() {
-    //        NotificationCenter.default.removeObserver(self)
-    //    }
-    
+
     func unsubscribeFromAllNotifications(){
-        //Removing notifies on keyboard appearing
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }

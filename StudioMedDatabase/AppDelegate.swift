@@ -12,7 +12,6 @@ import Firebase
 import FirebaseAuth
 import FirebaseMessaging
 import FirebaseInstanceID
-//import GoogleSignIn
 import UserNotifications
 
 
@@ -124,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 //        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 //        GIDSignIn.sharedInstance().delegate = self
-        Messaging.messaging().delegate = self
+       // Messaging.messaging().delegate = self
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -142,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-        
+
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
 

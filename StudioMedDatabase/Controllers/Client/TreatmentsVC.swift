@@ -99,7 +99,7 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 let treatment = Treatment(nameText: treatmentNameText, aboutText: aboutText, priceText: priceNumberText, bestForText: bestForText)
                 print("treatmentVC treatmentDict is \(treatmentDict)")
                 self.treatments.append(treatment)
-//                print("users array is \(self.users)")
+
                 performUIUpdatesOnMain {
                     self.activityOverlay?.isHidden = true
                     self.activityIndicator?.stopAnimating()
@@ -121,20 +121,9 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let treatmentBestFor = treatments[indexPath.row].bestFor
         print("treatmentVC cellfor row treatmentNameText is: \(treatmentName)")
 
-//        let lastName = users[indexPath.row].lastName
-//        let phoneNumber = users[indexPath.row].phoneNumber
-//        let email = users[indexPath.row].email
         cell.textLabel?.text = treatmentName
         cell.detailTextLabel?.text = treatmentBestFor
-        //
-        //       let dataSource = FirebaseTableViewDataSource(query: self.ref, modelClass:nil, prototypeReuseIdentifier: "Cell", view: tableView)
-        //
-        //        dataSource.populateCellWithBlock { (cell: UITableViewCell, obj: NSObject) -> Void in
-        //            let snap = obj as! FDataSnapshot
-        //
-        //            // Populate cell as you see fit, like as below
-        //            cell.textLabel?.text = snap.key as String
-        
+
         return cell
     }
     
@@ -142,17 +131,11 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let treatmentDetailVC = storyboard?.instantiateViewController(withIdentifier: "TreatmentDetailVC") as! TreatmentDetailVC
-        //        print("selected a user \(users[indexPath.row].email)")
+
                 let treatmentName = treatments[indexPath.row].name
                 let treatmentAbout = treatments[indexPath.row].about
          print("treatmentVC didSelectRowAt treatmentNameText is: \(treatmentName)")
-        //        let phoneNumber = users[indexPath.row].phoneNumber
-        //        let email = users[indexPath.row].email
-        //
-        //        userDetailVC.clientName = firstName + " " + lastName
-        //        userDetailVC.phoneNumber = phoneNumber
-        //        userDetailVC.email = email
-        //adminApptDetailVC.cancelledBool = listOfAppointmentsVCBool
+        
         treatmentDetailVC.name = treatmentName
         treatmentDetailVC.about = treatmentAbout
         navigationController?.pushViewController(treatmentDetailVC, animated: true)
@@ -163,35 +146,4 @@ class TreatmentsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         // Return false if you do not want the specified item to be editable.
         return false
     }
-    
-//    // Override to support editing the table view.
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let alert = UIAlertController(title: nil, message: "Confirm Delete ? ", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action) in
-//
-//                performUIUpdatesOnMain {
-//
-//
-//                    self.ref.child("client").child("users").child("\(self.users[indexPath.row].firstName) \(self.users[indexPath.row].lastName)").removeValue(completionBlock: { (error, refer) in
-//                        if error != nil {
-//                            print(error)
-//                        } else {
-//                            print(refer)
-//                            print("Child Removed Correctly")
-//                        }
-//                    })
-//                    self.users.remove(at: indexPath.row)
-//                    tableView.deleteRows(at: [indexPath], with: .automatic)
-//                }
-//            }))
-//            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-//                alert.dismiss(animated: true, completion: nil)
-//            }))
-//            self.present(alert, animated: true, completion: nil)
-//
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-//    }
 }

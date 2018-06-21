@@ -19,7 +19,6 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
     
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
-    //var treatment = Treatment()
     var treatments = [Treatment]()
     var selectedIndex = Int()
     var treatmentCatName = ["ivTherapy", "urgentCare", "houseCalls"]
@@ -33,11 +32,8 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var selectButton: UIButton!
     //
     @IBAction func selectTreatmentButton(_ sender: Any) {
-        //pop back 2 views and make either an appt object and then populate the treatment1 with thelabel text or just the text field in the create appt vc
  
-       // delegate?.setResultOfGetTreatment(valueSent: name!)
         print("the name label text is \(nameLabel.text)")
-        //appointment.treatment1 = nameLabel.text!
         newAppointment.treatment1 = nameLabel.text!
         var vcCount = 4
         if selectedIndex == 1 || selectedIndex == 2 {
@@ -47,19 +43,6 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
         navigationController!.popToViewController(viewControllers[viewControllers.count - vcCount], animated: true)
     }
     
-//    class func popToAddLocationVC(view: UIViewController){
-//
-//        let alertVC = UIAlertController(title: "Could not load location".capitalized, message: "Please try again.", preferredStyle: .alert)
-//
-//        let okAction = UIAlertAction(title: "OK", style:.default, handler: {(action) -> Void in
-//            let viewControllers: [UIViewController] = view.navigationController!.viewControllers as [UIViewController];
-//            view.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
-//        })
-//
-//        alertVC.addAction(okAction)
-//
-//        view.present(alertVC, animated: true, completion: nil)
-//    }
     func getDataForInfusion() {
         var ref: DatabaseReference!
         var databaseHandle: DatabaseHandle!
@@ -79,13 +62,9 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
                 
                 let treatment = Treatment(nameText: treatmentNameText, aboutText: aboutText, priceText: priceNumberText, bestForText: bestForText)
                 print("data for ivtreatmentDict is \(treatmentDict)")
-//                self.name = treatment.name
-//                self.about = treatment.about
-                //self.price = treatment.price
                 self.treatments.append(treatment)
-                //                print("users array is \(self.users)")
+
                 performUIUpdatesOnMain {
-                    //self.textView.reloadData()
                     self.nameLabel.text = self.name!
                     self.textView.text = self.about!
                     self.priceLabel.text = treatment.price!
@@ -94,7 +73,6 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
                     
                 }
             }
-            //self.tableView.reloadData()
         })
     }
     
@@ -119,25 +97,19 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
                                 self.name = treatment.name
                                 self.about = treatment.about
                 self.treatments.append(treatment)
-                //                print("users array is \(self.users)")
                 performUIUpdatesOnMain {
-                    //self.textView.reloadData()
                     self.nameLabel.text = self.name!
                     self.textView.text = self.about!
                     print("data for others called name = \(self.name)")
                     self.selectButton.setTitle("Select \(self.name!.uppercased())", for: UIControlState.normal)
                 }
             }
-            //self.tableView.reloadData()
         })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var ref: DatabaseReference!
-//        ref = Database.database().reference()
-        //getData()
-        
+
         if selectedIndex == 0 {
             getDataForInfusion()
             print("data for infusion called")
@@ -163,11 +135,5 @@ class TreatmentDetailVC: UIViewController, UITextViewDelegate {
         print("data for others selectedIndex = \(self.selectedIndex)")
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
    
-    
 }

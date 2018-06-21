@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-//protocol GetDataProtocol {
-//    func setResultOfGetData(valueSent: String)
-//}
-
 class GetDateVC: UIViewController, UITextFieldDelegate {
     
     var delegate:GetDataProtocol?

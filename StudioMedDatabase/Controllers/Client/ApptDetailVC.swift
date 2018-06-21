@@ -20,7 +20,7 @@ class ApptDetailVC: UIViewController {
     @IBAction func viewNotesButton(_ sender: Any) {
         
         let clientViewNotesVC = self.storyboard?.instantiateViewController(withIdentifier: "ClientViewNotesVC") as! ClientViewNotesVC
-        //clientViewNotesVC.notesTextView.text = apptObjectShared.notes ?? "No Notes Written."
+
         navigationController?.pushViewController(clientViewNotesVC, animated: true)
     }
     

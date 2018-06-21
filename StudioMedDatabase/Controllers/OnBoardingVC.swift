@@ -112,21 +112,21 @@ class  OnBoardingVC: UIViewController {
         func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             sizeForItemAt indexPath: IndexPath) -> CGSize {
-            //2
+          
             
             let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
             
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
         
-        //3
+      
         func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             insetForSectionAt section: Int) -> UIEdgeInsets {
             return sectionInsets
         }
         
-        // 4
+       
         func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             minimumLineSpacingForSectionAt section: Int) -> CGFloat {

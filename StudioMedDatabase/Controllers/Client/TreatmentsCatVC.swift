@@ -15,8 +15,6 @@ import FirebaseDatabase
 class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
-    //var arrayOfUsers = [UserData]()
-    //var users = UserArray.sharedInstance.listOfUsers
     var userName = String()
     var userNames = [String]()
     var userData = [DataSnapshot]()
@@ -63,11 +61,6 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if treatmentCat.count < 1 {
             getData()
         }
-        
-        //        var user = User(firstNameText: "test", lastNameText: "test")
-        //        print("user object fn is: \(user.firstName)")
-        //        print("user object ln is: \(user.lastName)")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,11 +68,6 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if treatmentCat == nil {
             //getData()
         }
-        
-        
-        //let query = ref.queryOrderedByKey() /*or a more sophisticated query of your choice*/
-        
-        
     }
     
     func getData() {
@@ -115,23 +103,9 @@ class TreatmentsCatVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCell
         let treatmentName = treatmentCat[indexPath.row]
-        //let treatmentBestFor = treatments[indexPath.row].bestFor
         print("treatmentNameText is: \(treatmentName)")
-        
-        //        let lastName = users[indexPath.row].lastName
-        //        let phoneNumber = users[indexPath.row].phoneNumber
-        //        let email = users[indexPath.row].email
         cell.textLabel?.text = treatmentName
-        //cell.detailTextLabel?.text = treatmentBestFor
-        //
-        //       let dataSource = FirebaseTableViewDataSource(query: self.ref, modelClass:nil, prototypeReuseIdentifier: "Cell", view: tableView)
-        //
-        //        dataSource.populateCellWithBlock { (cell: UITableViewCell, obj: NSObject) -> Void in
-        //            let snap = obj as! FDataSnapshot
-        //
-        //            // Populate cell as you see fit, like as below
-        //            cell.textLabel?.text = snap.key as String
-        
+
         return cell
     }   
     

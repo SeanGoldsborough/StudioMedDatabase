@@ -9,9 +9,6 @@ import UIKit
 import Firebase
 import FirebaseCore
 import FirebaseDatabase
-//import GoogleSignIn
-
-
 
 class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,19 +18,13 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var activityOverlay: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    
-    //var arrayOfUsers = [UserData]()
-    //var users = UserArray.sharedInstance.listOfUsers
+   
     var userName = String()
     var userNames = [String]()
     var userData = [DataSnapshot]()
-    //var postData = ["one", "two", "three"]
     var postData = [UserData]()
-    //var users = [User]()
     var appointments = [Appointment]()
     var filteredAppointments = [Appointment]()
-    //var filteredUsers = [User]()
     var selectedIndexes = [Int]()
     var apptObjectShared = AppointmentData.sharedInstance
     
@@ -45,7 +36,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             self.activityOverlay?.isHidden = false
             self.activityIndicator?.startAnimating()
         }
-         //GIDSignIn.sharedInstance().signOut()
+        
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -59,11 +50,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             apptObjectShared.treatment1 = "Select A Treatment"
             apptObjectShared.notes = "Add A Note For The Doctor"
             
-//            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginVC")
-//            present(loginVC, animated: true, completion: nil)
+
             let firstLoginNavVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstLoginNavVC")
-            //                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
-            //                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
+            
             present(firstLoginNavVC, animated: true, completion: {
                 
                 self.tabBarController?.view.removeFromSuperview()
@@ -92,22 +81,10 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             self.activityIndicator?.startAnimating()
             self.tableView.reloadData()
         }
-        
-        
-        
-        //navigationController?.navigationBar.isHidden = true
-        
-        //print(users.count)
-        
+       
         if appointments.count < 1 {
             getData()
         }
-        
-        //navigationController?.navigationItem.title = "Hi, \(userName)"
-        
-        //        var user = User(firstNameText: "test", lastNameText: "test")
-        //        print("user object fn is: \(user.firstName)")
-        //        print("user object ln is: \(user.lastName)")
         
     }
     
@@ -177,45 +154,6 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
 
         cell.textLabel?.text = appointment.firstName + " " + appointment.lastName
         cell.detailTextLabel?.text = appointment.date + "    " + appointment.treatment1
-  
-//        if appointment.isCancelled == true && appointment.isActive == false {
-//            
-//            performUIUpdatesOnMain {
-//           
-//                let topAttributes: [NSAttributedStringKey: Any] =
-//                    [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 24)!,
-//                     NSAttributedStringKey.strikethroughStyle: 1]
-//                
-//                let bottomAttributes: [NSAttributedStringKey: Any] =
-//                    [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 17)!,
-//                     NSAttributedStringKey.strikethroughStyle: 1]
-//                
-//                let topText = appointment.firstName + " " + appointment.lastName
-//                let bottomText = appointment.date + "    " + appointment.treatment1
-//                
-//                cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
-//                cell.textLabel?.textColor = UIColor.lightGray
-//                cell.textLabel?.alpha = 0.5
-//                
-//                cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
-//                cell.detailTextLabel?.textColor = UIColor.lightGray
-//                cell.detailTextLabel?.alpha = 0.5
-//                
-//                cell.backgroundColor = UIColor.darkGray
-//                
-//            self.tableView.reloadData()
-//                
-//            }
-//            
-//        } else if appointment.isCancelled == false && appointment.isActive == true
-//        {
-//            performUIUpdatesOnMain {
-//                cell.textLabel?.textColor = UIColor.white
-//                cell.backgroundColor = UIColor.black
-//                 self.tableView.reloadData()
-//            }
-//            
-//        }
         
         if appointment.isCancelled == true {
             
@@ -233,11 +171,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
             cell.textLabel?.textColor = UIColor(rgb: 0xFF6666)
-           // cell.textLabel?.alpha = 0.5
             
             cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
             cell.detailTextLabel?.textColor = UIColor(rgb: 0xFF6666)
-            //cell.detailTextLabel?.alpha = 0.5
             
             cell.backgroundColor = UIColor.darkGray
             
@@ -257,20 +193,13 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
             
             cell.textLabel?.attributedText = NSAttributedString(string: topText, attributes: topAttributes)
             cell.textLabel?.textColor = UIColor.white
-            //cell.textLabel?.alpha = 0.5
             
             cell.detailTextLabel?.attributedText = NSAttributedString(string: bottomText, attributes: bottomAttributes)
             cell.detailTextLabel?.textColor = UIColor.white
-            //cell.detailTextLabel?.alpha = 0.5
-            
-            //cell.backgroundColor = UIColor.darkGray
-            
         }
         else if appointment.isActive == true {
             cell.textLabel?.textColor = UIColor.white
             cell.detailTextLabel?.textColor = UIColor.white
-            //cell.backgroundColor = UIColor.white
-            
         }
 
         return cell
@@ -283,10 +212,7 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
         print("selected appt is can = \(appointment.isCancelled)")
 
         let apptDetailVC = storyboard?.instantiateViewController(withIdentifier: "ApptDetailVC") as! ApptDetailVC
-        
-        //apptObjectShared = appointments[indexPath.row]
-        //        print("selected a user \(users[indexPath.row].email)")
-        //TODO: REFACTOR INTO A FUNCTION AND CALL IT HERE
+
                 let firebaseApptIDString = appointments[indexPath.row].firebaseApptID
                 let firebaseClientIDString = appointments[indexPath.row].firebaseClientID
                 let isCancelledBool = appointments[indexPath.row].isCancelled
@@ -314,19 +240,9 @@ class ClientAppointmentHistoryVC: UIViewController, UITableViewDelegate, UITable
                 self.apptObjectShared.notes = notes
         
                 print("table view appt history did select this date \(self.apptObjectShared.date)")
-        
-        
-        
-//                apptDetailVC.clientName = firstName + " " + lastName // should be date and time
-//                apptDetailVC.phoneNumber = phoneNumber // should be treatment
-//                apptDetailVC.email = email // should be notes
+
         apptDetailVC.coloredCellIndex = indexPath.row
         navigationController?.pushViewController(apptDetailVC, animated: true)
-        
-    }
-    
-    func populateApptSharedObject() {
-        
     }
 }
 
